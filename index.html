@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Éclat — a premium skincare marketplace. Discover clean, clinically-backed skincare products from the world's most innovative brands." />
+  <title>Éclat — Premium Skincare Marketplace</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="progressbar"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-line"></span>
+        <span class="toggler-line"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="journal.html">Journal</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-actions d-flex align-items-center">
+          <a href="shop.html" class="nav-icon" aria-label="Search"><i class="bi bi-search"></i></a>
+          <button class="nav-icon position-relative" id="cartToggle" aria-label="Open cart">
+            <i class="bi bi-bag"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-3 px-lg-4 d-none d-sm-inline-flex align-items-center gap-2">
+            Shop Now <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="cart-head">
+      <h5 class="mb-0">Your Bag <span class="cart-total-count" id="drawerCount">(0)</span></h5>
+      <button class="btn-close" id="cartClose" aria-label="Close cart"></button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty text-center">
+        <i class="bi bi-bag-heart"></i>
+        <p>Your bag is empty.<br/>Let's find your glow.</p>
+        <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-4 cart-continue">Start Shopping</a>
+      </div>
+      <div class="cart-items d-none"></div>
+    </div>
+    <div class="cart-foot d-none">
+      <div class="cart-sub d-flex justify-content-between mb-2">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <small class="text-muted d-block mb-3">Shipping &amp; taxes calculated at checkout.</small>
+      <button class="btn btn-dark w-100 rounded-pill py-2">Checkout <i class="bi bi-arrow-right ms-1"></i></button>
+    </div>
+  </aside>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="hero-eyebrow hero-reveal">✦ Clean · Vegan · Clinically Proven</span>
+          <h1 class="hero-title">
+            <span class="line-wrap"><span class="line mask"><span class="line-inner">Radiance,</span></span></span>
+            <span class="line-wrap"><span class="line mask"><span class="line-inner it">redefined</span></span></span>
+            <span class="line-wrap"><span class="line mask"><span class="line-inner">for every skin.</span></span></span>
+          </h1>
+          <p class="hero-sub hero-reveal">Discover 200+ innovative skincare products from the world's most trusted clean-beauty brands — curated for your unique skin story.</p>
+          <div class="hero-cta hero-reveal">
+            <a href="#products" class="btn btn-accent rounded-pill px-4 px-lg-5 py-2 d-inline-flex align-items-center gap-2">
+              Explore Products <i class="bi bi-arrow-up-right"></i>
+            </a>
+            <a href="#about" class="btn btn-link link-light text-decoration-none px-0 mx-3 fw-medium">Our Story <i class="bi bi-play-fill"></i></a>
+          </div>
+          <div class="hero-meta hero-reveal">
+            <div class="meta-item">
+              <strong>24k+</strong>
+              <span>Happy Customers</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-item">
+              <strong>120+</strong>
+              <span>Clean Brands</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-item">
+              <strong>4.9/5</strong>
+              <span>Average Rating</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-visual">
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+            <div class="hero-img-wrap">
+              <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1000&auto=format&fit=crop" alt="Premium skincare collection" class="hero-img" />
+              <div class="hero-badge badge-top">
+                <i class="bi bi-droplet-fill"></i>
+                <div>
+                  <strong>100% Clean</strong>
+                  <span>Formulas</span>
+                </div>
+              </div>
+              <div class="hero-badge badge-bottom">
+                <div class="rating-stars">★★★★★</div>
+                <div>
+                  <strong>Best Seller</strong>
+                  <span>"Glow Serum" · 2.3k reviews</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#categories" class="hero-scroll" aria-label="Scroll down"><i class="bi bi-mouse"></i></a>
+  </header>
+
+  <!-- ============ MARQUEE ============ -->
+  <section class="marquee" aria-label="Brand highlights">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>Vegan Formulas</span><i class="bi bi-flower1"></i>
+        <span>Clinically Proven</span><i class="bi bi-star-fill"></i>
+        <span>Free Shipping Over $50</span><i class="bi bi-truck"></i>
+        <span>30-Day Returns</span><i class="bi bi-arrow-repeat"></i>
+        <span>Cruelty Free</span><i class="bi bi-heart-fill"></i>
+        <span>Dermatologist Tested</span><i class="bi bi-shield-check"></i>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>Vegan Formulas</span><i class="bi bi-flower1"></i>
+        <span>Clinically Proven</span><i class="bi bi-star-fill"></i>
+        <span>Free Shipping Over $50</span><i class="bi bi-truck"></i>
+        <span>30-Day Returns</span><i class="bi bi-arrow-repeat"></i>
+        <span>Cruelty Free</span><i class="bi bi-heart-fill"></i>
+        <span>Dermatologist Tested</span><i class="bi bi-shield-check"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORIES ============ -->
+  <section class="section categories" id="categories">
+    <div class="container">
+      <div class="section-head text-center reveal">
+        <span class="eyebrow">Shop by Concern</span>
+        <h2 class="section-title">Find your <em>perfect</em> ritual</h2>
+        <p class="section-sub">Explore curated collections crafted for every skin type, concern and season.</p>
+      </div>
+      <div class="row g-3 g-lg-4">
+        <div class="col-6 col-lg-3">
+          <a href="#products" class="cat-card reveal">
+            <div class="cat-img">
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop" alt="Serums" loading="lazy" />
+              <span class="cat-count">48 products</span>
+            </div>
+            <div class="cat-info">
+              <h3>Serums</h3>
+              <span class="cat-link">Explore <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <a href="#products" class="cat-card reveal">
+            <div class="cat-img">
+              <img src="https://images.unsplash.com/photo-1772023042063-ef4ae9bc6d39?q=80&w=800&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHZpdGFtaW4lMjBjJTIwc2VydW18ZW58MHx8MHx8fDA%3D" alt="Moisturizers" loading="lazy" />
+              <span class="cat-count">36 products</span>
+            </div>
+            <div class="cat-info">
+              <h3>Moisturizers</h3>
+              <span class="cat-link">Explore <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <a href="#products" class="cat-card reveal">
+            <div class="cat-img">
+              <img src="https://images.unsplash.com/photo-1643379850274-77d2e3703ef9?q=80&w=800&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNraW5jYXJlJTIwc2VydW18ZW58MHx8MHx8fDA%3D" alt="Facial Oils" loading="lazy" />
+              <span class="cat-count">22 products</span>
+            </div>
+            <div class="cat-info">
+              <h3>Facial Oils</h3>
+              <span class="cat-link">Explore <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <a href="#products" class="cat-card reveal">
+            <div class="cat-img">
+              <img src="https://images.unsplash.com/photo-1767256046031-743d33937c4e?q=80&w=800&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNlcnVtJTIwZHJvcHBlcnxlbnwwfHwwfHx8MA%3D%3D" alt="Sun Care" loading="lazy" />
+              <span class="cat-count">30 products</span>
+            </div>
+            <div class="cat-info">
+              <h3>Sun Care</h3>
+              <span class="cat-link">Explore <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED PRODUCTS ============ -->
+  <section class="section products" id="products">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-end justify-content-between mb-5">
+        <div class="reveal">
+          <span class="eyebrow">Best Sellers</span>
+          <h2 class="section-title mb-0">Featured <em>products</em></h2>
+        </div>
+        <div class="product-filters reveal">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="serum">Serums</button>
+          <button class="filter-btn" data-filter="moisturizer">Moisturizers</button>
+          <button class="filter-btn" data-filter="oil">Oils</button>
+          <button class="filter-btn" data-filter="sun">Sun Care</button>
+        </div>
+      </div>
+
+      <div class="row g-3 g-lg-4" id="productGrid">
+
+        <!-- Product 1 -->
+        <div class="col-6 col-lg-3 reveal product-item" data-category="serum">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1679394270597-e90694d70350?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2tpbmNhcmUlMjBzZXJ1bXxlbnwwfHwwfHx8MA%3D%3D" alt="Glow Renewal Serum" loading="lazy" />
+              <span class="badge badge-new">New</span>
+              <button class="wishlist" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+              <div class="product-actions">
+                <button class="add-cart" data-name="Glow Renewal Serum" data-price="42"><i class="bi bi-bag-plus"></i> Add to Bag</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Serum</span>
+              <h3>Glow Renewal Serum</h3>
+              <div class="product-rating"><i class="bi bi-star-fill"></i> 4.9 <span>(214)</span></div>
+              <div class="product-foot">
+                <strong class="price">$42.00</strong>
+                <span class="price-old">$52.00</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-6 col-lg-3 reveal product-item" data-category="moisturizer">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1665763630810-e6251bdd392d?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2tpbmNhcmUlMjBzZXJ1bXxlbnwwfHwwfHx8MA%3D%3D" alt="Hydra-Dew Cream" loading="lazy" />
+              <span class="badge badge-hot">Bestseller</span>
+              <button class="wishlist" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+              <div class="product-actions">
+                <button class="add-cart" data-name="Hydra-Dew Cream" data-price="36"><i class="bi bi-bag-plus"></i> Add to Bag</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Moisturizer</span>
+              <h3>Hydra-Dew Cream</h3>
+              <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8 <span>(167)</span></div>
+              <div class="product-foot">
+                <strong class="price">$36.00</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-6 col-lg-3 reveal product-item" data-category="oil">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1767102125499-0ce314436f67?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2VydW0lMjBkcm9wcGVyfGVufDB8fDB8fHww" alt="Botanic Repair Oil" loading="lazy" />
+              <span class="badge badge-sale">-20%</span>
+              <button class="wishlist" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+              <div class="product-actions">
+                <button class="add-cart" data-name="Botanic Repair Oil" data-price="48"><i class="bi bi-bag-plus"></i> Add to Bag</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Facial Oil</span>
+              <h3>Botanic Repair Oil</h3>
+              <div class="product-rating"><i class="bi bi-star-fill"></i> 5.0 <span>(98)</span></div>
+              <div class="product-foot">
+                <strong class="price">$48.00</strong>
+                <span class="price-old">$60.00</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="col-6 col-lg-3 reveal product-item" data-category="sun">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1775989982439-610be22c8c7b?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHNraW5jYXJlJTIwc2VydW18ZW58MHx8MHx8fDA%3D" alt="Velvet Sun Shield" loading="lazy" />
+              <button class="wishlist" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+              <div class="product-actions">
+                <button class="add-cart" data-name="Velvet Sun Shield SPF50" data-price="29"><i class="bi bi-bag-plus"></i> Add to Bag</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Sun Care</span>
+              <h3>Velvet Sun Shield SPF50</h3>
+              <div class="product-rating"><i class="bi bi-star-fill"></i> 4.7 <span>(132)</span></div>
+              <div class="product-foot">
+                <strong class="price">$29.00</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="col-6 col-lg-3 reveal product-item" data-category="serum">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1723951174326-2a97221d3b7f?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dml0YW1pbiUyMGMlMjBzZXJ1bXxlbnwwfHwwfHx8MA%3D%3D" alt="Vitamin C Brighten Serum" loading="lazy" />
+              <span class="badge badge-hot">Bestseller</span>
+              <button class="wishlist" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+              <div class="product-actions">
+                <button class="add-cart" data-name="Vitamin C Brighten Serum" data-price="39"><i class="bi bi-bag-plus"></i> Add to Bag</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Serum</span>
+              <h3>Vitamin C Brighten Serum</h3>
+              <div class="product-rating"><i class="bi bi-star-fill"></i> 4.9 <span>(256)</span></div>
+              <div class="product-foot">
+                <strong class="price">$39.00</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="col-6 col-lg-3 reveal product-item" data-category="moisturizer">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1640625696922-1fd63c0b97c9?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHZpdGFtaW4lMjBjJTIwc2VydW18ZW58MHx8MHx8fDA%3D" alt="Cloud Quench Gel" loading="lazy" />
+              <button class="wishlist" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+              <div class="product-actions">
+                <button class="add-cart" data-name="Cloud Quench Gel" data-price="32"><i class="bi bi-bag-plus"></i> Add to Bag</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Moisturizer</span>
+              <h3>Cloud Quench Gel</h3>
+              <div class="product-rating"><i class="bi bi-star-fill"></i> 4.6 <span>(89)</span></div>
+              <div class="product-foot">
+                <strong class="price">$32.00</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="col-6 col-lg-3 reveal product-item" data-category="oil">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1702475139570-b90434243af2?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHNlcnVtJTIwZHJvcHBlcnxlbnwwfHwwfHx8MA%3D%3D" alt="Midnight Recovery Drops" loading="lazy" />
+              <span class="badge badge-new">New</span>
+              <button class="wishlist" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+              <div class="product-actions">
+                <button class="add-cart" data-name="Midnight Recovery Drops" data-price="44"><i class="bi bi-bag-plus"></i> Add to Bag</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Facial Oil</span>
+              <h3>Midnight Recovery Drops</h3>
+              <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8 <span>(76)</span></div>
+              <div class="product-foot">
+                <strong class="price">$44.00</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="col-6 col-lg-3 reveal product-item" data-category="sun">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1745159338135-39f6b462b382?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dml0YW1pbiUyMGMlMjBzZXJ1bXxlbnwwfHwwfHx8MA%3D%3D" alt="Mineral Glow Tint" loading="lazy" />
+              <button class="wishlist" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+              <div class="product-actions">
+                <button class="add-cart" data-name="Mineral Glow Tint SPF30" data-price="34"><i class="bi bi-bag-plus"></i> Add to Bag</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Sun Care</span>
+              <h3>Mineral Glow Tint SPF30</h3>
+              <div class="product-rating"><i class="bi bi-star-fill"></i> 4.5 <span>(58)</span></div>
+              <div class="product-foot">
+                <strong class="price">$34.00</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-5 reveal">
+        <a href="#" class="btn btn-outline-dark rounded-pill px-5 py-2">View All Products <i class="bi bi-arrow-down"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT / STORY ============ -->
+  <section class="section story" id="about">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="story-visual reveal">
+            <div class="story-img-main">
+              <img src="https://images.unsplash.com/photo-1715750968540-841103c78d47?q=80&w=900&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2VydW0lMjBkcm9wcGVyfGVufDB8fDB8fHww" alt="Clean beauty ingredients" loading="lazy" />
+            </div>
+            <div class="story-img-float">
+              <img src="https://images.unsplash.com/photo-1768235146551-2a438a81aea2?q=80&w=500&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHZpdGFtaW4lMjBjJTIwc2VydW18ZW58MHx8MHx8fDA%3D" alt="Skincare bottle" loading="lazy" />
+            </div>
+            <div class="story-tag">
+              <i class="bi bi-award"></i>
+              <div>
+                <strong>Clean &amp; Kind</strong>
+                <span>Certified cruelty-free</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="reveal">
+            <span class="eyebrow">Our Philosophy</span>
+            <h2 class="section-title">Science meets nature,<br/><em>beautifully</em> formulated.</h2>
+          </div>
+          <p class="story-text reveal">Every product on Éclat is hand-selected by dermatologists and clean-beauty editors. We obsess over ingredients so your skin gets the honest, effective care it deserves — nothing harsh, nothing hidden.</p>
+
+          <div class="story-points">
+            <div class="story-point reveal">
+              <span class="sp-icon"><i class="bi bi-leaf"></i></span>
+              <div>
+                <h4>Clinically Clean</h4>
+                <p>Rigorous ingredient screening against 2,000+ questionable components.</p>
+              </div>
+            </div>
+            <div class="story-point reveal">
+              <span class="sp-icon"><i class="bi bi-flower1"></i></span>
+              <div>
+                <h4>Vegan &amp; Cruelty-Free</h4>
+                <p>100% of our collection is certified vegan and never tested on animals.</p>
+              </div>
+            </div>
+            <div class="story-point reveal">
+              <span class="sp-icon"><i class="bi bi-globe2"></i></span>
+              <div>
+                <h4>Carbon-Neutral Delivery</h4>
+                <p>Plastic-neutral packaging and climate-balanced shipping on every order.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn btn-accent rounded-pill px-4 py-2 reveal d-inline-flex align-items-center gap-2">
+            Discover More <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat">
+          <h2 class="stat-number" data-target="24">0</h2>
+          <span class="stat-suffix">k+</span>
+          <p>Happy Customers</p>
+        </div>
+        <div class="stat">
+          <h2 class="stat-number" data-target="120">0</h2>
+          <span class="stat-suffix">+</span>
+          <p>Curated Brands</p>
+        </div>
+        <div class="stat">
+          <h2 class="stat-number" data-target="500">0</h2>
+          <span class="stat-suffix">k+</span>
+          <p>Orders Delivered</p>
+        </div>
+        <div class="stat">
+          <h2 class="stat-number" data-target="98">0</h2>
+          <span class="stat-suffix">%</span>
+          <p>Would Repurchase</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-head text-center reveal">
+        <span class="eyebrow">Loved Worldwide</span>
+        <h2 class="section-title">Glow stories from<br/>our <em>community</em></h2>
+      </div>
+
+      <div id="testimonialCarousel" class="carousel slide reveal" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="testimonial">
+              <div class="t-quote">"</div>
+              <p class="t-text">The Glow Renewal Serum transformed my dull winter skin in just two weeks. Éclat's curation is next-level — I've never been so sure about a product before buying it.</p>
+              <div class="t-stars">★★★★★</div>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA%3D%3D" alt="Amelia Stone" loading="lazy" />
+                <div>
+                  <strong>Amelia Stone</strong>
+                  <span>Verified Buyer · London</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial">
+              <div class="t-quote">"</div>
+              <p class="t-text">Finally, a marketplace that actually vets clean beauty. The Hydra-Dew Cream is my holy grail, and their packaging is beautifully minimal and fully recyclable.</p>
+              <div class="t-stars">★★★★★</div>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA%3D%3D" alt="Maya Chen" loading="lazy" />
+                <div>
+                  <strong>Maya Chen</strong>
+                  <span>Verified Buyer · New York</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial">
+              <div class="t-quote">"</div>
+              <p class="t-text">Ordered Sunday night, arrived Tuesday — beautifully wrapped with a handwritten note. The Botanic Repair Oil smells divine and my skin drinks it up.</p>
+              <div class="t-stars">★★★★★</div>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA%3D%3D" alt="Sofia Rossi" loading="lazy" />
+                <div>
+                  <strong>Sofia Rossi</strong>
+                  <span>Verified Buyer · Milan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev"><i class="bi bi-arrow-left"></i></button>
+          <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next"><i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNAL / BLOG ============ -->
+  <section class="section journal" id="journal">
+    <div class="container">
+      <div class="section-head text-center reveal">
+        <span class="eyebrow">The Journal</span>
+        <h2 class="section-title">Skincare <em>intel</em> &amp; rituals</h2>
+      </div>
+      <div class="row g-3 g-lg-4">
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="post-card reveal">
+            <div class="post-img">
+              <img src="https://images.unsplash.com/photo-1702475139136-e0e376b9b8f2?q=80&w=800&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHNlcnVtJTIwZHJvcHBlcnxlbnwwfHwwfHx8MA%3D%3D" alt="Morning skincare routine" loading="lazy" />
+              <span class="post-tag">Routine</span>
+            </div>
+            <div class="post-body">
+              <span class="post-meta">Jul 28, 2026 · 6 min read</span>
+              <h3>The 5-step morning ritual that actually works</h3>
+              <p>Less is more — here's how to build an effective AM routine with just five honest products.</p>
+              <span class="post-link">Read Article <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="post-card reveal">
+            <div class="post-img">
+              <img src="https://images.unsplash.com/photo-1679394270597-e90694d70350?q=80&w=800&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2tpbmNhcmUlMjBzZXJ1bXxlbnwwfHwwfHx8MA%3D%3D" alt="Vitamin C guide" loading="lazy" />
+              <span class="post-tag">Ingredients</span>
+            </div>
+            <div class="post-body">
+              <span class="post-meta">Jul 20, 2026 · 8 min read</span>
+              <h3>Vitamin C, decoded: strength, stability, glow</h3>
+              <p>Why ascorbic acid isn't the only hero — and how to read any serum label like a pro.</p>
+              <span class="post-link">Read Article <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="post-card reveal">
+            <div class="post-img">
+              <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=800&auto=format&fit=crop" alt="SPF myths" loading="lazy" />
+              <span class="post-tag">Sun Care</span>
+            </div>
+            <div class="post-body">
+              <span class="post-meta">Jul 12, 2026 · 5 min read</span>
+              <h3>5 SPF myths dermatologists wish you'd forget</h3>
+              <p>From "base layers" to "window light" — the truth about sun protection your skin craves.</p>
+              <span class="post-link">Read Article <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="section newsletter" id="contact">
+    <div class="container">
+      <div class="newsletter-box reveal">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-5">
+            <span class="eyebrow">Join the Inner Glow Club</span>
+            <h2 class="section-title text-white mb-0">Get 15% off your<br/>first ritual.</h2>
+          </div>
+          <div class="col-lg-7">
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Your email address" aria-label="Email address" required />
+              <button type="submit" class="btn btn-accent rounded-pill px-4">Subscribe <i class="bi bi-arrow-right"></i></button>
+            </form>
+            <p class="newsletter-note">Plus early access to drops, expert tips and members-only pricing. No spam, ever.</p>
+          </div>
+        </div>
+        <div class="newsletter-orb newsletter-orb-1"></div>
+        <div class="newsletter-orb newsletter-orb-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <a class="navbar-brand mb-3" href="#home">
+            <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+          </a>
+          <p class="footer-about">Éclat is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Shop</h5>
+          <ul>
+            <li><a href="shop.html?cat=serum">Serums</a></li>
+            <li><a href="shop.html?cat=moisturizer">Moisturizers</a></li>
+            <li><a href="shop.html?cat=oil">Facial Oils</a></li>
+            <li><a href="shop.html?cat=sun">Sun Care</a></li>
+            <li><a href="shop.html">Gift Sets</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5>We'd love to hear from you</h5>
+          <p class="footer-about mb-2">hello@stackly.com<br/>+1 (555) 018-7245</p>
+          <p class="footer-about mb-3">Mon – Fri · 9:00 – 18:00 EST</p>
+          <div class="footer-payments">
+            <i class="bi bi-credit-card-2-front"></i>
+            <i class="bi bi-paypal"></i>
+            <i class="bi bi-apple"></i>
+            <i class="bi bi-google"></i>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-hr" />
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p class="mb-0">© 2026 Éclat Skincare. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BACK TO TOP ============ -->
+  <button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- ============ TOAST ============ -->
+  <div class="toast-custom" id="toast" role="status" aria-live="polite">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMsg">Added to bag</span>
+  </div>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Éclat story — science meets nature, beautifully formulated. Learn about our clean-beauty philosophy, values and the people behind the brand." />
+  <title>About Us — Éclat Skincare</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+  <div id="progressbar"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-line"></span>
+        <span class="toggler-line"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="journal.html">Journal</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-actions d-flex align-items-center">
+          <a href="shop.html" class="nav-icon" aria-label="Search"><i class="bi bi-search"></i></a>
+          <button class="nav-icon position-relative" id="cartToggle" aria-label="Open cart">
+            <i class="bi bi-bag"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-3 px-lg-4 d-none d-sm-inline-flex align-items-center gap-2">
+            Shop Now <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="cart-head">
+      <h5 class="mb-0">Your Bag <span class="cart-total-count" id="drawerCount">(0)</span></h5>
+      <button class="btn-close" id="cartClose" aria-label="Close cart"></button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty text-center">
+        <i class="bi bi-bag-heart"></i>
+        <p>Your bag is empty.<br/>Let's find your glow.</p>
+        <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-4 cart-continue">Start Shopping</a>
+      </div>
+      <div class="cart-items d-none"></div>
+    </div>
+    <div class="cart-foot d-none">
+      <div class="cart-sub d-flex justify-content-between mb-2">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <small class="text-muted d-block mb-3">Shipping &amp; taxes calculated at checkout.</small>
+      <a href="checkout.html" class="btn btn-dark w-100 rounded-pill py-2">Checkout <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+  </aside>
+
+  <!-- ============ PAGE HERO ============ -->
+  <header class="page-hero">
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="container">
+      <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span class="sep">/</span> <span>About</span>
+      </nav>
+      <h1 class="page-hero-title page-reveal">Science meets nature,<br/><em>beautifully</em> formulated.</h1>
+      <p>We're a team of dermatologists, chemists and beauty obsessives on a mission to make clean skincare radically transparent — and genuinely effective.</p>
+    </div>
+  </header>
+
+  <!-- ============ STORY ============ -->
+  <section class="section story about-page">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="story-visual page-reveal">
+            <div class="story-img-main">
+              <img src="https://images.unsplash.com/photo-1715750968540-841103c78d47?q=80&w=900&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2VydW0lMjBkcm9wcGVyfGVufDB8fDB8fHww" alt="Clean beauty formulation" loading="lazy" />
+            </div>
+            <div class="story-img-float">
+              <img src="https://images.unsplash.com/photo-1768235146551-2a438a81aea2?q=80&w=500&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHZpdGFtaW4lMjBjJTIwc2VydW18ZW58MHx8MHx8fDA%3D" alt="Skincare bottle" loading="lazy" />
+            </div>
+            <div class="story-tag">
+              <i class="bi bi-award"></i>
+              <div>
+                <strong>Est. 2019</strong>
+                <span>Clean-beauty pioneers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="page-reveal">
+            <span class="eyebrow">Our Philosophy</span>
+            <h2 class="section-title">We asked one question:<br/><em>why not both?</em></h2>
+          </div>
+          <p class="story-text page-reveal">For years, consumers had to choose between "clean" and "effective". We built Éclat to end that trade-off. Every product is hand-selected against a database of 2,000+ questionable ingredients, then put through clinical-style testing so you get honest results — nothing harsh, nothing hidden.</p>
+          <div class="story-points">
+            <div class="story-point page-reveal">
+              <span class="sp-icon"><i class="bi bi-search"></i></span>
+              <div>
+                <h4>Radical Transparency</h4>
+                <p>Every full ingredient list and clinical study published in the open.</p>
+              </div>
+            </div>
+            <div class="story-point page-reveal">
+              <span class="sp-icon"><i class="bi bi-layers"></i></span>
+              <div>
+                <h4>Rigorously Curated</h4>
+                <p>Only 120 brands make our edit from 1,500+ we review every season.</p>
+              </div>
+            </div>
+            <div class="story-point page-reveal">
+              <span class="sp-icon"><i class="bi bi-heart-pulse"></i></span>
+              <div>
+                <h4>Skin-First Science</h4>
+                <p>Dermatologist-reviewed claims, tested on real skin, not just in theory.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALUES ============ -->
+  <section class="section" style="background: var(--cream-soft);">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">What We Stand For</span>
+        <h2 class="section-title">Four promises we <em>never</em> break</h2>
+      </div>
+      <div class="row g-3 g-lg-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="value-card page-reveal">
+            <div class="vc-icon"><i class="bi bi-leaf"></i></div>
+            <h3>Clinically Clean</h3>
+            <p>Formulas screened against 2,000+ questionable components and re-checked seasonally.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="value-card page-reveal">
+            <div class="vc-icon"><i class="bi bi-flower1"></i></div>
+            <h3>Vegan &amp; Kind</h3>
+            <p>100% vegan certified and cruelty-free across every brand and product we list.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="value-card page-reveal">
+            <div class="vc-icon"><i class="bi bi-globe2"></i></div>
+            <h3>Climate Neutral</h3>
+            <p>Plastic-neutral packaging and carbon-balanced shipping on every single order.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="value-card page-reveal">
+            <div class="vc-icon"><i class="bi bi-shield-check"></i></div>
+            <h3>Dermatologist Tested</h3>
+            <p>Claims verified by an independent board of dermatologists before products launch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Our Journey</span>
+        <h2 class="section-title">From counter to <em>movement</em></h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item page-reveal">
+          <h4><span>2019</span> A one-table store</h4>
+          <p>Éclat launches in a single shop corner with 12 clean brands and a promise: show every ingredient, always.</p>
+        </div>
+        <div class="tl-item page-reveal">
+          <h4><span>2021</span> The 2,000-ingredient blacklist</h4>
+          <p>We publish the industry's first public ingredient blacklist, sparking reform across 30+ brands.</p>
+        </div>
+        <div class="tl-item page-reveal">
+          <h4><span>2023</span> Carbon-neutral delivery</h4>
+          <p>Every order becomes plastic-neutral and carbon-balanced — a first for a beauty marketplace.</p>
+        </div>
+        <div class="tl-item page-reveal">
+          <h4><span>2025</span> One million glows</h4>
+          <p>24,000+ five-star reviews, 120 curated brands, and a community of one million skincare lovers.</p>
+        </div>
+        <div class="tl-item page-reveal">
+          <h4><span>2026</span> The future of skin</h4>
+          <p>AI-powered skin diagnostics and a second-hand beauty program — because glow shouldn't cost the earth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="section" style="background: var(--cream-soft);">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Meet the Team</span>
+        <h2 class="section-title">The people behind the <em>glow</em></h2>
+      </div>
+      <div class="row g-3 g-lg-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="team-card page-reveal">
+            <div class="team-img">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA%3D%3D" alt="Amelia Laurent — Co-founder" loading="lazy" />
+            </div>
+            <div class="team-body">
+              <h3>Amelia Laurent</h3>
+              <span>Co-founder &amp; CEO</span>
+              <p>Former cosmetics chemist who got tired of guessing what was in her moisturizer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="team-card page-reveal">
+            <div class="team-img">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA%3D%3D" alt="Dr. James Okafor — Chief Dermatologist" loading="lazy" />
+            </div>
+            <div class="team-body">
+              <h3>Dr. James Okafor</h3>
+              <span>Chief Dermatologist</span>
+              <p>Board-certified derm and our final word on every claim we publish.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="team-card page-reveal">
+            <div class="team-img">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA%3D%3D" alt="Priya Nair — Head of Curation" loading="lazy" />
+            </div>
+            <div class="team-body">
+              <h3>Priya Nair</h3>
+              <span>Head of Curation</span>
+              <p>Reviews 400+ brands a year so you only ever see the 120 that made the cut.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section newsletter">
+    <div class="container">
+      <div class="newsletter-box page-reveal">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-5">
+            <span class="eyebrow">Inner Glow Club</span>
+            <h2 class="section-title text-white mb-0">Get 15% off your<br/>first ritual.</h2>
+          </div>
+          <div class="col-lg-7">
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Your email address" aria-label="Email address" required />
+              <button type="submit" class="btn btn-accent rounded-pill px-4">Subscribe <i class="bi bi-arrow-right"></i></button>
+            </form>
+            <p class="newsletter-note">Plus early access to drops, expert tips and members-only pricing. No spam, ever.</p>
+          </div>
+        </div>
+        <div class="newsletter-orb newsletter-orb-1"></div>
+        <div class="newsletter-orb newsletter-orb-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <a class="navbar-brand mb-3" href="index.html">
+            <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+          </a>
+          <p class="footer-about">Éclat is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Shop</h5>
+          <ul>
+            <li><a href="shop.html?cat=serum">Serums</a></li>
+            <li><a href="shop.html?cat=moisturizer">Moisturizers</a></li>
+            <li><a href="shop.html?cat=oil">Facial Oils</a></li>
+            <li><a href="shop.html?cat=sun">Sun Care</a></li>
+            <li><a href="shop.html">Gift Sets</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5>We'd love to hear from you</h5>
+          <p class="footer-about mb-2">hello@stackly.com<br/>+1 (555) 018-7245</p>
+          <p class="footer-about mb-3">Mon – Fri · 9:00 – 18:00 EST</p>
+          <div class="footer-payments">
+            <i class="bi bi-credit-card-2-front"></i>
+            <i class="bi bi-paypal"></i>
+            <i class="bi bi-apple"></i>
+            <i class="bi bi-google"></i>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-hr" />
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p class="mb-0">© 2026 Éclat Skincare. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <div class="toast-custom" id="toast" role="status" aria-live="polite">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMsg">Added to bag</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

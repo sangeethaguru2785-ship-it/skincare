@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shop the Éclat clean-beauty collection — serums, moisturizers, facial oils and sun care, curated and clinically backed." />
+  <title>Shop All — Éclat Skincare</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+  <div id="progressbar"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-line"></span>
+        <span class="toggler-line"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="journal.html">Journal</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-actions d-flex align-items-center">
+          <a href="shop.html" class="nav-icon" aria-label="Search"><i class="bi bi-search"></i></a>
+          <button class="nav-icon position-relative" id="cartToggle" aria-label="Open cart">
+            <i class="bi bi-bag"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-3 px-lg-4 d-none d-sm-inline-flex align-items-center gap-2">
+            Shop Now <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="cart-head">
+      <h5 class="mb-0">Your Bag <span class="cart-total-count" id="drawerCount">(0)</span></h5>
+      <button class="btn-close" id="cartClose" aria-label="Close cart"></button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty text-center">
+        <i class="bi bi-bag-heart"></i>
+        <p>Your bag is empty.<br/>Let's find your glow.</p>
+        <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-4 cart-continue">Start Shopping</a>
+      </div>
+      <div class="cart-items d-none"></div>
+    </div>
+    <div class="cart-foot d-none">
+      <div class="cart-sub d-flex justify-content-between mb-2">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <small class="text-muted d-block mb-3">Shipping &amp; taxes calculated at checkout.</small>
+      <a href="checkout.html" class="btn btn-dark w-100 rounded-pill py-2">Checkout <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+  </aside>
+
+  <!-- ============ PAGE HERO ============ -->
+  <header class="page-hero">
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="container">
+      <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span class="sep">/</span> <span>Shop</span>
+      </nav>
+      <h1 class="page-hero-title page-reveal">Shop our clean<br/><em>beauty edit</em></h1>
+      <p>Every product dermatologist-vetted, vegan-certified and delivered climate-neutral.</p>
+    </div>
+  </header>
+
+  <!-- ============ SHOP ============ -->
+  <section class="section shop-section">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Sidebar -->
+        <div class="col-lg-3">
+          <aside class="shop-sidebar">
+            <div class="sidebar-card page-reveal">
+              <h5>Categories</h5>
+              <ul class="cat-side-list" id="catList"></ul>
+            </div>
+            <div class="sidebar-card page-reveal">
+              <h5>Skin Concern</h5>
+              <ul class="concern-list" id="concernList">
+                <li><label><input type="checkbox" value="brightening" /> Brightening</label></li>
+                <li><label><input type="checkbox" value="hydration" /> Hydration</label></li>
+                <li><label><input type="checkbox" value="repair" /> Barrier Repair</label></li>
+                <li><label><input type="checkbox" value="protection" /> Sun Protection</label></li>
+              </ul>
+            </div>
+            <div class="sidebar-banner page-reveal">
+              <i class="bi bi-gift"></i>
+              <h6>First order? Get 15% off</h6>
+              <p>Join the Inner Glow Club for members-only pricing.</p>
+              <a href="index.html#contact" class="btn btn-accent btn-sm rounded-pill px-4">Claim Offer</a>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Grid -->
+        <div class="col-lg-9">
+          <div class="shop-toolbar page-reveal">
+            <span class="shop-results" id="resultsCount"></span>
+            <div class="toolbar-controls">
+              <div class="toolbar-search">
+                <i class="bi bi-search"></i>
+                <input type="search" id="shopSearch" placeholder="Search products…" aria-label="Search products" />
+              </div>
+              <select class="toolbar-select" id="shopSort" aria-label="Sort products">
+                <option value="featured">Sort: Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+              </select>
+            </div>
+          </div>
+          <div class="shop-grid" id="shopGrid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section newsletter" style="padding-top:0;">
+    <div class="container">
+      <div class="newsletter-box page-reveal">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-5">
+            <span class="eyebrow">Inner Glow Club</span>
+            <h2 class="section-title text-white mb-0">Never miss a <br/>clean-beauty drop.</h2>
+          </div>
+          <div class="col-lg-7">
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Your email address" aria-label="Email address" required />
+              <button type="submit" class="btn btn-accent rounded-pill px-4">Subscribe <i class="bi bi-arrow-right"></i></button>
+            </form>
+            <p class="newsletter-note">Early access to drops, expert tips and members-only pricing. No spam, ever.</p>
+          </div>
+        </div>
+        <div class="newsletter-orb newsletter-orb-1"></div>
+        <div class="newsletter-orb newsletter-orb-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <a class="navbar-brand mb-3" href="index.html">
+            <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+          </a>
+          <p class="footer-about">Éclat is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Shop</h5>
+          <ul>
+            <li><a href="shop.html?cat=serum">Serums</a></li>
+            <li><a href="shop.html?cat=moisturizer">Moisturizers</a></li>
+            <li><a href="shop.html?cat=oil">Facial Oils</a></li>
+            <li><a href="shop.html?cat=sun">Sun Care</a></li>
+            <li><a href="shop.html">Gift Sets</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5>We'd love to hear from you</h5>
+          <p class="footer-about mb-2">hello@stackly.com<br/>+1 (555) 018-7245</p>
+          <p class="footer-about mb-3">Mon – Fri · 9:00 – 18:00 EST</p>
+          <div class="footer-payments">
+            <i class="bi bi-credit-card-2-front"></i>
+            <i class="bi bi-paypal"></i>
+            <i class="bi bi-apple"></i>
+            <i class="bi bi-google"></i>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-hr" />
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p class="mb-0">© 2026 Éclat Skincare. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <div class="toast-custom" id="toast" role="status" aria-live="polite">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMsg">Added to bag</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>
