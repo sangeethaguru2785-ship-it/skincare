@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Éclat — Skincare Marketplace Theme
+   Stackly — Skincare Marketplace Theme
    GSAP animations, cart logic & interactions
    ========================================================================== */
 (function () {
@@ -295,8 +295,21 @@
     }
   });
 
+  /* Buy now — add to cart and head straight to checkout */
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".buy-now");
+    if (!btn) return;
+    e.preventDefault();
+    const name = btn.dataset.name;
+    const price = parseFloat(btn.dataset.price) || 0;
+    cart.add(name, price);
+    showToast(name + " added — taking you to checkout");
+    setTimeout(() => { window.location.href = "checkout.html"; }, 900);
+  });
+
   /* Cart item interactions (event delegation) */
-  document.getElementById("cartBody").addEventListener("click", (e) => {
+  const cartBodyEl = document.getElementById("cartBody");
+  cartBodyEl && cartBodyEl.addEventListener("click", (e) => {
     const btn = e.target.closest(".qty-btn, .cart-item-remove");
     if (!btn) return;
     const name = btn.dataset.name;
@@ -309,6 +322,9 @@
   /* Drawer open / close */
   const drawer = document.getElementById("cartDrawer");
   const overlay = document.getElementById("cartOverlay");
+  const cartToggle = document.getElementById("cartToggle");
+  const cartClose = document.getElementById("cartClose");
+  const cartContinue = document.querySelector(".cart-continue");
 
   const openDrawer = () => {
     drawer.classList.add("open");
@@ -321,13 +337,13 @@
     document.body.style.overflow = "";
   };
 
-  document.getElementById("cartToggle").addEventListener("click", openDrawer);
-  document.getElementById("cartClose").addEventListener("click", closeDrawer);
-  overlay.addEventListener("click", closeDrawer);
+  cartToggle && cartToggle.addEventListener("click", openDrawer);
+  cartClose && cartClose.addEventListener("click", closeDrawer);
+  overlay && overlay.addEventListener("click", closeDrawer);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
 
   /* Close cart from "Start Shopping" link */
-  document.querySelector(".cart-continue").addEventListener("click", closeDrawer);
+  cartContinue && cartContinue.addEventListener("click", closeDrawer);
 
   /* ------------------------------------------------------------------
      7. Newsletter form
@@ -354,8 +370,8 @@
   }
 
   /* Expose shared APIs for other pages/scripts */
-  window.EclatCart = cart;
-  window.EclatToast = showToast;
+  window.StacklyCart = cart;
+  window.StacklyToast = showToast;
 
   /* ------------------------------------------------------------------
      9. Smooth scroll for same-page anchor links

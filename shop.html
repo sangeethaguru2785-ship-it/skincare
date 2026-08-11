@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shop the Éclat clean-beauty collection — serums, moisturizers, facial oils and sun care, curated and clinically backed." />
-  <title>Shop All — Éclat Skincare</title>
+  <meta name="description" content="Shop the Stackly clean-beauty collection — serums, moisturizers, facial oils and sun care, curated and clinically backed." />
+  <title>Shop All — Stackly Skincare</title>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+        <img src="images/logo.webp" alt="Stackly Skincare" class="brand-logo" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="toggler-line"></span>
@@ -38,13 +38,15 @@
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
         <div class="navbar-actions d-flex align-items-center">
-          <a href="shop.html" class="nav-icon" aria-label="Search"><i class="bi bi-search"></i></a>
           <button class="nav-icon position-relative" id="cartToggle" aria-label="Open cart">
             <i class="bi bi-bag"></i>
             <span class="cart-count" id="cartCount">0</span>
           </button>
           <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-3 px-lg-4 d-none d-sm-inline-flex align-items-center gap-2">
             Shop Now <i class="bi bi-arrow-up-right"></i>
+          </a>
+          <a href="login.html" class="btn btn-outline-dark btn-sm rounded-pill px-3 px-lg-4 d-inline-flex align-items-center gap-2">
+            <i class="bi bi-person"></i> Login
           </a>
         </div>
       </div>
@@ -141,6 +143,145 @@
     </div>
   </section>
 
+  <!-- ============ FEATURED PRODUCTS ============ -->
+  <section class="section featured-section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Curated For You</span>
+        <h2 class="section-title">Featured <em>products</em></h2>
+      </div>
+      <div class="row g-4 g-lg-5" id="featuredProducts"></div>
+    </div>
+  </section>
+
+  <!-- ============ BEST SELLERS ============ -->
+  <section class="section best-sellers-section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Customer Favourites</span>
+        <h2 class="section-title">Our <em>best sellers</em></h2>
+      </div>
+      <div class="row g-4 g-lg-5" id="bestSellerProducts"></div>
+    </div>
+  </section>
+
+  <!-- ============ NEW ARRIVALS ============ -->
+  <section class="section new-arrivals-section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Just Dropped</span>
+        <h2 class="section-title">New <em>arrivals</em></h2>
+      </div>
+      <div class="row g-4 g-lg-5" id="newArrivalProducts"></div>
+    </div>
+  </section>
+
+  <!-- ============ SPECIAL OFFERS ============ -->
+  <section class="section offers-section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Deals &amp; Discounts</span>
+        <h2 class="section-title">This week's <em>special offers</em></h2>
+      </div>
+      <div class="deal-banner page-reveal">
+        <div class="deal-banner-inner">
+          <span class="deal-banner-icon"><i class="bi bi-tag-heart"></i></span>
+          <div class="deal-banner-text">
+            <h3>Get 15% off your first order</h3>
+            <p>Plus free shipping on orders over $75 — applied automatically at checkout.</p>
+          </div>
+          <a href="shop.html" class="btn btn-accent rounded-pill px-4">Shop the Sale <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="row g-4 g-lg-5 mt-1" id="offerProducts"></div>
+    </div>
+  </section>
+
+  <!-- ============ CUSTOMER REVIEWS ============ -->
+  <section class="section testimonials" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Rated by Our Community</span>
+        <h2 class="section-title">What our <em>customers say</em></h2>
+      </div>
+
+      <div id="shopReviewCarousel" class="carousel slide page-reveal" data-bs-ride="carousel" data-bs-interval="5500">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="testimonial">
+              <div class="t-quote">"</div>
+              <p class="t-text">The Pore-Fine BHA Serum shrank the look of my pores in under three weeks. Fast delivery, gorgeous packaging and genuinely kind formulas.</p>
+              <div class="t-stars">★★★★★</div>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="James Carter" loading="lazy" />
+                <div><strong>James Carter</strong><span>Verified Buyer · Chicago</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial">
+              <div class="t-quote">"</div>
+              <p class="t-text">The Velvet Night Restore cream is a winter lifesaver — my dry skin drinks it up and I wake up glowing every single morning.</p>
+              <div class="t-stars">★★★★★</div>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Elena Novak" loading="lazy" />
+                <div><strong>Elena Novak</strong><span>Verified Buyer · Vienna</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial">
+              <div class="t-quote">"</div>
+              <p class="t-text">Finally an SPF that disappears on my skin tone. The Invisible Gel SPF50 is my everyday essential now — zero white cast, zero breakouts.</p>
+              <div class="t-stars">★★★★★</div>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Priya Sharma" loading="lazy" />
+                <div><strong>Priya Sharma</strong><span>Verified Buyer · Toronto</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial">
+              <div class="t-quote">"</div>
+              <p class="t-text">The Cleansing Balm Duo turned my whole routine around. Melts makeup in seconds and my sensitive skin has never felt calmer.</p>
+              <div class="t-stars">★★★★★</div>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Hana Kim" loading="lazy" />
+                <div><strong>Hana Kim</strong><span>Verified Buyer · Seoul</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-control-prev" type="button" data-bs-target="#shopReviewCarousel" data-bs-slide="prev"><i class="bi bi-arrow-left"></i></button>
+          <button class="carousel-control-next" type="button" data-bs-target="#shopReviewCarousel" data-bs-slide="next"><i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKIN TYPE QUIZ ============ -->
+  <section class="section skin-quiz-section" id="skinQuiz">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Skin Type Quiz</span>
+        <h2 class="section-title">Find your <em>skin type</em></h2>
+        <p class="section-sub">Answer a few simple questions and we'll point you to your perfect ritual.</p>
+      </div>
+
+      <div class="quiz-box page-reveal" id="skinQuizBox">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+          <span class="quiz-progress-label" id="quizStepLabel"></span>
+        </div>
+
+        <div class="quiz-body" id="quizBody"></div>
+
+        <div class="quiz-nav" id="quizNav"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CTA ============ -->
   <section class="section newsletter" style="padding-top:0;">
     <div class="container">
@@ -168,53 +309,67 @@
   <footer class="footer">
     <div class="container">
       <div class="row g-5">
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <a class="navbar-brand mb-3" href="index.html">
-            <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+            <img src="images/logo.webp" alt="Stackly" class="brand-logo" />
           </a>
-          <p class="footer-about">Éclat is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
+          <p class="footer-about">Stackly is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
-            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="404.html" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="404.html" aria-label="X (formerly Twitter)"><i class="bi bi-twitter-x"></i></a>
           </div>
         </div>
         <div class="col-6 col-lg-2">
-          <h5>Shop</h5>
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Shop Categories</h5>
           <ul>
             <li><a href="shop.html?cat=serum">Serums</a></li>
             <li><a href="shop.html?cat=moisturizer">Moisturizers</a></li>
             <li><a href="shop.html?cat=oil">Facial Oils</a></li>
             <li><a href="shop.html?cat=sun">Sun Care</a></li>
-            <li><a href="shop.html">Gift Sets</a></li>
+            <li><a href="shop.html?cat=gift">Gift Sets</a></li>
           </ul>
         </div>
         <div class="col-6 col-lg-2">
-          <h5>Company</h5>
+          <h5>Customer Support</h5>
           <ul>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="journal.html">Journal</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping &amp; Returns</a></li>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Skin Quiz</a></li>
+            <li><a href="contact.html">Help Center</a></li>
           </ul>
         </div>
-        <div class="col-lg-4">
-          <h5>We'd love to hear from you</h5>
-          <p class="footer-about mb-2">hello@stackly.com<br/>+1 (555) 018-7245</p>
-          <p class="footer-about mb-3">Mon – Fri · 9:00 – 18:00 EST</p>
-          <div class="footer-payments">
-            <i class="bi bi-credit-card-2-front"></i>
-            <i class="bi bi-paypal"></i>
-            <i class="bi bi-apple"></i>
-            <i class="bi bi-google"></i>
-          </div>
+        <div class="col-6 col-lg-3">
+          <h5>Contact</h5>
+          <ul class="footer-contact">
+            <li><i class="bi bi-envelope"></i> hello@stackly.com</li>
+            <li><i class="bi bi-telephone"></i> +1 (555) 018-7245</li>
+            <li><i class="bi bi-clock"></i> Mon – Fri · 9:00 – 18:00 EST</li>
+          </ul>
         </div>
       </div>
+
       <hr class="footer-hr" />
-      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
-        <p class="mb-0">© 2026 Éclat Skincare. All rights reserved.</p>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <p class="mb-0">© 2026 Stackly. All rights reserved.</p>
+        <div class="footer-payments" aria-label="Payment options">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-paypal"></i>
+          <i class="bi bi-apple"></i>
+          <i class="bi bi-google"></i>
+        </div>
         <div class="footer-links">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
@@ -237,5 +392,216 @@
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
   <script src="js/pages.js"></script>
+  <script>
+    (function () {
+      var P = (window.ECLAT && window.ECLAT.PRODUCTS) || [];
+      var card = (window.ECLAT && window.ECLAT.productCard) || function () { return ""; };
+      function find(id) {
+        for (var i = 0; i < P.length; i++) { if (P[i].id === id) return P[i]; }
+        return null;
+      }
+      function render(sel, ids) {
+        var el = document.querySelector(sel);
+        if (!el) return;
+        var html = "";
+        for (var i = 0; i < ids.length; i++) {
+          var p = find(ids[i]);
+          if (p) html += '<div class="col-6 col-lg-3">' + card(p) + "</div>";
+        }
+        el.innerHTML = html;
+      }
+      render("#featuredProducts", [5, 9, 20, 29]);
+      render("#bestSellerProducts", [2, 10, 17, 41]);
+      render("#newArrivalProducts", [16, 23, 36, 42]);
+      render("#offerProducts", [1, 3, 15]);
+    })();
+  </script>
+  <script>
+    (function () {
+      var box = document.getElementById("skinQuizBox");
+      if (!box) return;
+
+      var QUESTIONS = [
+        {
+          q: "How does your skin feel an hour after cleansing?",
+          options: [
+            { t: "Tight, parched or flaky", s: { dry: 1 } },
+            { t: "Shiny all over by midday", s: { oily: 1 } },
+            { t: "Shiny in the T-zone, dry on my cheeks", s: { combo: 1 } },
+            { t: "Comfortable and calm", s: { normal: 1 } },
+            { t: "Itchy, stinging or red", s: { sensitive: 1 } },
+          ],
+        },
+        {
+          q: "How noticeable are your pores?",
+          options: [
+            { t: "Barely visible", s: { normal: 1 } },
+            { t: "Large and noticeable all over", s: { oily: 1 } },
+            { t: "Wider in the T-zone only", s: { combo: 1 } },
+            { t: "Tiny and dry-looking", s: { dry: 1 } },
+            { t: "Redness around my pores", s: { sensitive: 1 } },
+          ],
+        },
+        {
+          q: "How often do you get breakouts?",
+          options: [
+            { t: "Rarely", s: { normal: 1 } },
+            { t: "Often, along with blackheads", s: { oily: 1 } },
+            { t: "Occasionally, mostly in the T-zone", s: { combo: 1 } },
+            { t: "Hardly ever — but my skin flakes", s: { dry: 1 } },
+            { t: "Red, irritated bumps", s: { sensitive: 1 } },
+          ],
+        },
+        {
+          q: "How does your skin react to trying new products?",
+          options: [
+            { t: "Usually fine", s: { normal: 1 } },
+            { t: "Gets shinier quickly", s: { oily: 1 } },
+            { t: "Slight tightness or flaking", s: { dry: 1 } },
+            { t: "Different zones react differently", s: { combo: 1 } },
+            { t: "Stings, flushes or breaks out", s: { sensitive: 1 } },
+          ],
+        },
+        {
+          q: "After a long day in summer, your skin feels…",
+          options: [
+            { t: "Soft and balanced", s: { normal: 1 } },
+            { t: "Glossy by midday", s: { oily: 1 } },
+            { t: "Shiny forehead, dry cheeks", s: { combo: 1 } },
+            { t: "Parched and tight", s: { dry: 1 } },
+            { t: "Red and irritated", s: { sensitive: 1 } },
+          ],
+        },
+      ];
+
+      var RESULTS = {
+        oily: {
+          icon: "bi-droplet-half",
+          title: "Oily Skin",
+          text: "Your skin produces extra sebum and loves a shine-free finish. Reach for gel moisturisers, niacinamide, BHA exfoliants and oil-free SPF to keep it balanced and bright.",
+          cta: "Shop Oily-Skin Favourites",
+          href: "shop.html?cat=moisturizer",
+        },
+        dry: {
+          icon: "bi-flower2",
+          title: "Dry Skin",
+          text: "Your barrier craves rich, lasting hydration. Layered ceramides, squalane, facial oils and creamy cleansers will keep you comfortable and glowing all day.",
+          cta: "Shop Dry-Skin Favourites",
+          href: "shop.html?cat=oil",
+        },
+        combo: {
+          icon: "bi-arrow-left-right",
+          title: "Combination Skin",
+          text: "Your T-zone shines while your cheeks stay drier. Balance it with lightweight gel creams, spot-targeted serums and gentle, non-stripping cleansers.",
+          cta: "Shop Combination-Skin Favourites",
+          href: "shop.html?cat=serum",
+        },
+        normal: {
+          icon: "bi-emoji-smile",
+          title: "Normal Skin",
+          text: "Your skin is naturally well balanced. Keep it that way with antioxidant serums, everyday hydration and daily SPF — a simple, joyful ritual.",
+          cta: "Shop Normal-Skin Favourites",
+          href: "shop.html?cat=serum",
+        },
+        sensitive: {
+          icon: "bi-heart-pulse",
+          title: "Sensitive Skin",
+          text: "Your skin reacts quickly, so gentle wins. Choose fragrance-free formulas with oat, centella and ceramides, and always patch-test something new.",
+          cta: "Shop Sensitive-Skin Favourites",
+          href: "shop.html?cat=moisturizer",
+        },
+      };
+
+      var KEYS = ["oily", "dry", "combo", "normal", "sensitive"];
+
+      var step = 0;
+      var scores = {};
+      var body = document.getElementById("quizBody");
+      var nav = document.getElementById("quizNav");
+      var fill = document.getElementById("quizProgressFill");
+      var label = document.getElementById("quizStepLabel");
+
+      function reset() {
+        step = 0;
+        scores = {};
+        KEYS.forEach(function (k) { scores[k] = 0; });
+        showQuestion();
+      }
+
+      function showQuestion() {
+        var q = QUESTIONS[step];
+        label.textContent = "Question " + (step + 1) + " of " + QUESTIONS.length;
+        if (fill) fill.style.width = (((step + 1) / QUESTIONS.length) * 100) + "%";
+
+        var opts = "";
+        for (var i = 0; i < q.options.length; i++) {
+          opts += '<button type="button" class="quiz-option" data-i="' + i + '"><span>' + q.options[i].t + "</span></button>";
+        }
+
+        body.innerHTML =
+          '<h3 class="quiz-q-title">' + q.q + "</h3>" +
+          '<div class="quiz-options">' + opts + "</div>";
+
+        nav.innerHTML =
+          (step > 0
+            ? '<button type="button" class="btn btn-outline-dark rounded-pill px-4" id="quizBack">Back</button>'
+            : "<span></span>") +
+          '<button type="button" class="btn btn-accent rounded-pill px-4" id="quizNext" disabled>Next <i class="bi bi-arrow-right"></i></button>';
+
+        var optionBtns = body.querySelectorAll(".quiz-option");
+        var nextBtn = document.getElementById("quizNext");
+
+        optionBtns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var idx = parseInt(btn.dataset.i, 10);
+            var opt = q.options[idx];
+            KEYS.forEach(function (k) { scores[k] += opt.s[k] || 0; });
+            optionBtns.forEach(function (b) { b.classList.remove("selected"); });
+            btn.classList.add("selected");
+            nextBtn.disabled = false;
+          });
+        });
+
+        if (step > 0) {
+          document.getElementById("quizBack").addEventListener("click", function () {
+            step--;
+            showQuestion();
+          });
+        }
+
+        nextBtn.addEventListener("click", function () {
+          step++;
+          if (step >= QUESTIONS.length) showResult();
+          else showQuestion();
+        });
+      }
+
+      function showResult() {
+        var best = KEYS[0];
+        for (var i = 1; i < KEYS.length; i++) {
+          if (scores[KEYS[i]] > scores[best]) best = KEYS[i];
+        }
+        var r = RESULTS[best];
+        label.textContent = "Your result";
+        if (fill) fill.style.width = "100%";
+
+        body.innerHTML =
+          '<div class="quiz-result">' +
+            '<div class="quiz-result-icon"><i class="bi ' + r.icon + '"></i></div>' +
+            "<h3>" + r.title + "</h3>" +
+            "<p>" + r.text + "</p>" +
+            '<div class="quiz-result-actions">' +
+              '<a href="' + r.href + '" class="btn btn-accent rounded-pill px-4">' + r.cta + " <i class='bi bi-arrow-right'></i></a>" +
+              '<button type="button" class="btn btn-outline-dark rounded-pill px-4" id="quizRetake">Retake Quiz</button>' +
+            "</div>" +
+          "</div>";
+
+        document.getElementById("quizRetake").addEventListener("click", reset);
+        nav.innerHTML = "";
+      }
+
+      reset();
+    })();
+  </script>
 </body>
 </html>

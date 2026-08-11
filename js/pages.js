@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Éclat — Inner page logic (shop, product, journal, contact, checkout, 404)
+   Stackly — Inner page logic (shop, product, journal, contact, checkout, 404)
    ========================================================================== */
 (function () {
   "use strict";
@@ -9,8 +9,8 @@
   var CATEGORIES = E.CATEGORIES || [];
   var money = E.money || function (n) { return "$" + Number(n).toFixed(2); };
   var productCard = E.productCard || function () { return ""; };
-  var cart = window.EclatCart || null;
-  var toast = window.EclatToast || function () {};
+  var cart = window.StacklyCart || null;
+  var toast = window.StacklyToast || function () {};
   var gsapOk = typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -156,7 +156,7 @@
     var id = parseInt(params.get("id"), 10);
     var p = PRODUCTS.filter(function (x) { return x.id === id; })[0] || PRODUCTS[0];
 
-    if (document.title.indexOf("Éclat") === -1) document.title = p.name + " — Éclat Skincare";
+    if (document.title.indexOf("Stackly") === -1) document.title = p.name + " — Stackly Skincare";
     if (crumb) crumb.textContent = p.name;
 
     var badgeRow = "";
@@ -326,7 +326,7 @@
   function initJournal() {
     var filters = qs("#journalFilters");
     if (!filters) return;
-    var cards = qsa(".journal-card");
+    var cards = qsa("#journalGrid .journal-card");
     filters.addEventListener("click", function (e) {
       var btn = e.target.closest(".jf-pill");
       if (!btn) return;

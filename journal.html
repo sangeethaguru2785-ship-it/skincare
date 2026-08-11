@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Éclat Journal — dermatologist-approved skincare guides, ingredient deep dives, routines and rituals." />
-  <title>Journal — Éclat Skincare</title>
+  <meta name="description" content="The Stackly Journal — dermatologist-approved skincare guides, ingredient deep dives, routines and rituals." />
+  <title>Journal — Stackly Skincare</title>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+        <img src="images/logo.webp" alt="Stackly Skincare" class="brand-logo" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="toggler-line"></span>
@@ -38,13 +38,15 @@
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
         <div class="navbar-actions d-flex align-items-center">
-          <a href="shop.html" class="nav-icon" aria-label="Search"><i class="bi bi-search"></i></a>
           <button class="nav-icon position-relative" id="cartToggle" aria-label="Open cart">
             <i class="bi bi-bag"></i>
             <span class="cart-count" id="cartCount">0</span>
           </button>
           <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-3 px-lg-4 d-none d-sm-inline-flex align-items-center gap-2">
             Shop Now <i class="bi bi-arrow-up-right"></i>
+          </a>
+          <a href="login.html" class="btn btn-outline-dark btn-sm rounded-pill px-3 px-lg-4 d-inline-flex align-items-center gap-2">
+            <i class="bi bi-person"></i> Login
           </a>
         </div>
       </div>
@@ -113,8 +115,11 @@
       <div class="journal-filters page-reveal" id="journalFilters">
         <button class="jf-pill active" data-cat="all">All Posts</button>
         <button class="jf-pill" data-cat="Guides">Guides</button>
-        <button class="jf-pill" data-cat="Ingredients">Ingredients</button>
         <button class="jf-pill" data-cat="Routines">Routines</button>
+        <button class="jf-pill" data-cat="Ingredients">Ingredients</button>
+        <button class="jf-pill" data-cat="Skin Types">Skin Types</button>
+        <button class="jf-pill" data-cat="Tips">Tips</button>
+        <button class="jf-pill" data-cat="Wellness">Wellness</button>
         <button class="jf-pill" data-cat="Expert">Expert Q&amp;A</button>
       </div>
 
@@ -190,6 +195,48 @@
           </article>
         </div>
         <div class="col-md-6 col-lg-4">
+          <article class="journal-card page-reveal" data-cat="Skin Types">
+            <a href="#" class="jc-img">
+              <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=700&auto=format&fit=crop" alt="Oily skin guide" loading="lazy" />
+              <span class="jc-cat">Skin Types</span>
+            </a>
+            <div class="jc-body">
+              <span class="jc-meta">Mar 02, 2026 · 6 min</span>
+              <h3><a href="#">The oily skin playbook: shine-free by design</a></h3>
+              <p>Balance the over-dried, over-moisturised confusion with the sebum-friendly routine your T-zone deserves.</p>
+              <a href="#" class="jc-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="journal-card page-reveal" data-cat="Tips">
+            <a href="#" class="jc-img">
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=700&auto=format&fit=crop" alt="Dermatologist habits" loading="lazy" />
+              <span class="jc-cat">Tips</span>
+            </a>
+            <div class="jc-body">
+              <span class="jc-meta">Feb 06, 2026 · 5 min</span>
+              <h3><a href="#">7 habits dermatologists break, not make</a></h3>
+              <p>From the 60-second rule to the sandwich method — tiny swaps that protect your barrier every day.</p>
+              <a href="#" class="jc-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="journal-card page-reveal" data-cat="Wellness">
+            <a href="#" class="jc-img">
+              <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=700&auto=format&fit=crop" alt="Beauty sleep ritual" loading="lazy" />
+              <span class="jc-cat">Wellness</span>
+            </a>
+            <div class="jc-body">
+              <span class="jc-meta">Jan 18, 2026 · 7 min</span>
+              <h3><a href="#">Beauty sleep, decoded: your 9pm reset ritual</a></h3>
+              <p>Cortisol down, repair mode on. The evening habits that make your night cream work twice as hard.</p>
+              <a href="#" class="jc-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
           <article class="journal-card page-reveal" data-cat="Routines">
             <a href="#" class="jc-img">
               <img src="https://images.unsplash.com/photo-1708640361721-fd61d9e94b12?q=80&w=700&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2tpbiUyMGNhcmV8ZW58MHx8MHx8fDA%3D" alt="Night repair ritual" loading="lazy" />
@@ -207,6 +254,303 @@
 
       <div class="text-center mt-5 page-reveal">
         <a href="#" class="btn btn-outline-dark rounded-pill px-4">Load More Stories <i class="bi bi-plus-lg ms-1"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKIN TYPE GUIDES ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head text-center">
+        <span class="eyebrow">Skin Type Guides</span>
+        <h2 class="section-title">Know your skin,<br/>choose your <em>ritual</em>.</h2>
+        <p class="section-sub">Every skin has its own personality. Find the guide that fits yours and build a routine that actually works.</p>
+      </div>
+      <div class="skin-type-grid page-reveal">
+        <div class="skin-type-card">
+          <div class="stc-icon"><i class="bi bi-droplet-half"></i></div>
+          <h3>Oily Skin</h3>
+          <p>Sebum-savvy cleansers and lightweight gels keep shine in check all day.</p>
+          <a href="#">Read the guide <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="skin-type-card">
+          <div class="stc-icon"><i class="bi bi-sun"></i></div>
+          <h3>Dry Skin</h3>
+          <p>Rich ceramides and humectant layering for a cushiony, dewy finish.</p>
+          <a href="#">Read the guide <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="skin-type-card">
+          <div class="stc-icon"><i class="bi bi-shuffle"></i></div>
+          <h3>Combination</h3>
+          <p>Balance an oily T-zone with dry cheeks using zone-specific care.</p>
+          <a href="#">Read the guide <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="skin-type-card">
+          <div class="stc-icon"><i class="bi bi-check-circle"></i></div>
+          <h3>Normal Skin</h3>
+          <p>Keep a good thing going with gentle essentials and smart sun care.</p>
+          <a href="#">Read the guide <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="skin-type-card">
+          <div class="stc-icon"><i class="bi bi-flower1"></i></div>
+          <h3>Sensitive Skin</h3>
+          <p>Fragrance-free, barrier-first formulas that calm and comfort.</p>
+          <a href="#">Read the guide <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKINCARE TIPS & ADVICE ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="tips-band page-reveal">
+        <div class="section-head text-center">
+          <span class="eyebrow">Skincare Tips &amp; Advice</span>
+          <h2 class="section-title">Small daily habits,<br/>big <em>glow</em> returns.</h2>
+          <p class="section-sub">Practical, dermatologist-approved advice you can start using tonight.</p>
+        </div>
+        <div class="tip-grid">
+          <div class="tip-card">
+            <span class="tip-num">01</span>
+            <h3>Cleanse gently</h3>
+            <p>Twice daily with a sulfate-free cleanser — never scrub, and always use lukewarm water.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">02</span>
+            <h3>Layer thin to thick</h3>
+            <p>Toners first, then serums, then moisturiser — let each layer sink in for 30 seconds.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">03</span>
+            <h3>Never skip SPF</h3>
+            <p>Broad-spectrum SPF 30+ every morning is the single most effective anti-ageing step.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">04</span>
+            <h3>Patch test actives</h3>
+            <p>Test new ingredients along your jawline for a week before applying them to your face.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INGREDIENTS SPOTLIGHT ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head text-center">
+        <span class="eyebrow">Ingredients Spotlight</span>
+        <h2 class="section-title">The actives worth<br/>your <em>attention</em>.</h2>
+        <p class="section-sub">What's on the label, what it does, and where it belongs in your routine.</p>
+      </div>
+      <div class="ingredient-grid page-reveal">
+        <div class="ingredient-card">
+          <div class="ingredient-head">
+            <div class="ingredient-icon"><i class="bi bi-droplet-half"></i></div>
+            <div>
+              <h3>Niacinamide</h3>
+              <span class="ingredient-sub">Vitamin B3</span>
+            </div>
+          </div>
+          <p class="ingredient-desc">A multitasking workhorse that calms redness, refines pores and supports your barrier.</p>
+          <div class="ingredient-tags">
+            <span class="itag">Pore refining</span>
+            <span class="itag">Oil control</span>
+            <span class="itag">Barrier</span>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-head">
+            <div class="ingredient-icon"><i class="bi bi-droplet"></i></div>
+            <div>
+              <h3>Hyaluronic Acid</h3>
+              <span class="ingredient-sub">Humectant</span>
+            </div>
+          </div>
+          <p class="ingredient-desc">Holds up to 1,000&times; its weight in water, plumping fine lines and quenching thirsty skin.</p>
+          <div class="ingredient-tags">
+            <span class="itag">Deep hydration</span>
+            <span class="itag">Plumping</span>
+            <span class="itag">All skin types</span>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-head">
+            <div class="ingredient-icon"><i class="bi bi-brightness-high"></i></div>
+            <div>
+              <h3>Vitamin C</h3>
+              <span class="ingredient-sub">Antioxidant</span>
+            </div>
+          </div>
+          <p class="ingredient-desc">The morning MVP — brightens dullness, boosts collagen and defends against daily damage.</p>
+          <div class="ingredient-tags">
+            <span class="itag">Brightening</span>
+            <span class="itag">Collagen</span>
+            <span class="itag">Antioxidant</span>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-head">
+            <div class="ingredient-icon"><i class="bi bi-moon-stars"></i></div>
+            <div>
+              <h3>Retinol</h3>
+              <span class="ingredient-sub">Retinoid</span>
+            </div>
+          </div>
+          <p class="ingredient-desc">The gold-standard night hero for smoother texture, refined pores and fewer fine lines.</p>
+          <div class="ingredient-tags">
+            <span class="itag">Cell turnover</span>
+            <span class="itag">Fine lines</span>
+            <span class="itag">Night use</span>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-head">
+            <div class="ingredient-icon"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <h3>Ceramides</h3>
+              <span class="ingredient-sub">Barrier builders</span>
+            </div>
+          </div>
+          <p class="ingredient-desc">The mortar between skin cells — locks moisture in and keeps irritants out.</p>
+          <div class="ingredient-tags">
+            <span class="itag">Barrier repair</span>
+            <span class="itag">Moisture retention</span>
+            <span class="itag">Soothing</span>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-head">
+            <div class="ingredient-icon"><i class="bi bi-heart-pulse"></i></div>
+            <div>
+              <h3>Azelaic Acid</h3>
+              <span class="ingredient-sub">Multi-tasking</span>
+            </div>
+          </div>
+          <p class="ingredient-desc">Reduces redness and uneven tone while gently clearing texture — even on sensitive skin.</p>
+          <div class="ingredient-tags">
+            <span class="itag">Redness</span>
+            <span class="itag">Texture</span>
+            <span class="itag">Sensitive-safe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRENDING / MOST READ ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head text-center">
+        <span class="eyebrow">Trending · Most Read</span>
+        <h2 class="section-title">What everyone's <em>reading</em> now.</h2>
+        <p class="section-sub">The guides our readers save, share and return to most this month.</p>
+      </div>
+      <div class="trending-list page-reveal">
+        <a href="#" class="trending-row">
+          <span class="trending-rank">01</span>
+          <div class="trending-thumb"><img src="https://images.unsplash.com/photo-1676331395063-4527c61ba0b3?q=80&w=300&auto=format&fit=crop" alt="Glow-up guide" loading="lazy" /></div>
+          <div class="trending-info">
+            <h3>The complete glow-up guide: a 30-day plan</h3>
+            <span class="trending-meta"><i class="bi bi-fire"></i> 12.4k reads · Guides</span>
+          </div>
+        </a>
+        <a href="#" class="trending-row">
+          <span class="trending-rank">02</span>
+          <div class="trending-thumb"><img src="https://images.unsplash.com/photo-1540555706698-21755b1034a8?q=80&w=300&auto=format&fit=crop" alt="Retinol guide" loading="lazy" /></div>
+          <div class="trending-info">
+            <h3>Retinol, decoded: how to start without irritation</h3>
+            <span class="trending-meta"><i class="bi bi-fire"></i> 9.8k reads · Ingredients</span>
+          </div>
+        </a>
+        <a href="#" class="trending-row">
+          <span class="trending-rank">03</span>
+          <div class="trending-thumb"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=300&auto=format&fit=crop" alt="Vitamin C guide" loading="lazy" /></div>
+          <div class="trending-info">
+            <h3>Vitamin C 101: the antioxidant your routine is missing</h3>
+            <span class="trending-meta"><i class="bi bi-fire"></i> 8.1k reads · Ingredients</span>
+          </div>
+        </a>
+        <a href="#" class="trending-row">
+          <span class="trending-rank">04</span>
+          <div class="trending-thumb"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=300&auto=format&fit=crop" alt="Morning routine" loading="lazy" /></div>
+          <div class="trending-info">
+            <h3>The 5-step morning routine dermatologists actually use</h3>
+            <span class="trending-meta"><i class="bi bi-fire"></i> 7.6k reads · Routines</span>
+          </div>
+        </a>
+        <a href="#" class="trending-row">
+          <span class="trending-rank">05</span>
+          <div class="trending-thumb"><img src="https://images.unsplash.com/photo-1512307909739-3cb0429d5a63?q=80&w=300&auto=format&fit=crop" alt="Skin Q&A" loading="lazy" /></div>
+          <div class="trending-info">
+            <h3>Dr. Okafor answers your 12 most-asked skin questions</h3>
+            <span class="trending-meta"><i class="bi bi-fire"></i> 6.9k reads · Expert Q&amp;A</span>
+          </div>
+        </a>
+        <a href="#" class="trending-row">
+          <span class="trending-rank">06</span>
+          <div class="trending-thumb"><img src="https://images.unsplash.com/photo-1708640361721-fd61d9e94b12?q=80&w=300&auto=format&fit=crop" alt="Night repair ritual" loading="lazy" /></div>
+          <div class="trending-info">
+            <h3>The night repair ritual for deeper, faster recovery</h3>
+            <span class="trending-meta"><i class="bi bi-fire"></i> 6.2k reads · Routines</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEAUTY & WELLNESS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head text-center">
+        <span class="eyebrow">Beauty &amp; Wellness</span>
+        <h2 class="section-title">Skin deep is only<br/>half the <em>story</em>.</h2>
+        <p class="section-sub">Lifestyle, self-care and the wellness rituals that show up on your skin.</p>
+      </div>
+      <div class="row g-3 g-lg-4 page-reveal">
+        <div class="col-md-6 col-lg-4">
+          <article class="journal-card">
+            <a href="#" class="jc-img">
+              <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=700&auto=format&fit=crop" alt="The science of sleep and skin" loading="lazy" />
+              <span class="jc-cat">Wellness</span>
+            </a>
+            <div class="jc-body">
+              <span class="jc-meta">Mar 18, 2026 · 6 min</span>
+              <h3><a href="#">The science of sleep and skin: repair happens at night</a></h3>
+              <p>Why seven hours in bed beats any night cream — and the routine that maximises both.</p>
+              <a href="#" class="jc-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="journal-card">
+            <a href="#" class="jc-img">
+              <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=700&auto=format&fit=crop" alt="Slow mornings" loading="lazy" />
+              <span class="jc-cat">Wellness</span>
+            </a>
+            <div class="jc-body">
+              <span class="jc-meta">Feb 24, 2026 · 5 min</span>
+              <h3><a href="#">Slow mornings, softer skin: a 20-minute reset</a></h3>
+              <p>Decompress cortisol before it reaches your face with a gentle, intentional AM ritual.</p>
+              <a href="#" class="jc-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="journal-card">
+            <a href="#" class="jc-img">
+              <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=700&auto=format&fit=crop" alt="Stress and skin" loading="lazy" />
+              <span class="jc-cat">Wellness</span>
+            </a>
+            <div class="jc-body">
+              <span class="jc-meta">Jan 29, 2026 · 7 min</span>
+              <h3><a href="#">Stress less, glow more: the cortisol&ndash;skin link</a></h3>
+              <p>From breakouts to dullness — how stress shows up on skin, and how to switch it off.</p>
+              <a href="#" class="jc-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -238,20 +582,30 @@
   <footer class="footer">
     <div class="container">
       <div class="row g-5">
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <a class="navbar-brand mb-3" href="index.html">
-            <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+            <img src="images/logo.webp" alt="Stackly" class="brand-logo" />
           </a>
-          <p class="footer-about">Éclat is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
+          <p class="footer-about">Stackly is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
-            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="404.html" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="404.html" aria-label="X (formerly Twitter)"><i class="bi bi-twitter-x"></i></a>
           </div>
         </div>
         <div class="col-6 col-lg-2">
-          <h5>Shop</h5>
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Shop Categories</h5>
           <ul>
             <li><a href="shop.html?cat=serum">Serums</a></li>
             <li><a href="shop.html?cat=moisturizer">Moisturizers</a></li>
@@ -261,30 +615,34 @@
           </ul>
         </div>
         <div class="col-6 col-lg-2">
-          <h5>Company</h5>
+          <h5>Customer Support</h5>
           <ul>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="journal.html">Journal</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping &amp; Returns</a></li>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Skin Quiz</a></li>
+            <li><a href="contact.html">Help Center</a></li>
           </ul>
         </div>
-        <div class="col-lg-4">
-          <h5>We'd love to hear from you</h5>
-          <p class="footer-about mb-2">hello@stackly.com<br/>+1 (555) 018-7245</p>
-          <p class="footer-about mb-3">Mon – Fri · 9:00 – 18:00 EST</p>
-          <div class="footer-payments">
-            <i class="bi bi-credit-card-2-front"></i>
-            <i class="bi bi-paypal"></i>
-            <i class="bi bi-apple"></i>
-            <i class="bi bi-google"></i>
-          </div>
+        <div class="col-6 col-lg-3">
+          <h5>Contact</h5>
+          <ul class="footer-contact">
+            <li><i class="bi bi-envelope"></i> hello@stackly.com</li>
+            <li><i class="bi bi-telephone"></i> +1 (555) 018-7245</li>
+            <li><i class="bi bi-clock"></i> Mon – Fri · 9:00 – 18:00 EST</li>
+          </ul>
         </div>
       </div>
+
       <hr class="footer-hr" />
-      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
-        <p class="mb-0">© 2026 Éclat Skincare. All rights reserved.</p>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <p class="mb-0">© 2026 Stackly. All rights reserved.</p>
+        <div class="footer-payments" aria-label="Payment options">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-paypal"></i>
+          <i class="bi bi-apple"></i>
+          <i class="bi bi-google"></i>
+        </div>
         <div class="footer-links">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Stackly product detail — clean, clinically-backed skincare." />
-  <title>Product — Stackly Skincare</title>
+  <meta name="description" content="Sign in to your Stackly account — secure customer and admin login." />
+  <title>Login — Stackly Skincare</title>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,7 +32,7 @@
       <div class="collapse navbar-collapse" id="mainMenu">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="journal.html">Journal</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -44,9 +44,6 @@
           </button>
           <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-3 px-lg-4 d-none d-sm-inline-flex align-items-center gap-2">
             Shop Now <i class="bi bi-arrow-up-right"></i>
-          </a>
-          <a href="login.html" class="btn btn-outline-dark btn-sm rounded-pill px-3 px-lg-4 d-inline-flex align-items-center gap-2">
-            <i class="bi bi-person"></i> Login
           </a>
         </div>
       </div>
@@ -78,53 +75,87 @@
     </div>
   </aside>
 
-  <!-- ============ PAGE HERO (compact) ============ -->
-  <header class="page-hero" style="padding-bottom:40px;">
+  <!-- ============ PAGE HERO ============ -->
+  <header class="page-hero">
     <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
     <div class="container">
       <nav class="breadcrumb-bar" aria-label="Breadcrumb">
-        <a href="index.html">Home</a> <span class="sep">/</span>
-        <a href="shop.html">Shop</a> <span class="sep">/</span>
-        <span id="crumbName">Product</span>
+        <a href="index.html">Home</a> <span class="sep">/</span> <span>Login</span>
       </nav>
+      <h1 class="page-hero-title page-reveal">Welcome <em>back</em></h1>
+      <p>Sign in to your Stackly account to continue your clean-beauty ritual.</p>
     </div>
   </header>
 
-  <!-- ============ PRODUCT DETAIL (JS rendered) ============ -->
-  <section class="section product-detail" style="padding-top:0;">
-    <div class="container" id="productWrap"></div>
-  </section>
-
-  <!-- ============ RELATED ============ -->
-  <section class="section journal" id="relatedSection" style="display:none;">
+  <!-- ============ LOGIN ============ -->
+  <section class="section auth-section">
     <div class="container">
-      <div class="section-head text-center page-reveal">
-        <span class="eyebrow">Complete the ritual</span>
-        <h2 class="section-title">You may also <em>love</em></h2>
-      </div>
-      <div class="row g-3 g-lg-4" id="relatedGrid"></div>
-    </div>
-  </section>
-
-  <!-- ============ CTA ============ -->
-  <section class="section newsletter" style="padding-top:0;">
-    <div class="container">
-      <div class="newsletter-box page-reveal">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-5">
-            <span class="eyebrow">Inner Glow Club</span>
-            <h2 class="section-title text-white mb-0">Get 15% off your<br/>first ritual.</h2>
+      <div class="auth-card page-reveal">
+        <div class="row g-0">
+          <div class="col-lg-5 auth-brand-col d-none d-lg-flex">
+            <div>
+              <div class="auth-brand-logo mb-4">
+                <img src="images/logo.webp" alt="Stackly" />
+                Stackly
+              </div>
+              <h2>Your glow lives here.</h2>
+              <p>Members-only pricing, ritual-building tools and orders that ship carbon-neutral. All in one calm, considered account.</p>
+            </div>
+            <div class="auth-brand-quote">
+              <i class="bi bi-quote"></i>
+              <p>“Stackly made my whole routine make sense — and my skin has never looked happier.”</p>
+              <small>Hana K. · Verified Customer</small>
+            </div>
           </div>
-          <div class="col-lg-7">
-            <form class="newsletter-form" id="newsletterForm">
-              <input type="email" placeholder="Your email address" aria-label="Email address" required />
-              <button type="submit" class="btn btn-accent rounded-pill px-4">Subscribe <i class="bi bi-arrow-right"></i></button>
+
+          <div class="col-lg-7 auth-form-col">
+            <div class="auth-toggle" role="group" aria-label="Account type">
+              <button type="button" class="active" data-role="customer"><i class="bi bi-person"></i> Customer Login</button>
+              <button type="button" data-role="admin"><i class="bi bi-person-gear"></i> Admin Login</button>
+            </div>
+
+            <h3 class="auth-form-title" id="authTitle">Customer Login</h3>
+            <p class="auth-form-sub">Sign in to manage your orders, wishlist and routine.</p>
+
+            <form class="auth-form" id="loginForm" novalidate>
+              <input type="hidden" id="roleType" value="customer" />
+
+              <div class="mb-3">
+                <label class="form-label" for="loginEmail">Email Address</label>
+                <div class="auth-input-wrap">
+                  <i class="bi bi-envelope input-ico"></i>
+                  <input type="email" class="form-control" id="loginEmail" placeholder="you@example.com" autocomplete="email" />
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label class="form-label mb-0" for="loginPass">Password</label>
+                  <a href="#" class="forgot-link" id="forgotLink">Forgot Password?</a>
+                </div>
+                <div class="auth-input-wrap">
+                  <i class="bi bi-lock input-ico"></i>
+                  <input type="password" class="form-control" id="loginPass" placeholder="Enter your password" autocomplete="current-password" />
+                  <button type="button" class="password-toggle" aria-label="Toggle password visibility"><i class="bi bi-eye"></i></button>
+                  <div class="invalid-feedback">Password must be at least 6 characters.</div>
+                </div>
+              </div>
+
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="rememberMe" />
+                <label class="form-check-label" for="rememberMe">Remember me for 30 days</label>
+              </div>
+
+              <button type="submit" class="auth-btn">Sign In <i class="bi bi-arrow-right"></i></button>
             </form>
-            <p class="newsletter-note">Early access to drops, expert tips and members-only pricing. No spam, ever.</p>
+
+            <div class="auth-link-row">
+              Don't have an account? <a href="signup.html">Create one here</a>
+            </div>
           </div>
         </div>
-        <div class="newsletter-orb newsletter-orb-1"></div>
-        <div class="newsletter-orb newsletter-orb-2"></div>
       </div>
     </div>
   </section>
@@ -162,7 +193,7 @@
             <li><a href="shop.html?cat=moisturizer">Moisturizers</a></li>
             <li><a href="shop.html?cat=oil">Facial Oils</a></li>
             <li><a href="shop.html?cat=sun">Sun Care</a></li>
-            <li><a href="shop.html">Gift Sets</a></li>
+            <li><a href="shop.html?cat=gift">Gift Sets</a></li>
           </ul>
         </div>
         <div class="col-6 col-lg-2">
@@ -178,7 +209,7 @@
         <div class="col-6 col-lg-3">
           <h5>Contact</h5>
           <ul class="footer-contact">
-            <li><i class="bi bi-envelope"></i> hello@stackly.com</li>
+            <li><i class="bi bi-envelope"></i> hello@eclat.com</li>
             <li><i class="bi bi-telephone"></i> +1 (555) 018-7245</li>
             <li><i class="bi bi-clock"></i> Mon – Fri · 9:00 – 18:00 EST</li>
           </ul>
@@ -216,5 +247,77 @@
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
   <script src="js/pages.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var form = document.getElementById("loginForm");
+      var email = document.getElementById("loginEmail");
+      var pass = document.getElementById("loginPass");
+      var roleInput = document.getElementById("roleType");
+      var title = document.getElementById("authTitle");
+      var sub = document.querySelector(".auth-form-sub");
+      var role = "customer";
+      var toast = window.StacklyToast || function () {};
+      var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+      document.querySelectorAll(".auth-toggle button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".auth-toggle button").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          role = btn.dataset.role;
+          roleInput.value = role;
+          if (role === "admin") {
+            title.textContent = "Admin Login";
+            sub.textContent = "Sign in to manage the Stackly storefront.";
+          } else {
+            title.textContent = "Customer Login";
+            sub.textContent = "Sign in to manage your orders, wishlist and routine.";
+          }
+          email.focus();
+        });
+      });
+
+      function setInvalid(input, invalid) {
+        input.classList.toggle("is-invalid", invalid);
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var ok = true;
+
+        if (!emailRe.test(email.value.trim())) { setInvalid(email, true); ok = false; }
+        else setInvalid(email, false);
+
+        if (pass.value.length < 6) { setInvalid(pass, true); ok = false; }
+        else setInvalid(pass, false);
+
+        if (!ok) { toast("Please fix the highlighted fields."); return; }
+
+        toast("Welcome back — redirecting…");
+        setTimeout(function () {
+          window.location.href = role === "admin" ? "admin-dashboard.html" : "customer-dashboard.html";
+        }, 900);
+      });
+
+      [email, pass].forEach(function (input) {
+        input.addEventListener("input", function () { input.classList.remove("is-invalid"); });
+      });
+
+      document.querySelectorAll(".password-toggle").forEach(function (t) {
+        t.addEventListener("click", function () {
+          var input = t.parentElement.querySelector("input");
+          var show = input.type === "password";
+          input.type = show ? "text" : "password";
+          t.innerHTML = show ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
+        });
+      });
+
+      document.getElementById("forgotLink").addEventListener("click", function (e) {
+        e.preventDefault();
+        toast("Password reset link sent to your email");
+      });
+    })();
+  </script>
 </body>
 </html>

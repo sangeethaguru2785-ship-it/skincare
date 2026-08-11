@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stackly — Admin Dashboard. Manage products, orders, customers, payments and analytics." />
+  <title>Stackly — Admin Dashboard</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dash-body admin-theme">
+
+  <div class="dash-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a class="dash-brand" href="index.html">
+        <img src="images/logo.webp" alt="Stackly" />
+        <div class="dash-brand-text">
+          <strong>Stackly</strong>
+          <span>Admin Panel</span>
+        </div>
+      </a>
+
+      <nav class="dash-nav" aria-label="Admin navigation">
+        <p class="dash-nav-group">Main</p>
+        <a class="dash-nav-link active" href="#overview" data-view="overview"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard Overview</span></a>
+        <a class="dash-nav-link" href="#orders" data-view="orders"><i class="bi bi-receipt"></i><span>Orders Management</span><span class="dash-nav-badge">6</span></a>
+        <a class="dash-nav-link" href="#products" data-view="products"><i class="bi bi-box-seam"></i><span>Products Management</span></a>
+        <a class="dash-nav-link" href="#categories" data-view="categories"><i class="bi bi-collection"></i><span>Categories Management</span></a>
+        <a class="dash-nav-link" href="#customers" data-view="customers"><i class="bi bi-people"></i><span>Customer Management</span></a>
+
+        <p class="dash-nav-group">Business</p>
+        <a class="dash-nav-link" href="#payments" data-view="payments"><i class="bi bi-credit-card"></i><span>Payments</span></a>
+        <a class="dash-nav-link" href="#reviews" data-view="reviews"><i class="bi bi-star"></i><span>Reviews &amp; Ratings</span></a>
+        <a class="dash-nav-link" href="#coupons" data-view="coupons"><i class="bi bi-tags"></i><span>Coupons / Offers</span></a>
+
+        <p class="dash-nav-group">Insights</p>
+        <a class="dash-nav-link" href="#reports" data-view="reports"><i class="bi bi-graph-up-arrow"></i><span>Reports &amp; Analytics</span></a>
+        <a class="dash-nav-link" href="#notifications" data-view="notifications"><i class="bi bi-bell"></i><span>Notifications</span><span class="dash-nav-badge green" data-notif-badge>3</span></a>
+        <a class="dash-nav-link" href="#settings" data-view="settings"><i class="bi bi-sliders"></i><span>Profile &amp; Settings</span></a>
+      </nav>
+
+      <div class="dash-sidebar-foot">
+        <button class="dash-nav-link dash-logout" data-logout><i class="bi bi-box-arrow-right"></i><span>Logout</span></button>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <div class="dash-main">
+
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <button class="dash-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><i class="bi bi-list"></i></button>
+        <h1 class="dash-page-title" id="dashPageTitle">Dashboard Overview</h1>
+
+        <div class="dash-top-actions">
+          <div class="dash-search">
+            <i class="bi bi-search"></i>
+            <input type="search" placeholder="Search admin…" aria-label="Search admin" />
+          </div>
+
+          <a href="index.html" class="dash-icon-btn" aria-label="View store" title="View store"><i class="bi bi-shop"></i></a>
+
+          <div class="dash-dd">
+            <button class="dash-icon-btn dash-dd-toggle" aria-label="Notifications"><i class="bi bi-bell"></i><span class="dash-dot"></span></button>
+            <div class="dash-dd-menu dash-notify">
+              <div class="dash-notify-head">
+                <span>Notifications</span>
+                <button class="btn btn-link btn-sm p-0" data-mark-read style="font-size:.78rem;">Mark all read</button>
+              </div>
+              <div class="dash-notify-item unread">
+                <span class="dash-notify-ico" style="background:rgba(200,154,74,.15);color:var(--dash-warn);"><i class="bi bi-cart"></i></span>
+                <div>
+                  <p><strong>New order #EC-1024</strong> — $148.00 from Ava Chen</p>
+                  <small>2 minutes ago</small>
+                </div>
+              </div>
+              <div class="dash-notify-item unread">
+                <span class="dash-notify-ico" style="background:rgba(192,85,85,.13);color:var(--dash-danger);"><i class="bi bi-star"></i></span>
+                <div>
+                  <p><strong>1-star review</strong> on Glow Serum flagged for moderation</p>
+                  <small>38 minutes ago</small>
+                </div>
+              </div>
+              <div class="dash-notify-item unread">
+                <span class="dash-notify-ico" style="background:rgba(111,154,107,.15);color:var(--dash-success);"><i class="bi bi-box"></i></span>
+                <div>
+                  <p><strong>Low stock</strong> — Vitamin C Elixir has 6 units left</p>
+                  <small>1 hour ago</small>
+                </div>
+              </div>
+              <div class="dash-notify-item">
+                <span class="dash-notify-ico" style="background:rgba(91,127,166,.14);color:var(--dash-info);"><i class="bi bi-people"></i></span>
+                <div>
+                  <p><strong>42 new customers</strong> registered this week</p>
+                  <small>Yesterday</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-dd">
+            <button class="dash-user dash-dd-toggle">
+              <span class="dash-avatar">AM</span>
+              <span class="dash-user-meta">
+                <strong>Ava Martin</strong>
+                <span>Super Admin</span>
+              </span>
+              <i class="bi bi-chevron-down dash-caret"></i>
+            </button>
+            <div class="dash-dd-menu">
+              <a class="dash-dd-item" href="#settings" data-view="settings"><i class="bi bi-person"></i> My Profile</a>
+              <a class="dash-dd-item" href="#settings" data-view="settings"><i class="bi bi-gear"></i> Settings</a>
+              <a class="dash-dd-item" href="index.html"><i class="bi bi-shop"></i> View Store</a>
+              <hr style="margin:.4rem 0; border-color:var(--dash-line);" />
+              <button class="dash-dd-item danger" data-logout><i class="bi bi-box-arrow-right"></i> Logout</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="dash-content">
+
+        <!-- ============ OVERVIEW ============ -->
+        <section class="dash-view active" id="view-overview" data-title="Dashboard Overview">
+          <div class="dash-head">
+            <h2>Welcome back, Ava 👋</h2>
+            <p>Here's what's happening across your store today. Orders are up 12% and revenue is trending above the monthly target.</p>
+          </div>
+
+          <div class="dash-hero">
+            <div class="dash-hero-content">
+              <span class="dash-hero-eyebrow">Revenue Overview</span>
+              <h3 class="dash-hero-title"><span data-count="64210" data-prefix="$">0</span></h3>
+              <p class="dash-hero-sub">This month · <strong>+15.6%</strong> vs last month · on track to hit $72K</p>
+              <div class="dash-hero-chips">
+                <span class="dash-chip"><i class="bi bi-bag-check"></i> 842 orders</span>
+                <span class="dash-chip"><i class="bi bi-graph-up"></i> $61.3 avg cart</span>
+                <span class="dash-chip"><i class="bi bi-star"></i> 4.9 rating</span>
+              </div>
+            </div>
+            <div class="dash-hero-chart">
+              <div class="spark-lg"><canvas data-type="spark" data-chart='{"values":[42,56,49,72,68,86],"color":"rgba(255,255,255,.95)","fill":false}'></canvas></div>
+            </div>
+          </div>
+
+          <div class="dash-grid dash-grid-4" style="margin-bottom:22px;">
+            <div class="dash-card stat-card">
+              <div class="stat-top">
+                <span class="stat-icon accent"><i class="bi bi-people-fill"></i></span>
+                <span class="stat-trend up"><i class="bi bi-arrow-up-right"></i> 12.4%</span>
+              </div>
+              <div class="stat-value" data-count="2437">0</div>
+              <div class="stat-label">Total Customers</div>
+              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[1680,1820,1750,1990,2140,2270,2437],"color":"#B98342"}'></canvas></div>
+            </div>
+            <div class="dash-card stat-card">
+              <div class="stat-top">
+                <span class="stat-icon sage"><i class="bi bi-receipt-cutoff"></i></span>
+                <span class="stat-trend up"><i class="bi bi-arrow-up-right"></i> 8.1%</span>
+              </div>
+              <div class="stat-value" data-count="1842">0</div>
+              <div class="stat-label">Total Orders</div>
+              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[310,360,340,420,395,460,505,540],"color":"#7A8B6F"}'></canvas></div>
+            </div>
+            <div class="dash-card stat-card">
+              <div class="stat-top">
+                <span class="stat-icon warn"><i class="bi bi-cash-stack"></i></span>
+                <span class="stat-trend up"><i class="bi bi-arrow-up-right"></i> 15.6%</span>
+              </div>
+              <div class="stat-value" data-count="128420" data-prefix="$" data-decimals="0">0</div>
+              <div class="stat-label">Total Revenue</div>
+              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[52,61,58,74,69,88,96,112],"color":"#C89A4A"}'></canvas></div>
+            </div>
+            <div class="dash-card stat-card">
+              <div class="stat-top">
+                <span class="stat-icon info"><i class="bi bi-star-fill"></i></span>
+                <span class="stat-trend up"><i class="bi bi-arrow-up-right"></i> 0.2 pts</span>
+              </div>
+              <div class="stat-value" data-count="4.9" data-decimals="1">0</div>
+              <div class="stat-label">Average Rating</div>
+              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[4.2,4.4,4.3,4.5,4.6,4.8,4.9],"color":"#5B7FA6"}'></canvas></div>
+            </div>
+          </div>
+
+          <div class="dash-grid dash-grid-2">
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h6>Revenue vs Target</h6>
+                <span class="text-muted">Last 6 months · $K</span>
+              </div>
+              <div class="chart-wrap">
+                <canvas data-type="multi-line" data-chart='{"labels":["Mar","Apr","May","Jun","Jul","Aug"],"series":[{"name":"Revenue","values":[42,56,49,72,68,86],"color":"#B98342"},{"name":"Target","values":[45,50,55,60,65,70],"color":"#7A8B6F"}],"legend":true}'></canvas>
+              </div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h6>Sales by Category</h6>
+                <span class="text-muted">This month</span>
+              </div>
+              <div class="chart-wrap h-sm">
+                <canvas data-type="doughnut" data-chart='{"labels":["Serums","Moisturizers","Facial Oils","Sun Care","Cleansers"],"values":[420,310,180,140,90],"colors":["#B98342","#7A8B6F","#5B7FA6","#C89A4A","#B98FB2"],"total":"38%","sub":"Serums lead"}'></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-grid dash-grid-2" style="margin-top:22px;">
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h6>Orders This Week</h6>
+                <span class="text-muted">Units per day</span>
+              </div>
+              <div class="chart-wrap h-sm">
+                <canvas data-type="bars" data-chart='{"labels":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"values":[42,58,71,64,89,76,54],"colors":["#B98342","#B98342","#B98342","#B98342","#B98342","#B98342","#B98342"]}'></canvas>
+              </div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h6>Traffic Sources</h6>
+                <span class="text-muted">Share of sessions</span>
+              </div>
+              <div class="chart-wrap h-sm">
+                <canvas data-type="doughnut" data-chart='{"labels":["Direct","Organic","Social","Email"],"values":[34,28,22,16],"colors":["#B98342","#7A8B6F","#5B7FA6","#C89A4A"],"total":"68K","sub":"Sessions"}'></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-grid dash-grid-2" style="margin-top:22px;">
+            <div class="dash-table-wrap">
+              <div class="dash-tbl-head">
+                <h6>Recent Orders</h6>
+                <a href="#orders" class="btn-dash light sm" data-view="orders">View all</a>
+              </div>
+              <table class="dash-table">
+                <thead>
+                  <tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="dash-cell-main">#EC-1024</td>
+                    <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#C18A4F;">AC</span><div><div class="dash-cell-main">Ava Chen</div><div class="dash-cell-sub">ava@mail.com</div></div></div></td>
+                    <td>$148.00</td>
+                    <td><span class="badge-status warn">Processing</span></td>
+                  </tr>
+                  <tr>
+                    <td class="dash-cell-main">#EC-1023</td>
+                    <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">MR</span><div><div class="dash-cell-main">Mia Roberts</div><div class="dash-cell-sub">mia@mail.com</div></div></div></td>
+                    <td>$96.50</td>
+                    <td><span class="badge-status info">Shipped</span></td>
+                  </tr>
+                  <tr>
+                    <td class="dash-cell-main">#EC-1022</td>
+                    <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#5B7FA6;">JO</span><div><div class="dash-cell-main">Jonas Ortiz</div><div class="dash-cell-sub">jonas@mail.com</div></div></div></td>
+                    <td>$219.00</td>
+                    <td><span class="badge-status success">Delivered</span></td>
+                  </tr>
+                  <tr>
+                    <td class="dash-cell-main">#EC-1021</td>
+                    <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#C89A4A;">LP</span><div><div class="dash-cell-main">Lena Park</div><div class="dash-cell-sub">lena@mail.com</div></div></div></td>
+                    <td>$64.00</td>
+                    <td><span class="badge-status danger">Cancelled</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h6>Top Selling Products</h6>
+                <span class="text-muted">This month</span>
+              </div>
+              <div class="dash-list">
+                <div class="dash-list-item">
+                  <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=120&auto=format&fit=crop" alt="Glow Serum" class="dash-thumb" />
+                  <div style="flex:1;min-width:0;">
+                    <div class="dash-cell-main">Glow Serum</div>
+                    <div class="dash-progress" style="margin-top:8px;"><i style="width:92%;"></i></div>
+                    <div class="dash-cell-sub" style="margin-top:6px;">412 sold · 92%</div>
+                  </div>
+                </div>
+                <div class="dash-list-item">
+                  <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=120&auto=format&fit=crop" alt="Hydra Cream" class="dash-thumb" />
+                  <div style="flex:1;min-width:0;">
+                    <div class="dash-cell-main">Hydra Cream</div>
+                    <div class="dash-progress" style="margin-top:8px;"><i style="width:78%;"></i></div>
+                    <div class="dash-cell-sub" style="margin-top:6px;">341 sold · 78%</div>
+                  </div>
+                </div>
+                <div class="dash-list-item">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=120&auto=format&fit=crop" alt="Rose Oil" class="dash-thumb" />
+                  <div style="flex:1;min-width:0;">
+                    <div class="dash-cell-main">Rose Facial Oil</div>
+                    <div class="dash-progress" style="margin-top:8px;"><i style="width:64%;"></i></div>
+                    <div class="dash-cell-sub" style="margin-top:6px;">287 sold · 64%</div>
+                  </div>
+                </div>
+                <div class="dash-list-item">
+                  <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=120&auto=format&fit=crop" alt="SPF 50" class="dash-thumb" />
+                  <div style="flex:1;min-width:0;">
+                    <div class="dash-cell-main">Daily Defense SPF 50</div>
+                    <div class="dash-progress" style="margin-top:8px;"><i style="width:51%;"></i></div>
+                    <div class="dash-cell-sub" style="margin-top:6px;">229 sold · 51%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ORDERS ============ -->
+        <section class="dash-view" id="view-orders" data-title="Orders Management">
+          <div class="dash-head">
+            <h2>Orders Management</h2>
+            <p>Track, manage and fulfill every order placed in your store. Use the search bar to filter quickly.</p>
+          </div>
+          <div class="dash-actions">
+            <button class="btn-dash light sm" data-action="Export Orders"><i class="bi bi-download"></i> Export CSV</button>
+            <button class="btn-dash light sm" data-action="Create Order"><i class="bi bi-plus"></i> Create Order</button>
+          </div>
+          <div class="dash-table-wrap">
+            <div class="dash-tbl-head">
+              <h6>All Orders</h6>
+              <div class="tbl-search"><i class="bi bi-search"></i><input type="search" placeholder="Search orders…" aria-label="Search orders" /></div>
+            </div>
+            <table class="dash-table">
+              <thead>
+                <tr><th>Order</th><th>Customer</th><th>Date</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="dash-cell-main">#EC-1024</td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#C18A4F;">AC</span><div><div class="dash-cell-main">Ava Chen</div><div class="dash-cell-sub">ava@mail.com</div></div></div></td>
+                  <td>Aug 11, 2026</td>
+                  <td>3</td>
+                  <td>$148.00</td>
+                  <td><i class="bi bi-credit-card"></i> Visa</td>
+                  <td><span class="badge-status warn">Processing</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Order #EC-1024" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Edit Order #EC-1024" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td class="dash-cell-main">#EC-1023</td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">MR</span><div><div class="dash-cell-main">Mia Roberts</div><div class="dash-cell-sub">mia@mail.com</div></div></div></td>
+                  <td>Aug 10, 2026</td>
+                  <td>2</td>
+                  <td>$96.50</td>
+                  <td><i class="bi bi-paypal"></i> PayPal</td>
+                  <td><span class="badge-status info">Shipped</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Order #EC-1023" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Edit Order #EC-1023" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td class="dash-cell-main">#EC-1022</td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#5B7FA6;">JO</span><div><div class="dash-cell-main">Jonas Ortiz</div><div class="dash-cell-sub">jonas@mail.com</div></div></div></td>
+                  <td>Aug 09, 2026</td>
+                  <td>5</td>
+                  <td>$219.00</td>
+                  <td><i class="bi bi-apple"></i> Apple Pay</td>
+                  <td><span class="badge-status success">Delivered</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Order #EC-1022" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Edit Order #EC-1022" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td class="dash-cell-main">#EC-1021</td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#C89A4A;">LP</span><div><div class="dash-cell-main">Lena Park</div><div class="dash-cell-sub">lena@mail.com</div></div></div></td>
+                  <td>Aug 08, 2026</td>
+                  <td>1</td>
+                  <td>$64.00</td>
+                  <td><i class="bi bi-credit-card"></i> Mastercard</td>
+                  <td><span class="badge-status danger">Cancelled</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Order #EC-1021" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Edit Order #EC-1021" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td class="dash-cell-main">#EC-1020</td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B98FB2;">ES</span><div><div class="dash-cell-main">Elena Silva</div><div class="dash-cell-sub">elena@mail.com</div></div></div></td>
+                  <td>Aug 07, 2026</td>
+                  <td>2</td>
+                  <td>$112.75</td>
+                  <td><i class="bi bi-paypal"></i> PayPal</td>
+                  <td><span class="badge-status success">Delivered</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Order #EC-1020" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Edit Order #EC-1020" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td class="dash-cell-main">#EC-1019</td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">TW</span><div><div class="dash-cell-main">Tom Wong</div><div class="dash-cell-sub">tom@mail.com</div></div></div></td>
+                  <td>Aug 06, 2026</td>
+                  <td>4</td>
+                  <td>$187.00</td>
+                  <td><i class="bi bi-credit-card"></i> Amex</td>
+                  <td><span class="badge-status warn">Processing</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Order #EC-1019" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Edit Order #EC-1019" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="dash-tbl-foot">
+              <span>Showing <strong class="tbl-count">6 entries</strong> of 1,842</span>
+              <div class="d-flex gap-2">
+                <button class="btn-dash light sm" disabled><i class="bi bi-chevron-left"></i></button>
+                <button class="btn-dash primary sm">1</button>
+                <button class="btn-dash light sm" data-action="Go to page 2">2</button>
+                <button class="btn-dash light sm" data-action="Go to page 3">3</button>
+                <button class="btn-dash light sm" data-action="Go to page 4"><i class="bi bi-chevron-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PRODUCTS ============ -->
+        <section class="dash-view" id="view-products" data-title="Products Management">
+          <div class="dash-head">
+            <h2>Products Management</h2>
+            <p>Add, edit, stock and organize your full product catalogue from one place.</p>
+          </div>
+          <div class="dash-actions">
+            <button class="btn-dash primary sm" data-action="Add Product"><i class="bi bi-plus-lg"></i> Add Product</button>
+            <button class="btn-dash light sm" data-action="Import Products"><i class="bi bi-upload"></i> Import</button>
+            <button class="btn-dash light sm" data-action="Export Products"><i class="bi bi-download"></i> Export</button>
+          </div>
+          <div class="dash-table-wrap">
+            <div class="dash-tbl-head">
+              <h6>Product Catalogue</h6>
+              <div class="tbl-search"><i class="bi bi-search"></i><input type="search" placeholder="Search products…" aria-label="Search products" /></div>
+            </div>
+            <table class="dash-table">
+              <thead>
+                <tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=120&auto=format&fit=crop" alt="Glow Serum" class="dash-thumb" /><div><div class="dash-cell-main">Glow Serum</div><div class="dash-cell-sub">SKU: EC-1001</div></div></div></td>
+                  <td>Serums</td>
+                  <td>$58.00</td>
+                  <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:82%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;">328 units</div></div></td>
+                  <td><span class="badge-status success">Active</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Glow Serum" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=120&auto=format&fit=crop" alt="Hydra Cream" class="dash-thumb" /><div><div class="dash-cell-main">Hydra Cream</div><div class="dash-cell-sub">SKU: EC-1002</div></div></div></td>
+                  <td>Moisturizers</td>
+                  <td>$42.00</td>
+                  <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:64%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;">256 units</div></div></td>
+                  <td><span class="badge-status success">Active</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Hydra Cream" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=120&auto=format&fit=crop" alt="Rose Oil" class="dash-thumb" /><div><div class="dash-cell-main">Rose Facial Oil</div><div class="dash-cell-sub">SKU: EC-1003</div></div></div></td>
+                  <td>Facial Oils</td>
+                  <td>$66.00</td>
+                  <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:41%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;">164 units</div></div></td>
+                  <td><span class="badge-status success">Active</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Rose Facial Oil" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=120&auto=format&fit=crop" alt="SPF 50" class="dash-thumb" /><div><div class="dash-cell-main">Daily Defense SPF 50</div><div class="dash-cell-sub">SKU: EC-1004</div></div></div></td>
+                  <td>Sun Care</td>
+                  <td>$32.00</td>
+                  <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:6%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;color:var(--dash-danger);">6 units left</div></div></td>
+                  <td><span class="badge-status warn">Low Stock</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Daily Defense SPF 50" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1585232004423-244e0e6904e3?q=80&w=120&auto=format&fit=crop" alt="Gentle Cleanser" class="dash-thumb" /><div><div class="dash-cell-main">Gentle Milk Cleanser</div><div class="dash-cell-sub">SKU: EC-1005</div></div></div></td>
+                  <td>Cleansers</td>
+                  <td>$28.00</td>
+                  <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:72%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;">288 units</div></div></td>
+                  <td><span class="badge-status muted">Draft</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Gentle Milk Cleanser" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="dash-tbl-foot">
+              <span>Showing <strong class="tbl-count">5 entries</strong> of 124</span>
+              <div class="d-flex gap-2">
+                <button class="btn-dash light sm" disabled><i class="bi bi-chevron-left"></i></button>
+                <button class="btn-dash primary sm">1</button>
+                <button class="btn-dash light sm" data-action="Go to page 2">2</button>
+                <button class="btn-dash light sm" data-action="Go to page 3"><i class="bi bi-chevron-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ CATEGORIES ============ -->
+        <section class="dash-view" id="view-categories" data-title="Categories Management">
+          <div class="dash-head">
+            <h2>Categories Management</h2>
+            <p>Organize your catalogue into browsable, shoppable categories.</p>
+          </div>
+          <div class="dash-actions">
+            <button class="btn-dash primary sm" data-action="Add Category"><i class="bi bi-plus-lg"></i> Add Category</button>
+          </div>
+          <div class="dash-table-wrap">
+            <div class="dash-tbl-head">
+              <h6>Categories</h6>
+              <div class="tbl-search"><i class="bi bi-search"></i><input type="search" placeholder="Search categories…" aria-label="Search categories" /></div>
+            </div>
+            <table class="dash-table">
+              <thead>
+                <tr><th>Category</th><th>Description</th><th>Products</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(193,138,79,.15);color:var(--dash-accent);"><i class="bi bi-droplet-half"></i></span><div class="dash-cell-main">Serums</div></div></td>
+                  <td class="dash-cell-sub">Concentrated actives for targeted results</td>
+                  <td>38</td>
+                  <td><span class="badge-status success">Active</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Serums" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(122,139,111,.16);color:var(--dash-sage);"><i class="bi bi-moisture"></i></span><div class="dash-cell-main">Moisturizers</div></div></td>
+                  <td class="dash-cell-sub">Daily hydration &amp; barrier support</td>
+                  <td>42</td>
+                  <td><span class="badge-status success">Active</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Moisturizers" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(91,127,166,.15);color:var(--dash-info);"><i class="bi bi-droplet"></i></span><div class="dash-cell-main">Facial Oils</div></div></td>
+                  <td class="dash-cell-sub">Nourishing botanical oils</td>
+                  <td>24</td>
+                  <td><span class="badge-status success">Active</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Facial Oils" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(200,154,74,.15);color:var(--dash-warn);"><i class="bi bi-sun"></i></span><div class="dash-cell-main">Sun Care</div></div></td>
+                  <td class="dash-cell-sub">SPF protection for every day</td>
+                  <td>18</td>
+                  <td><span class="badge-status success">Active</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Sun Care" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(185,143,178,.16);color:#9a5f92;"><i class="bi bi-bubbles"></i></span><div class="dash-cell-main">Cleansers</div></div></td>
+                  <td class="dash-cell-sub">First-step clean routines</td>
+                  <td>21</td>
+                  <td><span class="badge-status muted">Inactive</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Edit Cleansers" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============ CUSTOMERS ============ -->
+        <section class="dash-view" id="view-customers" data-title="Customer Management">
+          <div class="dash-head">
+            <h2>Customer Management</h2>
+            <p>View customer profiles, order history and engagement across your store.</p>
+          </div>
+          <div class="dash-grid dash-grid-4" style="margin-bottom:22px;">
+            <div class="dash-card stat-card"><span class="stat-icon accent"><i class="bi bi-people-fill"></i></span><div class="stat-value" data-count="2437">0</div><div class="stat-label">Total Customers</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon sage"><i class="bi bi-person-check"></i></span><div class="stat-value" data-count="183" data-prefix="+">0</div><div class="stat-label">New This Month</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon warn"><i class="bi bi-star-half"></i></span><div class="stat-value" data-count="68">0</div><div class="stat-label">VIP Members</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon info"><i class="bi bi-arrow-repeat"></i></span><div class="stat-value" data-count="31" data-suffix="%">0</div><div class="stat-label">Repeat Purchase Rate</div></div>
+          </div>
+          <div class="dash-table-wrap">
+            <div class="dash-tbl-head">
+              <h6>All Customers</h6>
+              <div class="tbl-search"><i class="bi bi-search"></i><input type="search" placeholder="Search customers…" aria-label="Search customers" /></div>
+            </div>
+            <table class="dash-table">
+              <thead>
+                <tr><th>Customer</th><th>Orders</th><th>Spent</th><th>Joined</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#C18A4F;">AC</span><div><div class="dash-cell-main">Ava Chen</div><div class="dash-cell-sub">ava@mail.com</div></div></div></td>
+                  <td>14</td>
+                  <td>$1,248.00</td>
+                  <td>Mar 2025</td>
+                  <td><span class="badge-status success">VIP</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Ava Chen" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Email Ava Chen" title="Email"><i class="bi bi-envelope"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">MR</span><div><div class="dash-cell-main">Mia Roberts</div><div class="dash-cell-sub">mia@mail.com</div></div></div></td>
+                  <td>9</td>
+                  <td>$762.40</td>
+                  <td>Jul 2025</td>
+                  <td><span class="badge-status info">Regular</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Mia Roberts" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Email Mia Roberts" title="Email"><i class="bi bi-envelope"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#5B7FA6;">JO</span><div><div class="dash-cell-main">Jonas Ortiz</div><div class="dash-cell-sub">jonas@mail.com</div></div></div></td>
+                  <td>22</td>
+                  <td>$2,190.00</td>
+                  <td>Jan 2025</td>
+                  <td><span class="badge-status success">VIP</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Jonas Ortiz" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Email Jonas Ortiz" title="Email"><i class="bi bi-envelope"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#C89A4A;">LP</span><div><div class="dash-cell-main">Lena Park</div><div class="dash-cell-sub">lena@mail.com</div></div></div></td>
+                  <td>2</td>
+                  <td>$96.00</td>
+                  <td>Oct 2026</td>
+                  <td><span class="badge-status muted">New</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Lena Park" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Email Lena Park" title="Email"><i class="bi bi-envelope"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B98FB2;">ES</span><div><div class="dash-cell-main">Elena Silva</div><div class="dash-cell-sub">elena@mail.com</div></div></div></td>
+                  <td>7</td>
+                  <td>$540.00</td>
+                  <td>Feb 2026</td>
+                  <td><span class="badge-status danger">Blocked</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View Elena Silva" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Email Elena Silva" title="Email"><i class="bi bi-envelope"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============ PAYMENTS ============ -->
+        <section class="dash-view" id="view-payments" data-title="Payments">
+          <div class="dash-head">
+            <h2>Payments</h2>
+            <p>All transactions, refunds and payout activity in one place.</p>
+          </div>
+          <div class="dash-grid dash-grid-3" style="margin-bottom:22px;">
+            <div class="dash-card stat-card"><span class="stat-icon sage"><i class="bi bi-cash-coin"></i></span><div class="stat-value" data-count="8421" data-prefix="$">0</div><div class="stat-label">Collected Today</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon warn"><i class="bi bi-arrow-repeat"></i></span><div class="stat-value" data-count="347" data-prefix="$">0</div><div class="stat-label">Refunds This Month</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon info"><i class="bi bi-graph-up"></i></span><div class="stat-value" data-count="99.2" data-decimals="1" data-suffix="%">0</div><div class="stat-label">Success Rate</div></div>
+          </div>
+          <div class="dash-table-wrap">
+            <div class="dash-tbl-head">
+              <h6>Transactions</h6>
+              <div class="tbl-search"><i class="bi bi-search"></i><input type="search" placeholder="Search transactions…" aria-label="Search transactions" /></div>
+            </div>
+            <table class="dash-table">
+              <thead>
+                <tr><th>Transaction</th><th>Order</th><th>Method</th><th>Amount</th><th>Date</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="dash-cell-main">TXN-88213</td>
+                  <td class="dash-cell-main">#EC-1024</td>
+                  <td><i class="bi bi-credit-card"></i> Visa •• 4412</td>
+                  <td>$148.00</td>
+                  <td>Aug 11, 2026</td>
+                  <td><span class="badge-status success">Completed</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View TXN-88213" title="View"><i class="bi bi-eye"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td class="dash-cell-main">TXN-88212</td>
+                  <td class="dash-cell-main">#EC-1023</td>
+                  <td><i class="bi bi-paypal"></i> PayPal</td>
+                  <td>$96.50</td>
+                  <td>Aug 10, 2026</td>
+                  <td><span class="badge-status success">Completed</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View TXN-88212" title="View"><i class="bi bi-eye"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td class="dash-cell-main">TXN-88211</td>
+                  <td class="dash-cell-main">#EC-1022</td>
+                  <td><i class="bi bi-apple"></i> Apple Pay</td>
+                  <td>$219.00</td>
+                  <td>Aug 09, 2026</td>
+                  <td><span class="badge-status success">Completed</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View TXN-88211" title="View"><i class="bi bi-eye"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td class="dash-cell-main">TXN-88210</td>
+                  <td class="dash-cell-main">#EC-1021</td>
+                  <td><i class="bi bi-credit-card"></i> Mastercard •• 8091</td>
+                  <td>$64.00</td>
+                  <td>Aug 08, 2026</td>
+                  <td><span class="badge-status danger">Refunded</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View TXN-88210" title="View"><i class="bi bi-eye"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td class="dash-cell-main">TXN-88209</td>
+                  <td class="dash-cell-main">#EC-1020</td>
+                  <td><i class="bi bi-paypal"></i> PayPal</td>
+                  <td>$112.75</td>
+                  <td>Aug 07, 2026</td>
+                  <td><span class="badge-status warn">Pending</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View TXN-88209" title="View"><i class="bi bi-eye"></i></button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============ REVIEWS ============ -->
+        <section class="dash-view" id="view-reviews" data-title="Reviews &amp; Ratings">
+          <div class="dash-head">
+            <h2>Reviews &amp; Ratings</h2>
+            <p>Moderate customer feedback and keep your catalogue glowing.</p>
+          </div>
+          <div class="dash-grid dash-grid-3" style="margin-bottom:22px;">
+            <div class="dash-card stat-card"><span class="stat-icon warn"><i class="bi bi-star-fill"></i></span><div class="stat-value" data-count="4.9" data-decimals="1">0</div><div class="stat-label">Average Rating</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon sage"><i class="bi bi-chat-square-text"></i></span><div class="stat-value" data-count="1284">0</div><div class="stat-label">Total Reviews</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon danger" style="background:rgba(192,85,85,.13);color:var(--dash-danger);"><i class="bi bi-exclamation-triangle"></i></span><div class="stat-value" data-count="7">0</div><div class="stat-label">Awaiting Moderation</div></div>
+          </div>
+          <div class="dash-table-wrap">
+            <div class="dash-tbl-head">
+              <h6>Recent Reviews</h6>
+              <div class="tbl-search"><i class="bi bi-search"></i><input type="search" placeholder="Search reviews…" aria-label="Search reviews" /></div>
+            </div>
+            <table class="dash-table">
+              <thead>
+                <tr><th>Reviewer</th><th>Product</th><th>Rating</th><th>Comment</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#C18A4F;">AC</span><div class="dash-cell-main">Ava Chen</div></div></td>
+                  <td class="dash-cell-main">Glow Serum</td>
+                  <td><span style="color:var(--dash-warn);">★★★★★</span></td>
+                  <td class="dash-cell-sub" style="max-width:260px;">Absolutely transformed my skin in two weeks!</td>
+                  <td><span class="badge-status success">Approved</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View review" title="View"><i class="bi bi-eye"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">MR</span><div class="dash-cell-main">Mia Roberts</div></div></td>
+                  <td class="dash-cell-main">Hydra Cream</td>
+                  <td><span style="color:var(--dash-warn);">★★★★☆</span></td>
+                  <td class="dash-cell-sub" style="max-width:260px;">Rich but absorbs quickly. Love the scent.</td>
+                  <td><span class="badge-status success">Approved</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View review" title="View"><i class="bi bi-eye"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#5B7FA6;">JO</span><div class="dash-cell-main">Jonas Ortiz</div></div></td>
+                  <td class="dash-cell-main">Rose Facial Oil</td>
+                  <td><span style="color:var(--dash-warn);">★★☆☆☆</span></td>
+                  <td class="dash-cell-sub" style="max-width:260px;">Broke me out — disappointing. (flagged)</td>
+                  <td><span class="badge-status warn">Pending</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="Approve review" title="Approve"><i class="bi bi-check-lg"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#C89A4A;">LP</span><div class="dash-cell-main">Lena Park</div></div></td>
+                  <td class="dash-cell-main">Daily Defense SPF 50</td>
+                  <td><span style="color:var(--dash-warn);">★★★★★</span></td>
+                  <td class="dash-cell-sub" style="max-width:260px;">No white cast, sits perfectly under makeup.</td>
+                  <td><span class="badge-status success">Approved</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View review" title="View"><i class="bi bi-eye"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B98FB2;">ES</span><div class="dash-cell-main">Elena Silva</div></div></td>
+                  <td class="dash-cell-main">Gentle Milk Cleanser</td>
+                  <td><span style="color:var(--dash-warn);">★★☆☆☆</span></td>
+                  <td class="dash-cell-sub" style="max-width:260px;">Too stripping for dry skin. (flagged)</td>
+                  <td><span class="badge-status danger">Rejected</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-action="View review" title="View"><i class="bi bi-eye"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============ COUPONS ============ -->
+        <section class="dash-view" id="view-coupons" data-title="Coupons / Offers">
+          <div class="dash-head">
+            <h2>Coupons / Offers</h2>
+            <p>Create and manage discount codes, flash sales and seasonal offers.</p>
+          </div>
+          <div class="dash-actions">
+            <button class="btn-dash primary sm" data-action="Create Coupon"><i class="bi bi-plus-lg"></i> New Coupon</button>
+            <button class="btn-dash light sm" data-action="Create Flash Sale"><i class="bi bi-lightning-charge"></i> New Flash Sale</button>
+          </div>
+          <div class="dash-table-wrap">
+            <div class="dash-tbl-head">
+              <h6>Active &amp; Scheduled Offers</h6>
+              <div class="tbl-search"><i class="bi bi-search"></i><input type="search" placeholder="Search coupons…" aria-label="Search coupons" /></div>
+            </div>
+            <table class="dash-table">
+              <thead>
+                <tr><th>Code</th><th>Type</th><th>Discount</th><th>Min Spend</th><th>Uses</th><th>Expires</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(193,138,79,.15);color:var(--dash-accent);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">GLOW15</div></div></td>
+                  <td class="dash-cell-sub">Percent</td>
+                  <td class="dash-cell-main">15% off</td>
+                  <td>$50.00</td>
+                  <td>312 / 500</td>
+                  <td>Aug 31, 2026</td>
+                  <td><span class="badge-status success">Active</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-copy="GLOW15" title="Copy"><i class="bi bi-clipboard"></i></button><button class="icon-action" data-action="Edit GLOW15" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(122,139,111,.16);color:var(--dash-sage);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">FRESH10</div></div></td>
+                  <td class="dash-cell-sub">Fixed</td>
+                  <td class="dash-cell-main">$10 off</td>
+                  <td>$30.00</td>
+                  <td>198 / 400</td>
+                  <td>Sep 15, 2026</td>
+                  <td><span class="badge-status success">Active</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-copy="FRESH10" title="Copy"><i class="bi bi-clipboard"></i></button><button class="icon-action" data-action="Edit FRESH10" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(91,127,166,.15);color:var(--dash-info);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">SUN20</div></div></td>
+                  <td class="dash-cell-sub">Percent</td>
+                  <td class="dash-cell-main">20% off</td>
+                  <td>$0.00</td>
+                  <td>0 / 300</td>
+                  <td>Aug 20, 2026</td>
+                  <td><span class="badge-status info">Scheduled</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-copy="SUN20" title="Copy"><i class="bi bi-clipboard"></i></button><button class="icon-action" data-action="Edit SUN20" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(192,85,85,.13);color:var(--dash-danger);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">VIP25</div></div></td>
+                  <td class="dash-cell-sub">Percent</td>
+                  <td class="dash-cell-main">25% off</td>
+                  <td>$100.00</td>
+                  <td>412 / 500</td>
+                  <td>Jul 30, 2026</td>
+                  <td><span class="badge-status danger">Expired</span></td>
+                  <td><div class="row-actions"><button class="icon-action" data-copy="VIP25" title="Copy"><i class="bi bi-clipboard"></i></button><button class="icon-action" data-action="Edit VIP25" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============ REPORTS ============ -->
+        <section class="dash-view" id="view-reports" data-title="Reports &amp; Analytics">
+          <div class="dash-head">
+            <h2>Reports &amp; Analytics</h2>
+            <p>Deep-dive into revenue, orders and channel performance to guide growth.</p>
+          </div>
+          <div class="dash-grid dash-grid-4" style="margin-bottom:22px;">
+            <div class="dash-card stat-card"><span class="stat-icon accent"><i class="bi bi-cash-stack"></i></span><div class="stat-value" data-count="128420" data-prefix="$">0</div><div class="stat-label">Revenue YTD</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon sage"><i class="bi bi-receipt"></i></span><div class="stat-value" data-count="1842">0</div><div class="stat-label">Orders YTD</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon info"><i class="bi bi-bag-check"></i></span><div class="stat-value" data-count="68.4" data-decimals="1" data-suffix="%">0</div><div class="stat-label">Conversion Rate</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon warn"><i class="bi bi-cart-x"></i></span><div class="stat-value" data-count="12.7" data-decimals="1" data-suffix="%">0</div><div class="stat-label">Cart Abandonment</div></div>
+          </div>
+          <div class="dash-grid dash-grid-2">
+            <div class="dash-card">
+              <div class="dash-card-head"><h6>Revenue Trend</h6><span class="text-muted">Jan – Aug 2026</span></div>
+              <div class="chart-wrap h-lg">
+                <canvas data-type="line" data-chart='{"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],"values":[52,61,58,74,69,88,96,112],"color":"#C18A4F"}'></canvas>
+              </div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-head"><h6>Payment Methods</h6><span class="text-muted">Share of volume</span></div>
+              <div class="chart-wrap h-sm">
+                <canvas data-type="doughnut" data-chart='{"labels":["Credit Card","PayPal","Apple Pay","Other"],"values":[46,24,18,12],"colors":["#C18A4F","#7A8B6F","#5B7FA6","#C89A4A"],"total":"100%","sub":"Methods"}'></canvas>
+              </div>
+              <div class="dash-list" style="margin-top:18px;">
+                <div class="dash-list-item"><div style="flex:1;"><div class="dash-cell-main">Best performing category</div><div class="dash-cell-sub">Serums · 38% of revenue</div></div><span class="badge-status success">+21%</span></div>
+                <div class="dash-list-item"><div style="flex:1;"><div class="dash-cell-main">Top repeat product</div><div class="dash-cell-sub">Glow Serum · 412 units this month</div></div><span class="badge-status success">+14%</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="dash-card" style="margin-top:22px;">
+            <div class="dash-card-head"><h6>Monthly Orders</h6><span class="text-muted">Jan – Aug 2026</span></div>
+            <div class="chart-wrap">
+              <canvas data-type="bars" data-chart='{"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],"values":[310,360,340,420,395,460,505,540],"colors":["#B98342","#B98342","#B98342","#B98342","#B98342","#B98342","#B98342","#B98342"]}'></canvas>
+            </div>
+          </div>
+          <div class="dash-grid dash-grid-2" style="margin-top:22px;">
+            <div class="dash-card">
+              <div class="dash-card-head"><h6>Top Traffic Channels</h6><span class="text-muted">Conversions by source</span></div>
+              <div class="chart-wrap h-sm">
+                <canvas data-type="doughnut" data-chart='{"labels":["Direct","Organic","Social","Email"],"values":[34,28,22,16],"colors":["#B98342","#7A8B6F","#5B7FA6","#C89A4A"],"total":"3.4K","sub":"Orders"}'></canvas>
+              </div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-head"><h6>Customer Satisfaction</h6><span class="text-muted">NPS score</span></div>
+              <div class="chart-wrap gauge">
+                <canvas data-type="gauge" data-chart='{"value":62,"color":"#B98342","track":"rgba(35,32,26,.08)","sub":"NPS · Jul 2026"}'></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ NOTIFICATIONS ============ -->
+        <section class="dash-view" id="view-notifications" data-title="Notifications">
+          <div class="dash-head">
+            <h2>Notifications</h2>
+            <p>Important store alerts and activity updates.</p>
+          </div>
+          <div class="dash-actions">
+            <button class="btn-dash light sm" data-mark-read><i class="bi bi-check2-all"></i> Mark all as read</button>
+            <button class="btn-dash light sm" data-action="Notification settings"><i class="bi bi-gear"></i> Settings</button>
+          </div>
+          <div class="dash-card">
+            <div class="dash-list">
+              <div class="dash-list-item unread dash-notify-item">
+                <span class="dash-notify-ico" style="background:rgba(200,154,74,.15);color:var(--dash-warn);"><i class="bi bi-cart"></i></span>
+                <div style="flex:1;"><p><strong>New order #EC-1024</strong> — $148.00 from Ava Chen</p><small>2 minutes ago</small></div>
+                <span class="badge-status warn">New</span>
+              </div>
+              <div class="dash-list-item unread dash-notify-item">
+                <span class="dash-notify-ico" style="background:rgba(192,85,85,.13);color:var(--dash-danger);"><i class="bi bi-star"></i></span>
+                <div style="flex:1;"><p><strong>1-star review</strong> on Glow Serum flagged for moderation</p><small>38 minutes ago</small></div>
+                <span class="badge-status warn">New</span>
+              </div>
+              <div class="dash-list-item unread dash-notify-item">
+                <span class="dash-notify-ico" style="background:rgba(111,154,107,.15);color:var(--dash-success);"><i class="bi bi-box"></i></span>
+                <div style="flex:1;"><p><strong>Low stock</strong> — Vitamin C Elixir has 6 units left</p><small>1 hour ago</small></div>
+                <span class="badge-status warn">New</span>
+              </div>
+              <div class="dash-list-item dash-notify-item">
+                <span class="dash-notify-ico" style="background:rgba(91,127,166,.14);color:var(--dash-info);"><i class="bi bi-people"></i></span>
+                <div style="flex:1;"><p><strong>42 new customers</strong> registered this week</p><small>Yesterday</small></div>
+              </div>
+              <div class="dash-list-item dash-notify-item">
+                <span class="dash-notify-ico" style="background:rgba(193,138,79,.15);color:var(--dash-accent);"><i class="bi bi-megaphone"></i></span>
+                <div style="flex:1;"><p><strong>Campaign sent</strong> — "GLOW15" reached 8,400 subscribers</p><small>2 days ago</small></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SETTINGS ============ -->
+        <section class="dash-view" id="view-settings" data-title="Profile &amp; Settings">
+          <div class="dash-head">
+            <h2>Profile &amp; Settings</h2>
+            <p>Manage your admin profile, store preferences and security.</p>
+          </div>
+          <div class="dash-grid dash-grid-2">
+            <div class="dash-card dash-form">
+              <div class="dash-card-head"><h6>Personal Information</h6></div>
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-6"><label class="form-label">Full Name</label><input class="form-control" value="Ava Martin" /></div>
+                  <div class="col-md-6"><label class="form-label">Role</label><input class="form-control" value="Super Admin" disabled /></div>
+                  <div class="col-md-6"><label class="form-label">Email</label><input class="form-control" type="email" value="ava@eclat.com" /></div>
+                  <div class="col-md-6"><label class="form-label">Phone</label><input class="form-control" value="+1 (555) 018-7245" /></div>
+                  <div class="col-12"><label class="form-label">Bio</label><textarea class="form-control" rows="3">Running Stackly's operations — keeping the glow going every day.</textarea></div>
+                  <div class="col-12 d-flex gap-2"><button class="btn-dash primary" type="submit">Save Changes</button><button class="btn-dash light" type="button" data-action="Cancel">Cancel</button></div>
+                </div>
+              </form>
+            </div>
+
+            <div class="dash-grid" style="gap:20px;">
+              <div class="dash-card dash-form">
+                <div class="dash-card-head"><h6>Change Password</h6></div>
+                <form>
+                  <div class="mb-3"><label class="form-label">Current Password</label><input class="form-control" type="password" placeholder="••••••••" /></div>
+                  <div class="mb-3"><label class="form-label">New Password</label><input class="form-control" type="password" placeholder="Min. 8 characters" /></div>
+                  <div class="mb-3"><label class="form-label">Confirm New Password</label><input class="form-control" type="password" placeholder="Repeat new password" /></div>
+                  <button class="btn-dash primary" type="submit"><i class="bi bi-shield-lock"></i> Update Password</button>
+                </form>
+              </div>
+              <div class="dash-card dash-form">
+                <div class="dash-card-head"><h6>Store Preferences</h6></div>
+                <form>
+                  <div class="mb-3"><label class="form-label">Store Currency</label>
+                    <select class="form-select">
+                      <option selected>USD — US Dollar</option>
+                      <option>EUR — Euro</option>
+                      <option>GBP — British Pound</option>
+                      <option>INR — Indian Rupee</option>
+                    </select>
+                  </div>
+                  <div class="mb-3"><label class="form-label">Email Notifications</label>
+                    <select class="form-select">
+                      <option selected>Send order &amp; review alerts</option>
+                      <option>Only critical alerts</option>
+                      <option>Disable all email</option>
+                    </select>
+                  </div>
+                  <button class="btn-dash dark" type="submit">Save Preferences</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

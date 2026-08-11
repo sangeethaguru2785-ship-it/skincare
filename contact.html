@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact the Éclat team — skincare advice, order help, press or partnerships. We'd love to hear from you." />
-  <title>Contact — Éclat Skincare</title>
+  <meta name="description" content="Contact the Stackly team — skincare advice, order help, press or partnerships. We'd love to hear from you." />
+  <title>Contact — Stackly Skincare</title>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+        <img src="images/logo.webp" alt="Stackly Skincare" class="brand-logo" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="toggler-line"></span>
@@ -38,13 +38,15 @@
           <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
         </ul>
         <div class="navbar-actions d-flex align-items-center">
-          <a href="shop.html" class="nav-icon" aria-label="Search"><i class="bi bi-search"></i></a>
           <button class="nav-icon position-relative" id="cartToggle" aria-label="Open cart">
             <i class="bi bi-bag"></i>
             <span class="cart-count" id="cartCount">0</span>
           </button>
           <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-3 px-lg-4 d-none d-sm-inline-flex align-items-center gap-2">
             Shop Now <i class="bi bi-arrow-up-right"></i>
+          </a>
+          <a href="login.html" class="btn btn-outline-dark btn-sm rounded-pill px-3 px-lg-4 d-inline-flex align-items-center gap-2">
+            <i class="bi bi-person"></i> Login
           </a>
         </div>
       </div>
@@ -88,6 +90,17 @@
       <p>Skincare questions, order help, press or partnerships — a real human replies within one business day.</p>
     </div>
   </header>
+
+  <!-- ============ GET IN TOUCH ============ -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Get in Touch</span>
+        <h2 class="section-title">We'd <em>love</em> to hear from you.</h2>
+        <p class="section-sub">Whether you need routine advice, help with an order, or just want to say hi — our skincare-obsessed team is here for you.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ CONTACT ============ -->
   <section class="section" style="padding-top:0;">
@@ -145,18 +158,19 @@
                   <input type="email" class="form-control" id="cEmail" required />
                 </div>
                 <div class="col-md-6">
-                  <label for="cTopic" class="form-label">Topic</label>
-                  <select class="form-select" id="cTopic">
+                  <label for="cPhone" class="form-label">Phone (optional)</label>
+                  <input type="tel" class="form-control" id="cPhone" placeholder="+1 (555) 000-0000" />
+                </div>
+                <div class="col-md-6">
+                  <label for="cSubject" class="form-label">Subject</label>
+                  <select class="form-select" id="cSubject" required>
+                    <option value="" selected disabled>Choose a subject</option>
                     <option>General enquiry</option>
                     <option>Order &amp; shipping</option>
                     <option>Product advice</option>
                     <option>Press &amp; partnerships</option>
                     <option>Careers</option>
                   </select>
-                </div>
-                <div class="col-md-6">
-                  <label for="cOrder" class="form-label">Order number (optional)</label>
-                  <input type="text" class="form-control" id="cOrder" placeholder="EC-00000" />
                 </div>
                 <div class="col-12">
                   <label for="cMessage" class="form-label">Message</label>
@@ -173,8 +187,41 @@
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
+  <!-- ============ WHY CONTACT US ============ -->
   <section class="section" style="background: var(--cream-soft);">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Why Contact Us?</span>
+        <h2 class="section-title">Real people, <em>real</em> help.</h2>
+        <p class="section-sub">No bots, no scripts. Every message lands with a skin-science trained advisor.</p>
+      </div>
+      <div class="why-grid page-reveal">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-chat-heart"></i></div>
+          <h3>Skincare advice</h3>
+          <p>Personalised product and routine guidance from our advisors — not generic FAQ text.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-box-seam"></i></div>
+          <h3>Order support</h3>
+          <p>Track orders, fix issues and swap sizes fast. Average reply time is under 4 hours.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-arrow-counterclockwise"></i></div>
+          <h3>Easy returns</h3>
+          <p>30-day glow guarantee — if it's not right, we'll refund or replace it. Simple.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-megaphone"></i></div>
+          <h3>Press &amp; partners</h3>
+          <p>Collaborations, wholesale and press enquiries answered within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section">
     <div class="container">
       <div class="section-head text-center page-reveal">
         <span class="eyebrow">Quick Answers</span>
@@ -210,7 +257,7 @@
                 </button>
               </h3>
               <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">Yes — every brand on Éclat is 100% vegan certified and cruelty-free. It's a non-negotiable for our curation board.</div>
+                <div class="accordion-body">Yes — every brand on Stackly is 100% vegan certified and cruelty-free. It's a non-negotiable for our curation board.</div>
               </div>
             </div>
             <div class="accordion-item">
@@ -225,6 +272,58 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIND US / MAP ============ -->
+  <section class="section" style="background: var(--cream-soft);">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Find Us</span>
+        <h2 class="section-title">Come say <em>hi</em> in person.</h2>
+        <p class="section-sub">Our flagship studio sits in the heart of Manhattan — visit for free skin diagnostics and samples.</p>
+      </div>
+      <div class="map-frame page-reveal">
+        <iframe
+          src="https://www.google.com/maps?q=128%20Madison%20Avenue%2C%20New%20York%2C%20NY&z=15&output=embed"
+          width="600" height="420" style="border:0;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Stackly Studio — 128 Madison Avenue, New York"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL MEDIA ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head text-center page-reveal">
+        <span class="eyebrow">Social Media</span>
+        <h2 class="section-title">Follow the <em>glow</em>.</h2>
+        <p class="section-sub">Daily tips, ingredient drops and behind-the-scenes skin science — join 120k+ of us.</p>
+      </div>
+      <div class="social-grid page-reveal">
+        <a href="404.html" class="social-card">
+          <div class="social-icon"><i class="bi bi-instagram"></i></div>
+          <strong>Instagram</strong>
+          <span>@stackly</span>
+        </a>
+        <a href="404.html" class="social-card">
+          <div class="social-icon"><i class="bi bi-facebook"></i></div>
+          <strong>Facebook</strong>
+          <span>Stackly Skincare</span>
+        </a>
+        <a href="404.html" class="social-card">
+          <div class="social-icon"><i class="bi bi-youtube"></i></div>
+          <strong>YouTube</strong>
+          <span>Weekly skin science</span>
+        </a>
+        <a href="404.html" class="social-card">
+          <div class="social-icon"><i class="bi bi-twitter-x"></i></div>
+          <strong>X</strong>
+          <span>@stackly</span>
+        </a>
       </div>
     </div>
   </section>
@@ -256,20 +355,30 @@
   <footer class="footer">
     <div class="container">
       <div class="row g-5">
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <a class="navbar-brand mb-3" href="index.html">
-            <img src="images/logo.webp" alt="Éclat Skincare" class="brand-logo" />
+            <img src="images/logo.webp" alt="Stackly" class="brand-logo" />
           </a>
-          <p class="footer-about">Éclat is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
+          <p class="footer-about">Stackly is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
-            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="404.html" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="404.html" aria-label="X (formerly Twitter)"><i class="bi bi-twitter-x"></i></a>
           </div>
         </div>
         <div class="col-6 col-lg-2">
-          <h5>Shop</h5>
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Shop Categories</h5>
           <ul>
             <li><a href="shop.html?cat=serum">Serums</a></li>
             <li><a href="shop.html?cat=moisturizer">Moisturizers</a></li>
@@ -279,30 +388,34 @@
           </ul>
         </div>
         <div class="col-6 col-lg-2">
-          <h5>Company</h5>
+          <h5>Customer Support</h5>
           <ul>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="journal.html">Journal</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping &amp; Returns</a></li>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Skin Quiz</a></li>
+            <li><a href="contact.html">Help Center</a></li>
           </ul>
         </div>
-        <div class="col-lg-4">
-          <h5>We'd love to hear from you</h5>
-          <p class="footer-about mb-2">hello@stackly.com<br/>+1 (555) 018-7245</p>
-          <p class="footer-about mb-3">Mon – Fri · 9:00 – 18:00 EST</p>
-          <div class="footer-payments">
-            <i class="bi bi-credit-card-2-front"></i>
-            <i class="bi bi-paypal"></i>
-            <i class="bi bi-apple"></i>
-            <i class="bi bi-google"></i>
-          </div>
+        <div class="col-6 col-lg-3">
+          <h5>Contact</h5>
+          <ul class="footer-contact">
+            <li><i class="bi bi-envelope"></i> hello@stackly.com</li>
+            <li><i class="bi bi-telephone"></i> +1 (555) 018-7245</li>
+            <li><i class="bi bi-clock"></i> Mon – Fri · 9:00 – 18:00 EST</li>
+          </ul>
         </div>
       </div>
+
       <hr class="footer-hr" />
-      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
-        <p class="mb-0">© 2026 Éclat Skincare. All rights reserved.</p>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <p class="mb-0">© 2026 Stackly. All rights reserved.</p>
+        <div class="footer-payments" aria-label="Payment options">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-paypal"></i>
+          <i class="bi bi-apple"></i>
+          <i class="bi bi-google"></i>
+        </div>
         <div class="footer-links">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
