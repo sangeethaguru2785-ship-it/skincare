@@ -25,10 +25,6 @@
     <aside class="dash-sidebar" id="dashSidebar">
       <a class="dash-brand" href="index.html">
         <img src="images/logo.webp" alt="Stackly" />
-        <div class="dash-brand-text">
-          <strong>Stackly</strong>
-          <span>Admin Panel</span>
-        </div>
       </a>
 
       <nav class="dash-nav" aria-label="Admin navigation">
@@ -69,51 +65,11 @@
             <input type="search" placeholder="Search admin…" aria-label="Search admin" />
           </div>
 
-          <a href="index.html" class="dash-icon-btn" aria-label="View store" title="View store"><i class="bi bi-shop"></i></a>
-
-          <div class="dash-dd">
-            <button class="dash-icon-btn dash-dd-toggle" aria-label="Notifications"><i class="bi bi-bell"></i><span class="dash-dot"></span></button>
-            <div class="dash-dd-menu dash-notify">
-              <div class="dash-notify-head">
-                <span>Notifications</span>
-                <button class="btn btn-link btn-sm p-0" data-mark-read style="font-size:.78rem;">Mark all read</button>
-              </div>
-              <div class="dash-notify-item unread">
-                <span class="dash-notify-ico" style="background:rgba(200,154,74,.15);color:var(--dash-warn);"><i class="bi bi-cart"></i></span>
-                <div>
-                  <p><strong>New order #EC-1024</strong> — $148.00 from Ava Chen</p>
-                  <small>2 minutes ago</small>
-                </div>
-              </div>
-              <div class="dash-notify-item unread">
-                <span class="dash-notify-ico" style="background:rgba(192,85,85,.13);color:var(--dash-danger);"><i class="bi bi-star"></i></span>
-                <div>
-                  <p><strong>1-star review</strong> on Glow Serum flagged for moderation</p>
-                  <small>38 minutes ago</small>
-                </div>
-              </div>
-              <div class="dash-notify-item unread">
-                <span class="dash-notify-ico" style="background:rgba(111,154,107,.15);color:var(--dash-success);"><i class="bi bi-box"></i></span>
-                <div>
-                  <p><strong>Low stock</strong> — Vitamin C Elixir has 6 units left</p>
-                  <small>1 hour ago</small>
-                </div>
-              </div>
-              <div class="dash-notify-item">
-                <span class="dash-notify-ico" style="background:rgba(91,127,166,.14);color:var(--dash-info);"><i class="bi bi-people"></i></span>
-                <div>
-                  <p><strong>42 new customers</strong> registered this week</p>
-                  <small>Yesterday</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="dash-dd">
             <button class="dash-user dash-dd-toggle">
-              <span class="dash-avatar">AM</span>
+              <span class="dash-avatar" data-user-avatar>AM</span>
               <span class="dash-user-meta">
-                <strong>Ava Martin</strong>
+                <strong data-user-name>Ava Martin</strong>
                 <span>Super Admin</span>
               </span>
               <i class="bi bi-chevron-down dash-caret"></i>
@@ -121,7 +77,6 @@
             <div class="dash-dd-menu">
               <a class="dash-dd-item" href="#settings" data-view="settings"><i class="bi bi-person"></i> My Profile</a>
               <a class="dash-dd-item" href="#settings" data-view="settings"><i class="bi bi-gear"></i> Settings</a>
-              <a class="dash-dd-item" href="index.html"><i class="bi bi-shop"></i> View Store</a>
               <hr style="margin:.4rem 0; border-color:var(--dash-line);" />
               <button class="dash-dd-item danger" data-logout><i class="bi bi-box-arrow-right"></i> Logout</button>
             </div>
@@ -135,7 +90,7 @@
         <!-- ============ OVERVIEW ============ -->
         <section class="dash-view active" id="view-overview" data-title="Dashboard Overview">
           <div class="dash-head">
-            <h2>Welcome back, Ava 👋</h2>
+            <h2 data-user-greet="Welcome back, {full} 👋">Welcome back, Ava 👋</h2>
             <p>Here's what's happening across your store today. Orders are up 12% and revenue is trending above the monthly target.</p>
           </div>
 
@@ -172,7 +127,7 @@
               </div>
               <div class="stat-value" data-count="1842">0</div>
               <div class="stat-label">Total Orders</div>
-              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[310,360,340,420,395,460,505,540],"color":"#7A8B6F"}'></canvas></div>
+              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[310,360,340,420,395,460,505,540],"color":"#8B6B4F"}'></canvas></div>
             </div>
             <div class="dash-card stat-card">
               <div class="stat-top">
@@ -190,7 +145,7 @@
               </div>
               <div class="stat-value" data-count="4.9" data-decimals="1">0</div>
               <div class="stat-label">Average Rating</div>
-              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[4.2,4.4,4.3,4.5,4.6,4.8,4.9],"color":"#5B7FA6"}'></canvas></div>
+              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[4.2,4.4,4.3,4.5,4.6,4.8,4.9],"color":"#B08068"}'></canvas></div>
             </div>
           </div>
 
@@ -201,7 +156,7 @@
                 <span class="text-muted">Last 6 months · $K</span>
               </div>
               <div class="chart-wrap">
-                <canvas data-type="multi-line" data-chart='{"labels":["Mar","Apr","May","Jun","Jul","Aug"],"series":[{"name":"Revenue","values":[42,56,49,72,68,86],"color":"#B98342"},{"name":"Target","values":[45,50,55,60,65,70],"color":"#7A8B6F"}],"legend":true}'></canvas>
+                <canvas data-type="multi-line" data-chart='{"labels":["Mar","Apr","May","Jun","Jul","Aug"],"series":[{"name":"Revenue","values":[42,56,49,72,68,86],"color":"#B98342"},{"name":"Target","values":[45,50,55,60,65,70],"color":"#8B6B4F"}],"legend":true}'></canvas>
               </div>
             </div>
             <div class="dash-card">
@@ -210,7 +165,7 @@
                 <span class="text-muted">This month</span>
               </div>
               <div class="chart-wrap h-sm">
-                <canvas data-type="doughnut" data-chart='{"labels":["Serums","Moisturizers","Facial Oils","Sun Care","Cleansers"],"values":[420,310,180,140,90],"colors":["#B98342","#7A8B6F","#5B7FA6","#C89A4A","#B98FB2"],"total":"38%","sub":"Serums lead"}'></canvas>
+                <canvas data-type="pie" data-chart='{"labels":["Serums","Moisturizers","Facial Oils","Sun Care","Cleansers"],"values":[420,310,180,140,90],"colors":["#B98342","#8B6B4F","#B08068","#C89A4A","#8A7561"],"total":"38%","sub":"Serums lead"}'></canvas>
               </div>
             </div>
           </div>
@@ -231,7 +186,28 @@
                 <span class="text-muted">Share of sessions</span>
               </div>
               <div class="chart-wrap h-sm">
-                <canvas data-type="doughnut" data-chart='{"labels":["Direct","Organic","Social","Email"],"values":[34,28,22,16],"colors":["#B98342","#7A8B6F","#5B7FA6","#C89A4A"],"total":"68K","sub":"Sessions"}'></canvas>
+                <canvas data-type="doughnut" data-chart='{"labels":["Direct","Organic","Social","Email"],"values":[34,28,22,16],"colors":["#B98342","#8B6B4F","#B08068","#C89A4A"],"total":"68K","sub":"Sessions"}'></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-grid dash-grid-2" style="margin-top:22px;">
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h6>Customer Growth</h6>
+                <span class="text-muted">Total customers · this year</span>
+              </div>
+              <div class="chart-wrap h-sm">
+                <canvas data-type="line" data-chart='{"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],"values":[1420,1560,1680,1820,1990,2140,2270,2437],"color":"#B98342"}'></canvas>
+              </div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h6>Monthly Sales</h6>
+                <span class="text-muted">Revenue in $K</span>
+              </div>
+              <div class="chart-wrap h-sm">
+                <canvas data-type="bars" data-chart='{"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],"values":[38,44,41,52,58,63,68,72],"colors":["#B98342","#B98342","#B98342","#B98342","#B98342","#B98342","#B98342","#B98342"],"prefix":"$"}'></canvas>
               </div>
             </div>
           </div>
@@ -255,13 +231,13 @@
                   </tr>
                   <tr>
                     <td class="dash-cell-main">#EC-1023</td>
-                    <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">MR</span><div><div class="dash-cell-main">Mia Roberts</div><div class="dash-cell-sub">mia@mail.com</div></div></div></td>
+                    <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#8B6B4F;">MR</span><div><div class="dash-cell-main">Mia Roberts</div><div class="dash-cell-sub">mia@mail.com</div></div></div></td>
                     <td>$96.50</td>
                     <td><span class="badge-status info">Shipped</span></td>
                   </tr>
                   <tr>
                     <td class="dash-cell-main">#EC-1022</td>
-                    <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#5B7FA6;">JO</span><div><div class="dash-cell-main">Jonas Ortiz</div><div class="dash-cell-sub">jonas@mail.com</div></div></div></td>
+                    <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B08068;">JO</span><div><div class="dash-cell-main">Jonas Ortiz</div><div class="dash-cell-sub">jonas@mail.com</div></div></div></td>
                     <td>$219.00</td>
                     <td><span class="badge-status success">Delivered</span></td>
                   </tr>
@@ -282,7 +258,7 @@
               </div>
               <div class="dash-list">
                 <div class="dash-list-item">
-                  <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=120&auto=format&fit=crop" alt="Glow Serum" class="dash-thumb" />
+                  <img src="images/photo-1608248543803-ba4f8c70ae0b.webp" alt="Glow Serum" class="dash-thumb" />
                   <div style="flex:1;min-width:0;">
                     <div class="dash-cell-main">Glow Serum</div>
                     <div class="dash-progress" style="margin-top:8px;"><i style="width:92%;"></i></div>
@@ -290,7 +266,7 @@
                   </div>
                 </div>
                 <div class="dash-list-item">
-                  <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=120&auto=format&fit=crop" alt="Hydra Cream" class="dash-thumb" />
+                  <img src="images/photo-1598440947619-2c35fc9aa908.webp" alt="Hydra Cream" class="dash-thumb" />
                   <div style="flex:1;min-width:0;">
                     <div class="dash-cell-main">Hydra Cream</div>
                     <div class="dash-progress" style="margin-top:8px;"><i style="width:78%;"></i></div>
@@ -298,7 +274,7 @@
                   </div>
                 </div>
                 <div class="dash-list-item">
-                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=120&auto=format&fit=crop" alt="Rose Oil" class="dash-thumb" />
+                  <img src="images/photo-1620916566398-39f1143ab7be.webp" alt="Rose Oil" class="dash-thumb" />
                   <div style="flex:1;min-width:0;">
                     <div class="dash-cell-main">Rose Facial Oil</div>
                     <div class="dash-progress" style="margin-top:8px;"><i style="width:64%;"></i></div>
@@ -306,7 +282,7 @@
                   </div>
                 </div>
                 <div class="dash-list-item">
-                  <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=120&auto=format&fit=crop" alt="SPF 50" class="dash-thumb" />
+                  <img src="images/photo-1556228578-8c89e6adf883.webp" alt="SPF 50" class="dash-thumb" />
                   <div style="flex:1;min-width:0;">
                     <div class="dash-cell-main">Daily Defense SPF 50</div>
                     <div class="dash-progress" style="margin-top:8px;"><i style="width:51%;"></i></div>
@@ -350,7 +326,7 @@
                 </tr>
                 <tr>
                   <td class="dash-cell-main">#EC-1023</td>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">MR</span><div><div class="dash-cell-main">Mia Roberts</div><div class="dash-cell-sub">mia@mail.com</div></div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#8B6B4F;">MR</span><div><div class="dash-cell-main">Mia Roberts</div><div class="dash-cell-sub">mia@mail.com</div></div></div></td>
                   <td>Aug 10, 2026</td>
                   <td>2</td>
                   <td>$96.50</td>
@@ -360,7 +336,7 @@
                 </tr>
                 <tr>
                   <td class="dash-cell-main">#EC-1022</td>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#5B7FA6;">JO</span><div><div class="dash-cell-main">Jonas Ortiz</div><div class="dash-cell-sub">jonas@mail.com</div></div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B08068;">JO</span><div><div class="dash-cell-main">Jonas Ortiz</div><div class="dash-cell-sub">jonas@mail.com</div></div></div></td>
                   <td>Aug 09, 2026</td>
                   <td>5</td>
                   <td>$219.00</td>
@@ -380,7 +356,7 @@
                 </tr>
                 <tr>
                   <td class="dash-cell-main">#EC-1020</td>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B98FB2;">ES</span><div><div class="dash-cell-main">Elena Silva</div><div class="dash-cell-sub">elena@mail.com</div></div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#8A7561;">ES</span><div><div class="dash-cell-main">Elena Silva</div><div class="dash-cell-sub">elena@mail.com</div></div></div></td>
                   <td>Aug 07, 2026</td>
                   <td>2</td>
                   <td>$112.75</td>
@@ -390,7 +366,7 @@
                 </tr>
                 <tr>
                   <td class="dash-cell-main">#EC-1019</td>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">TW</span><div><div class="dash-cell-main">Tom Wong</div><div class="dash-cell-sub">tom@mail.com</div></div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#8B6B4F;">TW</span><div><div class="dash-cell-main">Tom Wong</div><div class="dash-cell-sub">tom@mail.com</div></div></div></td>
                   <td>Aug 06, 2026</td>
                   <td>4</td>
                   <td>$187.00</td>
@@ -435,7 +411,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=120&auto=format&fit=crop" alt="Glow Serum" class="dash-thumb" /><div><div class="dash-cell-main">Glow Serum</div><div class="dash-cell-sub">SKU: EC-1001</div></div></div></td>
+                  <td><div class="dash-cell-user"><img src="images/photo-1608248543803-ba4f8c70ae0b.webp" alt="Glow Serum" class="dash-thumb" /><div><div class="dash-cell-main">Glow Serum</div><div class="dash-cell-sub">SKU: EC-1001</div></div></div></td>
                   <td>Serums</td>
                   <td>$58.00</td>
                   <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:82%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;">328 units</div></div></td>
@@ -443,7 +419,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="Edit Glow Serum" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=120&auto=format&fit=crop" alt="Hydra Cream" class="dash-thumb" /><div><div class="dash-cell-main">Hydra Cream</div><div class="dash-cell-sub">SKU: EC-1002</div></div></div></td>
+                  <td><div class="dash-cell-user"><img src="images/photo-1598440947619-2c35fc9aa908.webp" alt="Hydra Cream" class="dash-thumb" /><div><div class="dash-cell-main">Hydra Cream</div><div class="dash-cell-sub">SKU: EC-1002</div></div></div></td>
                   <td>Moisturizers</td>
                   <td>$42.00</td>
                   <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:64%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;">256 units</div></div></td>
@@ -451,7 +427,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="Edit Hydra Cream" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=120&auto=format&fit=crop" alt="Rose Oil" class="dash-thumb" /><div><div class="dash-cell-main">Rose Facial Oil</div><div class="dash-cell-sub">SKU: EC-1003</div></div></div></td>
+                  <td><div class="dash-cell-user"><img src="images/photo-1620916566398-39f1143ab7be.webp" alt="Rose Oil" class="dash-thumb" /><div><div class="dash-cell-main">Rose Facial Oil</div><div class="dash-cell-sub">SKU: EC-1003</div></div></div></td>
                   <td>Facial Oils</td>
                   <td>$66.00</td>
                   <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:41%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;">164 units</div></div></td>
@@ -459,7 +435,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="Edit Rose Facial Oil" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=120&auto=format&fit=crop" alt="SPF 50" class="dash-thumb" /><div><div class="dash-cell-main">Daily Defense SPF 50</div><div class="dash-cell-sub">SKU: EC-1004</div></div></div></td>
+                  <td><div class="dash-cell-user"><img src="images/photo-1556228578-8c89e6adf883.webp" alt="SPF 50" class="dash-thumb" /><div><div class="dash-cell-main">Daily Defense SPF 50</div><div class="dash-cell-sub">SKU: EC-1004</div></div></div></td>
                   <td>Sun Care</td>
                   <td>$32.00</td>
                   <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:6%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;color:var(--dash-danger);">6 units left</div></div></td>
@@ -467,7 +443,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="Edit Daily Defense SPF 50" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1585232004423-244e0e6904e3?q=80&w=120&auto=format&fit=crop" alt="Gentle Cleanser" class="dash-thumb" /><div><div class="dash-cell-main">Gentle Milk Cleanser</div><div class="dash-cell-sub">SKU: EC-1005</div></div></div></td>
+                  <td><div class="dash-cell-user"><img src="images/photo-1585232004423-244e0e6904e3.webp" alt="Gentle Cleanser" class="dash-thumb" /><div><div class="dash-cell-main">Gentle Milk Cleanser</div><div class="dash-cell-sub">SKU: EC-1005</div></div></div></td>
                   <td>Cleansers</td>
                   <td>$28.00</td>
                   <td><div style="min-width:110px;"><div class="dash-progress"><i style="width:72%;"></i></div><div class="dash-cell-sub" style="margin-top:5px;">288 units</div></div></td>
@@ -515,14 +491,14 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="Edit Serums" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(122,139,111,.16);color:var(--dash-sage);"><i class="bi bi-moisture"></i></span><div class="dash-cell-main">Moisturizers</div></div></td>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(139,107,79,.16);color:var(--dash-sage);"><i class="bi bi-moisture"></i></span><div class="dash-cell-main">Moisturizers</div></div></td>
                   <td class="dash-cell-sub">Daily hydration &amp; barrier support</td>
                   <td>42</td>
                   <td><span class="badge-status success">Active</span></td>
                   <td><div class="row-actions"><button class="icon-action" data-action="Edit Moisturizers" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(91,127,166,.15);color:var(--dash-info);"><i class="bi bi-droplet"></i></span><div class="dash-cell-main">Facial Oils</div></div></td>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(176,128,104,.15);color:var(--dash-info);"><i class="bi bi-droplet"></i></span><div class="dash-cell-main">Facial Oils</div></div></td>
                   <td class="dash-cell-sub">Nourishing botanical oils</td>
                   <td>24</td>
                   <td><span class="badge-status success">Active</span></td>
@@ -536,7 +512,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="Edit Sun Care" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(185,143,178,.16);color:#9a5f92;"><i class="bi bi-bubbles"></i></span><div class="dash-cell-main">Cleansers</div></div></td>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(138,117,97,.16);color:#8A7561;"><i class="bi bi-bubbles"></i></span><div class="dash-cell-main">Cleansers</div></div></td>
                   <td class="dash-cell-sub">First-step clean routines</td>
                   <td>21</td>
                   <td><span class="badge-status muted">Inactive</span></td>
@@ -578,7 +554,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="View Ava Chen" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Email Ava Chen" title="Email"><i class="bi bi-envelope"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">MR</span><div><div class="dash-cell-main">Mia Roberts</div><div class="dash-cell-sub">mia@mail.com</div></div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#8B6B4F;">MR</span><div><div class="dash-cell-main">Mia Roberts</div><div class="dash-cell-sub">mia@mail.com</div></div></div></td>
                   <td>9</td>
                   <td>$762.40</td>
                   <td>Jul 2025</td>
@@ -586,7 +562,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="View Mia Roberts" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Email Mia Roberts" title="Email"><i class="bi bi-envelope"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#5B7FA6;">JO</span><div><div class="dash-cell-main">Jonas Ortiz</div><div class="dash-cell-sub">jonas@mail.com</div></div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B08068;">JO</span><div><div class="dash-cell-main">Jonas Ortiz</div><div class="dash-cell-sub">jonas@mail.com</div></div></div></td>
                   <td>22</td>
                   <td>$2,190.00</td>
                   <td>Jan 2025</td>
@@ -602,7 +578,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="View Lena Park" title="View"><i class="bi bi-eye"></i></button><button class="icon-action" data-action="Email Lena Park" title="Email"><i class="bi bi-envelope"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B98FB2;">ES</span><div><div class="dash-cell-main">Elena Silva</div><div class="dash-cell-sub">elena@mail.com</div></div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#8A7561;">ES</span><div><div class="dash-cell-main">Elena Silva</div><div class="dash-cell-sub">elena@mail.com</div></div></div></td>
                   <td>7</td>
                   <td>$540.00</td>
                   <td>Feb 2026</td>
@@ -694,7 +670,7 @@
           <div class="dash-grid dash-grid-3" style="margin-bottom:22px;">
             <div class="dash-card stat-card"><span class="stat-icon warn"><i class="bi bi-star-fill"></i></span><div class="stat-value" data-count="4.9" data-decimals="1">0</div><div class="stat-label">Average Rating</div></div>
             <div class="dash-card stat-card"><span class="stat-icon sage"><i class="bi bi-chat-square-text"></i></span><div class="stat-value" data-count="1284">0</div><div class="stat-label">Total Reviews</div></div>
-            <div class="dash-card stat-card"><span class="stat-icon danger" style="background:rgba(192,85,85,.13);color:var(--dash-danger);"><i class="bi bi-exclamation-triangle"></i></span><div class="stat-value" data-count="7">0</div><div class="stat-label">Awaiting Moderation</div></div>
+            <div class="dash-card stat-card"><span class="stat-icon danger" style="background:rgba(191,106,94,.13);color:var(--dash-danger);"><i class="bi bi-exclamation-triangle"></i></span><div class="stat-value" data-count="7">0</div><div class="stat-label">Awaiting Moderation</div></div>
           </div>
           <div class="dash-table-wrap">
             <div class="dash-tbl-head">
@@ -715,7 +691,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="View review" title="View"><i class="bi bi-eye"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#7A8B6F;">MR</span><div class="dash-cell-main">Mia Roberts</div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#8B6B4F;">MR</span><div class="dash-cell-main">Mia Roberts</div></div></td>
                   <td class="dash-cell-main">Hydra Cream</td>
                   <td><span style="color:var(--dash-warn);">★★★★☆</span></td>
                   <td class="dash-cell-sub" style="max-width:260px;">Rich but absorbs quickly. Love the scent.</td>
@@ -723,7 +699,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="View review" title="View"><i class="bi bi-eye"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#5B7FA6;">JO</span><div class="dash-cell-main">Jonas Ortiz</div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B08068;">JO</span><div class="dash-cell-main">Jonas Ortiz</div></div></td>
                   <td class="dash-cell-main">Rose Facial Oil</td>
                   <td><span style="color:var(--dash-warn);">★★☆☆☆</span></td>
                   <td class="dash-cell-sub" style="max-width:260px;">Broke me out — disappointing. (flagged)</td>
@@ -739,7 +715,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-action="View review" title="View"><i class="bi bi-eye"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#B98FB2;">ES</span><div class="dash-cell-main">Elena Silva</div></div></td>
+                  <td><div class="dash-cell-user"><span class="avatar-sm" style="background:#8A7561;">ES</span><div class="dash-cell-main">Elena Silva</div></div></td>
                   <td class="dash-cell-main">Gentle Milk Cleanser</td>
                   <td><span style="color:var(--dash-warn);">★★☆☆☆</span></td>
                   <td class="dash-cell-sub" style="max-width:260px;">Too stripping for dry skin. (flagged)</td>
@@ -782,7 +758,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-copy="GLOW15" title="Copy"><i class="bi bi-clipboard"></i></button><button class="icon-action" data-action="Edit GLOW15" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(122,139,111,.16);color:var(--dash-sage);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">FRESH10</div></div></td>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(139,107,79,.16);color:var(--dash-sage);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">FRESH10</div></div></td>
                   <td class="dash-cell-sub">Fixed</td>
                   <td class="dash-cell-main">$10 off</td>
                   <td>$30.00</td>
@@ -792,7 +768,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-copy="FRESH10" title="Copy"><i class="bi bi-clipboard"></i></button><button class="icon-action" data-action="Edit FRESH10" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(91,127,166,.15);color:var(--dash-info);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">SUN20</div></div></td>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(176,128,104,.15);color:var(--dash-info);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">SUN20</div></div></td>
                   <td class="dash-cell-sub">Percent</td>
                   <td class="dash-cell-main">20% off</td>
                   <td>$0.00</td>
@@ -802,7 +778,7 @@
                   <td><div class="row-actions"><button class="icon-action" data-copy="SUN20" title="Copy"><i class="bi bi-clipboard"></i></button><button class="icon-action" data-action="Edit SUN20" title="Edit"><i class="bi bi-pencil"></i></button><button class="icon-action danger" data-del title="Delete"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
-                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(192,85,85,.13);color:var(--dash-danger);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">VIP25</div></div></td>
+                  <td><div class="dash-cell-user"><span class="dash-notify-ico" style="background:rgba(191,106,94,.13);color:var(--dash-danger);"><i class="bi bi-tag"></i></span><div class="dash-cell-main">VIP25</div></div></td>
                   <td class="dash-cell-sub">Percent</td>
                   <td class="dash-cell-main">25% off</td>
                   <td>$100.00</td>
@@ -838,7 +814,7 @@
             <div class="dash-card">
               <div class="dash-card-head"><h6>Payment Methods</h6><span class="text-muted">Share of volume</span></div>
               <div class="chart-wrap h-sm">
-                <canvas data-type="doughnut" data-chart='{"labels":["Credit Card","PayPal","Apple Pay","Other"],"values":[46,24,18,12],"colors":["#C18A4F","#7A8B6F","#5B7FA6","#C89A4A"],"total":"100%","sub":"Methods"}'></canvas>
+                <canvas data-type="doughnut" data-chart='{"labels":["Credit Card","PayPal","Apple Pay","Other"],"values":[46,24,18,12],"colors":["#C18A4F","#8B6B4F","#B08068","#C89A4A"],"total":"100%","sub":"Methods"}'></canvas>
               </div>
               <div class="dash-list" style="margin-top:18px;">
                 <div class="dash-list-item"><div style="flex:1;"><div class="dash-cell-main">Best performing category</div><div class="dash-cell-sub">Serums · 38% of revenue</div></div><span class="badge-status success">+21%</span></div>
@@ -856,7 +832,7 @@
             <div class="dash-card">
               <div class="dash-card-head"><h6>Top Traffic Channels</h6><span class="text-muted">Conversions by source</span></div>
               <div class="chart-wrap h-sm">
-                <canvas data-type="doughnut" data-chart='{"labels":["Direct","Organic","Social","Email"],"values":[34,28,22,16],"colors":["#B98342","#7A8B6F","#5B7FA6","#C89A4A"],"total":"3.4K","sub":"Orders"}'></canvas>
+                <canvas data-type="doughnut" data-chart='{"labels":["Direct","Organic","Social","Email"],"values":[34,28,22,16],"colors":["#B98342","#8B6B4F","#B08068","#C89A4A"],"total":"3.4K","sub":"Orders"}'></canvas>
               </div>
             </div>
             <div class="dash-card">
@@ -886,17 +862,17 @@
                 <span class="badge-status warn">New</span>
               </div>
               <div class="dash-list-item unread dash-notify-item">
-                <span class="dash-notify-ico" style="background:rgba(192,85,85,.13);color:var(--dash-danger);"><i class="bi bi-star"></i></span>
+                <span class="dash-notify-ico" style="background:rgba(191,106,94,.13);color:var(--dash-danger);"><i class="bi bi-star"></i></span>
                 <div style="flex:1;"><p><strong>1-star review</strong> on Glow Serum flagged for moderation</p><small>38 minutes ago</small></div>
                 <span class="badge-status warn">New</span>
               </div>
               <div class="dash-list-item unread dash-notify-item">
-                <span class="dash-notify-ico" style="background:rgba(111,154,107,.15);color:var(--dash-success);"><i class="bi bi-box"></i></span>
+                <span class="dash-notify-ico" style="background:rgba(124,91,62,.15);color:var(--dash-success);"><i class="bi bi-box"></i></span>
                 <div style="flex:1;"><p><strong>Low stock</strong> — Vitamin C Elixir has 6 units left</p><small>1 hour ago</small></div>
                 <span class="badge-status warn">New</span>
               </div>
               <div class="dash-list-item dash-notify-item">
-                <span class="dash-notify-ico" style="background:rgba(91,127,166,.14);color:var(--dash-info);"><i class="bi bi-people"></i></span>
+                <span class="dash-notify-ico" style="background:rgba(176,128,104,.14);color:var(--dash-info);"><i class="bi bi-people"></i></span>
                 <div style="flex:1;"><p><strong>42 new customers</strong> registered this week</p><small>Yesterday</small></div>
               </div>
               <div class="dash-list-item dash-notify-item">
@@ -918,9 +894,9 @@
               <div class="dash-card-head"><h6>Personal Information</h6></div>
               <form>
                 <div class="row g-3">
-                  <div class="col-md-6"><label class="form-label">Full Name</label><input class="form-control" value="Ava Martin" /></div>
+                  <div class="col-md-6"><label class="form-label">Full Name</label><input class="form-control" data-user-name-input value="Ava Martin" /></div>
                   <div class="col-md-6"><label class="form-label">Role</label><input class="form-control" value="Super Admin" disabled /></div>
-                  <div class="col-md-6"><label class="form-label">Email</label><input class="form-control" type="email" value="ava@eclat.com" /></div>
+                  <div class="col-md-6"><label class="form-label">Email</label><input class="form-control dash-email" type="email" value="ava@eclat.com" /></div>
                   <div class="col-md-6"><label class="form-label">Phone</label><input class="form-control" value="+1 (555) 018-7245" /></div>
                   <div class="col-12"><label class="form-label">Bio</label><textarea class="form-control" rows="3">Running Stackly's operations — keeping the glow going every day.</textarea></div>
                   <div class="col-12 d-flex gap-2"><button class="btn-dash primary" type="submit">Save Changes</button><button class="btn-dash light" type="button" data-action="Cancel">Cancel</button></div>
@@ -931,7 +907,7 @@
             <div class="dash-grid" style="gap:20px;">
               <div class="dash-card dash-form">
                 <div class="dash-card-head"><h6>Change Password</h6></div>
-                <form>
+                <form class="dash-pw-form">
                   <div class="mb-3"><label class="form-label">Current Password</label><input class="form-control" type="password" placeholder="••••••••" /></div>
                   <div class="mb-3"><label class="form-label">New Password</label><input class="form-control" type="password" placeholder="Min. 8 characters" /></div>
                   <div class="mb-3"><label class="form-label">Confirm New Password</label><input class="form-control" type="password" placeholder="Repeat new password" /></div>
@@ -968,6 +944,9 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/dashboard.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/animations.js"></script>
 </body>
 </html>

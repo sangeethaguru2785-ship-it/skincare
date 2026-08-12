@@ -11,6 +11,45 @@
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ------------------------------------------------------------------
+     Logged-in user email (set from login page)
+  ------------------------------------------------------------------ */
+  var stacklyEmail = localStorage.getItem("stacklyEmail");
+  if (stacklyEmail) {
+    qsa(".dash-email").forEach(function (inp) { inp.value = stacklyEmail; });
+  }
+
+  /* ------------------------------------------------------------------
+     Derive the display name from the login email and render it across
+     the header, welcome message and profile fields.
+  ------------------------------------------------------------------ */
+  function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : ""; }
+
+  function deriveUser(email) {
+    var local = (email || "").split("@")[0] || "";
+    var parts = local.split(/[._\-+]+/).filter(function (p) { return p.length; });
+    var first = cap(parts[0] || "");
+    var last = parts.slice(1).map(cap).join(" ");
+    var full = first + (last ? " " + last : "");
+    if (!full) full = "Stackly Guest";
+    var initials = ((first.charAt(0) || "") + (last ? last.charAt(0) : (first.charAt(1) || ""))).toUpperCase() || "ST";
+    return { first: first, last: last, full: full, initials: initials };
+  }
+
+  var user = deriveUser(stacklyEmail);
+
+  qsa("[data-user-name]").forEach(function (el) { el.textContent = user.full; });
+  qsa("[data-user-avatar]").forEach(function (el) { el.textContent = user.initials; });
+  qsa("[data-user-greet]").forEach(function (el) {
+    el.textContent = (el.getAttribute("data-user-greet") || "")
+      .replace("{first}", user.first || user.full)
+      .replace("{full}", user.full);
+  });
+  qsa("[data-user-first-input]").forEach(function (inp) { inp.value = user.first; });
+  qsa("[data-user-last-input]").forEach(function (inp) { inp.value = user.last; });
+  qsa("[data-user-name-input]").forEach(function (inp) { inp.value = user.full; });
+  qsa("[data-user-email]").forEach(function (el) { el.textContent = stacklyEmail || el.textContent; });
+
+  /* ------------------------------------------------------------------
      Toast
   ------------------------------------------------------------------ */
   var toastEl = null;
@@ -157,22 +196,37 @@
 
   qsa(".dash-nav-link[data-logout]").forEach(function (btn) {
     btn.addEventListener("click", function () {
+      localStorage.removeItem("stacklyEmail");
       toast("Logging you out…");
-      setTimeout(function () { window.location.href = "index.html"; }, 900);
+      setTimeout(function () { window.location.href = "login.html"; }, 900);
     });
   });
 
   qsa("[data-logout]").forEach(function (btn) {
     if (btn.classList.contains("dash-nav-link")) return;
     btn.addEventListener("click", function () {
+      localStorage.removeItem("stacklyEmail");
       toast("Logging you out…");
-      setTimeout(function () { window.location.href = "index.html"; }, 900);
+      setTimeout(function () { window.location.href = "login.html"; }, 900);
     });
   });
 
-  var hash = (window.location.hash || "").replace("#", "");
-  if (hash && qs("#view-" + hash)) showView(hash, false);
-  else if (views.length) showView(views[0].getAttribute("data-title") ? views[0].id.replace("view-", "") : "overview", false);
+  /* ------------------------------------------------------------------
+     Content clicks → 404
+     Every clickable option in the main content area (outside the sidebar
+     and topbar) redirects to the 404 page. Sidebar + header stay as-is.
+     Capture phase so this wins over the demo action/toast handlers.
+  ------------------------------------------------------------------ */
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest("a, button, .dash-notify-item");
+    if (!el) return;
+    if (el.closest(".dash-sidebar, .dash-topbar")) return;
+    if (el.closest(".dash-content")) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = "404.html";
+    }
+  }, true);
 
   /* ------------------------------------------------------------------
      Count-up counters
@@ -231,6 +285,14 @@
     ctx.arcTo(x, y + h, x, y, r);
     ctx.arcTo(x, y, x + w, y, r);
     ctx.closePath();
+  }
+
+  function appendLegend(canvas, legend) {
+    var wrap = canvas.parentElement;
+    if (!wrap) return;
+    var sib = wrap.nextElementSibling;
+    if (sib && sib.classList && sib.classList.contains("chart-legend")) sib.remove();
+    wrap.after(legend);
   }
 
   function drawBars(canvas, cfg, p) {
@@ -334,7 +396,7 @@
     var total = values.reduce(function (a, b) { return a + b; }, 0) || 1;
     var cx = w / 2, cy = h / 2;
     var radius = Math.min(w, h) / 2 - 12;
-    var inner = radius * 0.62;
+    var inner = radius * (cfg.inner == null ? 0.62 : cfg.inner);
     var start = -Math.PI / 2;
 
     values.forEach(function (v, i) {
@@ -348,13 +410,21 @@
       start += sweep;
     });
 
-    ctx.fillStyle = "#23201A";
     ctx.textAlign = "center";
+    if (cfg.inner === 0) {
+      ctx.save();
+      ctx.shadowColor = "rgba(0,0,0,.5)";
+      ctx.shadowBlur = 8;
+      ctx.fillStyle = "#FFFFFF";
+    } else {
+      ctx.fillStyle = "#23201A";
+    }
     ctx.font = "500 15px Fraunces, Georgia, serif";
     ctx.fillText(cfg.total || (cfg.prefix || "") + total, cx, cy - 2);
     ctx.font = "9px Jost, sans-serif";
-    ctx.fillStyle = "#8A8177";
+    ctx.fillStyle = cfg.inner === 0 ? "#FFFFFF" : "#8A8177";
     ctx.fillText(cfg.sub || "Total", cx, cy + 14);
+    if (cfg.inner === 0) ctx.restore();
 
     if (cfg.legend && p >= 1) {
       var legend = document.createElement("div");
@@ -364,9 +434,7 @@
         s.innerHTML = "<i style='background:" + colors[i % colors.length] + "'></i>" + l;
         legend.appendChild(s);
       });
-      var slot = canvas.parentElement.querySelector(".chart-legend");
-      if (slot) slot.replaceWith(legend);
-      else canvas.parentElement.appendChild(legend);
+      appendLegend(canvas, legend);
     }
   }
 
@@ -429,9 +497,7 @@
         sp.innerHTML = "<i style='background:" + s.color + "'></i>" + s.name;
         legend.appendChild(sp);
       });
-      var slot = canvas.parentElement.querySelector(".chart-legend");
-      if (slot) slot.replaceWith(legend);
-      else canvas.parentElement.appendChild(legend);
+      appendLegend(canvas, legend);
     }
   }
 
@@ -440,7 +506,7 @@
     var d = setupCanvas(canvas);
     var ctx = d.ctx, w = d.w, h = d.h;
     var value = (cfg.value || 0) * p;
-    var color = cfg.color || "#7A8B6F";
+    var color = cfg.color || "#8B6B4F";
     var track = cfg.track || "rgba(35,32,26,.08)";
     var textColor = cfg.textColor || "#23201A";
     var subColor = cfg.subColor || "#8A8177";
@@ -524,6 +590,7 @@
     var t = canvas.getAttribute("data-type");
     if (t === "line") drawLine(canvas, cfg, p);
     else if (t === "doughnut") drawDoughnut(canvas, cfg, p);
+    else if (t === "pie") { cfg.inner = 0; drawDoughnut(canvas, cfg, p); }
     else if (t === "multi-line") drawMultiLine(canvas, cfg, p);
     else if (t === "gauge") drawGauge(canvas, cfg, p);
     else if (t === "spark") drawSpark(canvas, cfg, p);
@@ -608,9 +675,38 @@
     });
   });
 
+  var pwRe = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
+  function markDashInvalid(input) {
+    if (!input) return;
+    input.classList.add("is-invalid");
+    input.focus();
+    input.addEventListener("input", function () { input.classList.remove("is-invalid"); }, { once: true });
+  }
+
   qsa(".dash-form").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (form.classList.contains("dash-pw-form")) {
+        var pwInputs = qsa("input[type=password]", form);
+        var pw = pwInputs[1];
+        var confirm = pwInputs[2];
+        if (!pw || !pw.value) {
+          toast("Please enter a new password.", "danger");
+          markDashInvalid(pw);
+          return;
+        }
+        if (!pwRe.test(pw.value)) {
+          toast("Password must be at least 8 characters with an uppercase letter, lowercase letter, number and special character.", "danger");
+          markDashInvalid(pw);
+          return;
+        }
+        if (confirm && confirm.value !== pw.value) {
+          toast("New password and confirmation do not match.", "danger");
+          markDashInvalid(confirm);
+          return;
+        }
+      }
       toast("Changes saved successfully", "success");
     });
   });
@@ -629,7 +725,18 @@
     if (table) c.textContent = qsa("tbody tr", table).length + " entries";
   });
 
+  var hash = (window.location.hash || "").replace("#", "");
+  if (hash && qs("#view-" + hash)) showView(hash, false);
+  else if (views.length) showView(views[0].getAttribute("data-title") ? views[0].id.replace("view-", "") : "overview", false);
+
   if (reduced) {
     window.scrollTo({ top: 0, behavior: "auto" });
   }
+
+  /* Email fields — allow only letters, numbers, @ and . */
+  qsa('input[type="email"]').forEach(function (input) {
+    input.addEventListener("input", function () {
+      this.value = this.value.replace(/[^A-Za-z0-9@.]/g, "");
+    });
+  });
 })();

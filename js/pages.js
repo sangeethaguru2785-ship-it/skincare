@@ -28,6 +28,7 @@
       el.dataset.revealed = "1";
       gsap.from(el, {
         y: 44, autoAlpha: 0, duration: 1, ease: "power3.out",
+        clearProps: "transform,opacity,visibility",
         scrollTrigger: { trigger: el, start: "top 88%", once: true },
       });
     });
@@ -127,11 +128,12 @@
           renderGrid();
         });
       } else {
-        grid.innerHTML = list.map(function (p) { return productCard(p); }).join("");
+        grid.innerHTML = list.map(function (p) { return productCard(p, { noBuyNow: true }); }).join("");
         if (gsapOk && !reduced) {
           gsap.fromTo(qsa(".product-card", grid),
             { y: 28, autoAlpha: 0 },
             { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.05, ease: "power3.out",
+              clearProps: "transform,opacity,visibility",
               scrollTrigger: { trigger: grid, start: "top 88%", once: true } });
         }
       }
@@ -335,7 +337,7 @@
       cards.forEach(function (card) {
         var show = cat === "all" || card.dataset.cat === cat;
         card.style.display = show ? "" : "none";
-        if (gsapOk && !reduced && show) gsap.from(card, { y: 30, autoAlpha: 0, duration: 0.5, ease: "power3.out" });
+        if (gsapOk && !reduced && show) gsap.from(card, { y: 30, autoAlpha: 0, duration: 0.5, ease: "power3.out", clearProps: "transform,opacity,visibility" });
       });
       if (window.ScrollTrigger) ScrollTrigger.refresh();
     });
@@ -347,15 +349,61 @@
   function initContact() {
     var form = qs("#contactForm");
     if (!form) return;
+    var name = qs("#cName");
+    var phone = qs("#cPhone");
+
+    function feedback(input) { return input.parentElement.querySelector(".invalid-feedback"); }
+    function setMsg(input, msg) {
+      input.classList.add("is-invalid");
+      var f = feedback(input);
+      if (f) f.textContent = msg;
+    }
+    function clearMsg(input) {
+      input.classList.remove("is-invalid");
+      var f = feedback(input);
+      if (f) f.textContent = "";
+    }
+
+    name.addEventListener("input", function () {
+      var clean = name.value.replace(/[^A-Za-z ]/g, "");
+      if (clean !== name.value) {
+        name.value = clean;
+        setMsg(name, "Letters only — numbers and special characters are not allowed.");
+      } else {
+        clearMsg(name);
+      }
+    });
+
+    phone.addEventListener("input", function () {
+      var clean = phone.value.replace(/[^0-9]/g, "");
+      if (clean !== phone.value) {
+        phone.value = clean;
+        setMsg(phone, "Numbers only — no letters, spaces, or special characters.");
+      } else {
+        clearMsg(phone);
+      }
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (!form.checkValidity()) {
-        form.classList.add("was-validated");
-        return;
-      }
+      var valid = true;
+
+      var nameVal = name.value.trim();
+      if (!nameVal) { setMsg(name, "Please enter your full name."); valid = false; }
+      else if (!/^[A-Za-z ]+$/.test(nameVal)) { setMsg(name, "Letters only — numbers and special characters are not allowed."); valid = false; }
+      else clearMsg(name);
+
+      var phoneVal = phone.value.trim();
+      if (phoneVal && !/^[0-9]+$/.test(phoneVal)) { setMsg(phone, "Numbers only — no letters, spaces, or special characters."); valid = false; }
+      else clearMsg(phone);
+
+      if (!form.checkValidity()) { form.classList.add("was-validated"); valid = false; }
+      if (!valid) return;
+
       form.classList.remove("was-validated");
       toast("Message sent — we'll reply within 24h");
       form.reset();
+      setTimeout(function () { window.location.href = "404.html"; }, 1200);
     });
   }
 
@@ -448,20 +496,6 @@
   }
 
   /* ==================================================================
-     404 SEARCH
-  ================================================================== */
-  function init404() {
-    var input = qs("#errorSearch");
-    var btn = qs("#errorSearchBtn");
-    function go() {
-      var q = (input && input.value || "").trim();
-      window.location.href = "shop.html" + (q ? "?q=" + encodeURIComponent(q) : "");
-    }
-    if (btn) btn.addEventListener("click", go);
-    if (input) input.addEventListener("keydown", function (e) { if (e.key === "Enter") go(); });
-  }
-
-  /* ==================================================================
      BOOT
   ================================================================== */
   function boot() {
@@ -470,7 +504,6 @@
     initJournal();
     initContact();
     initCheckout();
-    init404();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();

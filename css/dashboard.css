@@ -12,10 +12,10 @@
   --dash-line:     rgba(35, 32, 26, .10);
   --dash-accent:   #C18A4F;
   --dash-accent-2: #A9723B;
-  --dash-sage:     #7A8B6F;
-  --dash-danger:   #C05555;
-  --dash-success:  #6F9A6B;
-  --dash-info:     #5B7FA6;
+  --dash-sage:     #8B6B4F;
+  --dash-danger:   #BF6A5E;
+  --dash-success:  #7C5B3E;
+  --dash-info:     #B08068;
   --dash-warn:     #C89A4A;
   --dash-sidebar:  #201D18;
   --dash-sidebar-2:#2A2620;
@@ -83,7 +83,7 @@ a { color: var(--dash-accent); text-decoration: none; }
   white-space: nowrap;
 }
 
-.dash-brand img { width: 42px; height: 42px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
+.dash-brand img { height: 42px; width: auto; max-width: 190px; object-fit: contain; flex-shrink: 0; }
 
 .dash-brand-text { line-height: 1.1; }
 .dash-brand-text strong { display: block; color: #fff; font-family: var(--font-head, Georgia, serif); font-weight: 500; font-size: 1.05rem; letter-spacing: .02em; }
@@ -376,17 +376,17 @@ a { color: var(--dash-accent); text-decoration: none; }
   margin-bottom: 16px;
 }
 .stat-icon.accent { background: var(--dash-accent-soft, rgba(193,138,79,.14)); color: var(--dash-accent); }
-.stat-icon.sage  { background: rgba(122,139,111,.14); color: var(--dash-sage); }
-.stat-icon.info  { background: rgba(91,127,166,.14); color: var(--dash-info); }
+.stat-icon.sage  { background: rgba(139,107,79,.14); color: var(--dash-sage); }
+.stat-icon.info  { background: rgba(176,128,104,.14); color: var(--dash-info); }
 .stat-icon.warn  { background: rgba(200,154,74,.14); color: var(--dash-warn); }
 
 .stat-value { font-family: var(--font-head, Georgia, serif); font-size: 1.8rem; font-weight: 500; line-height: 1; margin-bottom: 6px; }
 .stat-label { color: var(--dash-muted); font-size: .84rem; }
 
 .stat-trend { display: inline-flex; align-items: center; gap: 4px; font-size: .76rem; font-weight: 600; margin-top: 10px; padding: 3px 10px; border-radius: 20px; }
-.stat-trend.up { color: var(--dash-success); background: rgba(111,154,107,.12); }
-.stat-trend.down { color: var(--dash-danger); background: rgba(192,85,85,.12); }
+.stat-trend.up { color: var(--dash-success); background: rgba(124,91,62,.12); }
 
+.stat-trend.down { color: var(--dash-danger); background: rgba(191,106,94,.12); }
 /* Charts */
 .chart-wrap { position: relative; width: 100%; height: 300px; }
 .chart-wrap.h-sm { height: 240px; }
@@ -473,10 +473,10 @@ a { color: var(--dash-accent); text-decoration: none; }
   white-space: nowrap;
 }
 .badge-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-.badge-status.success { color: var(--dash-success); background: rgba(111,154,107,.13); }
+.badge-status.success { color: var(--dash-success); background: rgba(124,91,62,.13); }
 .badge-status.warn    { color: var(--dash-warn);    background: rgba(200,154,74,.13); }
-.badge-status.danger  { color: var(--dash-danger);  background: rgba(192,85,85,.13); }
-.badge-status.info    { color: var(--dash-info);    background: rgba(91,127,166,.13); }
+.badge-status.danger  { color: var(--dash-danger);  background: rgba(191,106,94,.13); }
+.badge-status.info    { color: var(--dash-info);    background: rgba(176,128,104,.13); }
 .badge-status.muted   { color: var(--dash-muted);   background: rgba(138,129,119,.13); }
 
 /* Row actions */
@@ -496,7 +496,7 @@ a { color: var(--dash-accent); text-decoration: none; }
   transition: all .2s;
 }
 .icon-action:hover { border-color: var(--dash-accent); color: var(--dash-accent); background: rgba(193,138,79,.06); }
-.icon-action.danger:hover { border-color: var(--dash-danger); color: var(--dash-danger); background: rgba(192,85,85,.06); }
+.icon-action.danger:hover { border-color: var(--dash-danger); color: var(--dash-danger); background: rgba(191,106,94,.06); }
 
 /* Progress */
 .dash-progress { height: 8px; background: rgba(35,32,26,.08); border-radius: 20px; overflow: hidden; }
@@ -709,17 +709,17 @@ body.admin-theme {
 }
 body.admin-theme .dash-nav-link.active { box-shadow: 0 8px 22px rgba(185, 131, 66, .4); }
 
-/* ---- Customer: warm paper + sage (personal, wellness) ---- */
+/* ---- Customer: warm paper + caramel (personal, wellness) ---- */
 body.customer-theme {
   --dash-bg:        #F6F4EE;
-  --dash-accent:    #7A8B6F;
-  --dash-accent-2:  #5F7261;
-  --dash-accent-soft: rgba(122, 139, 111, .16);
+  --dash-accent:    #A9723B;
+  --dash-accent-2:  #8B5A2E;
+  --dash-accent-soft: rgba(169, 114, 59, .16);
   --dash-sidebar:   #F1EFE7;
   --dash-sidebar-2: #E7E4D8;
   --dash-side-text: #5C5A50;
-  --hero-a:         #8FA284;
-  --hero-b:         #5F7261;
+  --hero-a:         #A9723B;
+  --hero-b:         #7D4E26;
 }
 body.customer-theme .dash-sidebar { box-shadow: 6px 0 30px rgba(35, 32, 26, .05); }
 body.customer-theme .dash-sidebar::-webkit-scrollbar,
@@ -730,7 +730,7 @@ body.customer-theme .dash-brand-text span { color: var(--dash-muted); }
 body.customer-theme .dash-nav-group { color: var(--dash-muted); }
 body.customer-theme .dash-nav-link:hover { background: rgba(35, 32, 26, .06); color: var(--dash-ink); }
 body.customer-theme .dash-nav-link.active { background: linear-gradient(90deg, var(--dash-accent), var(--dash-accent-2)); }
-body.customer-theme .dash-nav-link.active { box-shadow: 0 8px 22px rgba(122, 139, 111, .38); }
+body.customer-theme .dash-nav-link.active { box-shadow: 0 8px 22px rgba(169, 114, 59, .38); }
 body.customer-theme .dash-sidebar-foot { border-top-color: rgba(35, 32, 26, .08); }
 body.customer-theme .dash-logout { color: var(--dash-danger); }
 body.customer-theme .dash-logout:hover { background: rgba(192, 85, 85, .12); color: var(--dash-danger); }
@@ -827,9 +827,37 @@ body.customer-theme .dash-nav::-webkit-scrollbar-thumb { background: rgba(35, 32
 
 @keyframes cardIn {
   from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: none; }
+  to   { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .dash-view.active > * { animation: none; }
 }
+
+/* ==========================================================================
+   Card Flip — smooth 3D flip on hover
+   Cards lift and flip gently in 3D for a modern, tactile feel.
+   Purely visual: content and layout stay untouched.
+   ========================================================================== */
+.dash-card, .stat-card, .addr-card, .pay-card {
+  will-change: transform;
+  transition: transform .55s var(--ease-premium, cubic-bezier(.22, 1, .36, 1)), box-shadow .55s ease;
+}
+
+.dash-card:hover, .stat-card:hover, .addr-card:hover, .pay-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 22px 50px -14px rgba(20, 22, 27, .22);
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dash-card:hover, .stat-card:hover, .addr-card:hover, .pay-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ==========================================================================
+   Bold text — all dashboard copy set to semibold (600) for clarity.
+   Icons (.bi) keep normal weight so glyphs stay crisp.
+   ========================================================================== */
+body.dash-body :not(.bi) { font-weight: 600 !important; }

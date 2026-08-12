@@ -17,88 +17,17 @@
 </head>
 <body>
 
-  <div id="progressbar"></div>
-
-  <!-- ============ NAVBAR ============ -->
-  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main navigation">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="images/logo.webp" alt="Stackly Skincare" class="brand-logo" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="toggler-line"></span>
-        <span class="toggler-line"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainMenu">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="journal.html">Journal</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-        <div class="navbar-actions d-flex align-items-center">
-          <button class="nav-icon position-relative" id="cartToggle" aria-label="Open cart">
-            <i class="bi bi-bag"></i>
-            <span class="cart-count" id="cartCount">0</span>
-          </button>
-          <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-3 px-lg-4 d-none d-sm-inline-flex align-items-center gap-2">
-            Shop Now <i class="bi bi-arrow-up-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ============ CART DRAWER ============ -->
-  <div class="cart-overlay" id="cartOverlay"></div>
-  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
-    <div class="cart-head">
-      <h5 class="mb-0">Your Bag <span class="cart-total-count" id="drawerCount">(0)</span></h5>
-      <button class="btn-close" id="cartClose" aria-label="Close cart"></button>
-    </div>
-    <div class="cart-body" id="cartBody">
-      <div class="cart-empty text-center">
-        <i class="bi bi-bag-heart"></i>
-        <p>Your bag is empty.<br/>Let's find your glow.</p>
-        <a href="shop.html" class="btn btn-dark btn-sm rounded-pill px-4 cart-continue">Start Shopping</a>
-      </div>
-      <div class="cart-items d-none"></div>
-    </div>
-    <div class="cart-foot d-none">
-      <div class="cart-sub d-flex justify-content-between mb-2">
-        <span>Subtotal</span>
-        <strong id="cartSubtotal">$0.00</strong>
-      </div>
-      <small class="text-muted d-block mb-3">Shipping &amp; taxes calculated at checkout.</small>
-      <a href="checkout.html" class="btn btn-dark w-100 rounded-pill py-2">Checkout <i class="bi bi-arrow-right ms-1"></i></a>
-    </div>
-  </aside>
-
-  <!-- ============ PAGE HERO ============ -->
-  <header class="page-hero">
-    <div class="page-hero-orb page-hero-orb-1"></div>
-    <div class="page-hero-orb page-hero-orb-2"></div>
-    <div class="container">
-      <nav class="breadcrumb-bar" aria-label="Breadcrumb">
-        <a href="index.html">Home</a> <span class="sep">/</span> <span>Login</span>
-      </nav>
-      <h1 class="page-hero-title page-reveal">Welcome <em>back</em></h1>
-      <p>Sign in to your Stackly account to continue your clean-beauty ritual.</p>
-    </div>
-  </header>
-
   <!-- ============ LOGIN ============ -->
   <section class="section auth-section">
     <div class="container">
-      <div class="auth-card page-reveal">
+      <div class="auth-card-wrap">
+        <div class="auth-card page-reveal">
         <div class="row g-0">
           <div class="col-lg-5 auth-brand-col d-none d-lg-flex">
             <div>
-              <div class="auth-brand-logo mb-4">
+              <a href="index.html" class="auth-brand-logo mb-4">
                 <img src="images/logo.webp" alt="Stackly" />
-                Stackly
-              </div>
+              </a>
               <h2>Your glow lives here.</h2>
               <p>Members-only pricing, ritual-building tools and orders that ship carbon-neutral. All in one calm, considered account.</p>
             </div>
@@ -133,19 +62,20 @@
               <div class="mb-3">
                 <div class="d-flex justify-content-between align-items-center mb-1">
                   <label class="form-label mb-0" for="loginPass">Password</label>
-                  <a href="#" class="forgot-link" id="forgotLink">Forgot Password?</a>
+                  <a href="404.html" class="forgot-link">Forgot Password?</a>
                 </div>
                 <div class="auth-input-wrap">
                   <i class="bi bi-lock input-ico"></i>
                   <input type="password" class="form-control" id="loginPass" placeholder="Enter your password" autocomplete="current-password" />
                   <button type="button" class="password-toggle" aria-label="Toggle password visibility"><i class="bi bi-eye"></i></button>
-                  <div class="invalid-feedback">Password must be at least 6 characters.</div>
+                  <div class="invalid-feedback">Password must be at least 8 characters with an uppercase letter, lowercase letter, number and special character.</div>
                 </div>
               </div>
 
               <div class="form-check mb-4">
                 <input class="form-check-input" type="checkbox" id="rememberMe" />
                 <label class="form-check-label" for="rememberMe">Remember me for 30 days</label>
+                <div class="invalid-feedback">Please check "Remember me" to continue.</div>
               </div>
 
               <button type="submit" class="auth-btn">Sign In <i class="bi bi-arrow-right"></i></button>
@@ -156,86 +86,15 @@
             </div>
           </div>
         </div>
+        </div>
+      </div>
+      <div class="auth-home">
+        <a href="index.html" class="btn btn-outline-dark rounded-pill px-4 py-2"><i class="bi bi-house-door me-2"></i>Go to Home</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="row g-5">
-        <div class="col-lg-3">
-          <a class="navbar-brand mb-3" href="index.html">
-            <img src="images/logo.webp" alt="Stackly" class="brand-logo" />
-          </a>
-          <p class="footer-about">Stackly is the clean-beauty destination for people who care what touches their skin. Curated, clinical, kind.</p>
-          <div class="footer-social">
-            <a href="404.html" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="404.html" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="404.html" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-            <a href="404.html" aria-label="X (formerly Twitter)"><i class="bi bi-twitter-x"></i></a>
-          </div>
-        </div>
-        <div class="col-6 col-lg-2">
-          <h5>Quick Links</h5>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="journal.html">Journal</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-lg-2">
-          <h5>Shop Categories</h5>
-          <ul>
-            <li><a href="shop.html?cat=serum">Serums</a></li>
-            <li><a href="shop.html?cat=moisturizer">Moisturizers</a></li>
-            <li><a href="shop.html?cat=oil">Facial Oils</a></li>
-            <li><a href="shop.html?cat=sun">Sun Care</a></li>
-            <li><a href="shop.html?cat=gift">Gift Sets</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-lg-2">
-          <h5>Customer Support</h5>
-          <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Shipping &amp; Returns</a></li>
-            <li><a href="#">Track Your Order</a></li>
-            <li><a href="#">Skin Quiz</a></li>
-            <li><a href="contact.html">Help Center</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-lg-3">
-          <h5>Contact</h5>
-          <ul class="footer-contact">
-            <li><i class="bi bi-envelope"></i> hello@eclat.com</li>
-            <li><i class="bi bi-telephone"></i> +1 (555) 018-7245</li>
-            <li><i class="bi bi-clock"></i> Mon – Fri · 9:00 – 18:00 EST</li>
-          </ul>
-        </div>
-      </div>
-
-      <hr class="footer-hr" />
-      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
-        <p class="mb-0">© 2026 Stackly. All rights reserved.</p>
-        <div class="footer-payments" aria-label="Payment options">
-          <i class="bi bi-credit-card-2-front"></i>
-          <i class="bi bi-paypal"></i>
-          <i class="bi bi-apple"></i>
-          <i class="bi bi-google"></i>
-        </div>
-        <div class="footer-links">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Cookies</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
-
+  <!-- ============ TOAST ============ -->
   <div class="toast-custom" id="toast" role="status" aria-live="polite">
     <i class="bi bi-check-circle-fill"></i>
     <span id="toastMsg">Added to bag</span>
@@ -247,6 +106,7 @@
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
   <script src="js/pages.js"></script>
+<script src="js/animations.js"></script>
   <script>
     (function () {
       "use strict";
@@ -254,12 +114,14 @@
       var form = document.getElementById("loginForm");
       var email = document.getElementById("loginEmail");
       var pass = document.getElementById("loginPass");
+      var remember = document.getElementById("rememberMe");
       var roleInput = document.getElementById("roleType");
       var title = document.getElementById("authTitle");
       var sub = document.querySelector(".auth-form-sub");
       var role = "customer";
       var toast = window.StacklyToast || function () {};
       var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      var passRe = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
 
       document.querySelectorAll(".auth-toggle button").forEach(function (btn) {
         btn.addEventListener("click", function () {
@@ -289,12 +151,16 @@
         if (!emailRe.test(email.value.trim())) { setInvalid(email, true); ok = false; }
         else setInvalid(email, false);
 
-        if (pass.value.length < 6) { setInvalid(pass, true); ok = false; }
+        if (!passRe.test(pass.value)) { setInvalid(pass, true); ok = false; }
         else setInvalid(pass, false);
+
+        if (!remember.checked) { remember.classList.add("is-invalid"); ok = false; }
+        else remember.classList.remove("is-invalid");
 
         if (!ok) { toast("Please fix the highlighted fields."); return; }
 
         toast("Welcome back — redirecting…");
+        localStorage.setItem("stacklyEmail", email.value.trim());
         setTimeout(function () {
           window.location.href = role === "admin" ? "admin-dashboard.html" : "customer-dashboard.html";
         }, 900);
@@ -304,6 +170,10 @@
         input.addEventListener("input", function () { input.classList.remove("is-invalid"); });
       });
 
+      remember.addEventListener("change", function () {
+        remember.classList.remove("is-invalid");
+      });
+
       document.querySelectorAll(".password-toggle").forEach(function (t) {
         t.addEventListener("click", function () {
           var input = t.parentElement.querySelector("input");
@@ -311,11 +181,6 @@
           input.type = show ? "text" : "password";
           t.innerHTML = show ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
         });
-      });
-
-      document.getElementById("forgotLink").addEventListener("click", function (e) {
-        e.preventDefault();
-        toast("Password reset link sent to your email");
       });
     })();
   </script>

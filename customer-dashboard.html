@@ -25,10 +25,6 @@
     <aside class="dash-sidebar" id="dashSidebar">
       <a class="dash-brand" href="index.html">
         <img src="images/logo.webp" alt="Stackly" />
-        <div class="dash-brand-text">
-          <strong>Stackly</strong>
-          <span>My Account</span>
-        </div>
       </a>
 
       <nav class="dash-nav" aria-label="Customer navigation">
@@ -69,51 +65,11 @@
             <input type="search" placeholder="Search…" aria-label="Search" />
           </div>
 
-          <a href="index.html" class="dash-icon-btn" aria-label="Back to store" title="Back to store"><i class="bi bi-shop"></i></a>
-
-          <div class="dash-dd">
-            <button class="dash-icon-btn dash-dd-toggle" aria-label="Notifications"><i class="bi bi-bell"></i><span class="dash-dot"></span></button>
-            <div class="dash-dd-menu dash-notify">
-              <div class="dash-notify-head">
-                <span>Notifications</span>
-                <button class="btn btn-link btn-sm p-0" data-mark-read style="font-size:.78rem;">Mark all read</button>
-              </div>
-              <div class="dash-notify-item unread">
-                <span class="dash-notify-ico" style="background:rgba(111,154,107,.15);color:var(--dash-success);"><i class="bi bi-truck"></i></span>
-                <div>
-                  <p><strong>Order #EC-1018 shipped</strong> — arriving Aug 14</p>
-                  <small>1 hour ago</small>
-                </div>
-              </div>
-              <div class="dash-notify-item unread">
-                <span class="dash-notify-ico" style="background:rgba(193,138,79,.15);color:var(--dash-accent);"><i class="bi bi-gift"></i></span>
-                <div>
-                  <p><strong>15% off coupon</strong> — GLOW15 applied to your next order</p>
-                  <small>3 hours ago</small>
-                </div>
-              </div>
-              <div class="dash-notify-item">
-                <span class="dash-notify-ico" style="background:rgba(91,127,166,.14);color:var(--dash-info);"><i class="bi bi-box"></i></span>
-                <div>
-                  <p><strong>Back in stock</strong> — Rose Facial Oil is available again</p>
-                  <small>Yesterday</small>
-                </div>
-              </div>
-              <div class="dash-notify-item">
-                <span class="dash-notify-ico" style="background:rgba(200,154,74,.15);color:var(--dash-warn);"><i class="bi bi-star"></i></span>
-                <div>
-                  <p><strong>Glow Serum</strong> is trending — read why 2.3k people love it</p>
-                  <small>2 days ago</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="dash-dd">
             <button class="dash-user dash-dd-toggle">
-              <span class="dash-avatar">AC</span>
+              <span class="dash-avatar" data-user-avatar>AC</span>
               <span class="dash-user-meta">
-                <strong>Ava Chen</strong>
+                <strong data-user-name>Ava Chen</strong>
                 <span>Glow Member</span>
               </span>
               <i class="bi bi-chevron-down dash-caret"></i>
@@ -121,7 +77,6 @@
             <div class="dash-dd-menu">
               <a class="dash-dd-item" href="#profile" data-view="profile"><i class="bi bi-person"></i> My Profile</a>
               <a class="dash-dd-item" href="#orders" data-view="orders"><i class="bi bi-receipt"></i> My Orders</a>
-              <a class="dash-dd-item" href="index.html"><i class="bi bi-shop"></i> Back to Store</a>
               <hr style="margin:.4rem 0; border-color:var(--dash-line);" />
               <button class="dash-dd-item danger" data-logout><i class="bi bi-box-arrow-right"></i> Logout</button>
             </div>
@@ -135,7 +90,7 @@
         <!-- ============ OVERVIEW ============ -->
         <section class="dash-view active" id="view-overview" data-title="Dashboard Overview">
           <div class="dash-head">
-            <h2>Hey Ava, welcome back ✨</h2>
+            <h2 data-user-greet="Hey {first}, welcome back ✨">Hey Ava, welcome back ✨</h2>
             <p>Your skin routine is on track — one order is on its way and you've earned 1,240 glow points this season.</p>
           </div>
 
@@ -164,7 +119,7 @@
               </div>
               <div class="stat-value" data-count="12">0</div>
               <div class="stat-label">Total Orders</div>
-              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[2,3,1,2,2,1,1],"color":"#7A8B6F"}'></canvas></div>
+              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[2,3,1,2,2,1,1],"color":"#A9723B"}'></canvas></div>
             </div>
             <div class="dash-card stat-card">
               <div class="stat-top">
@@ -191,7 +146,7 @@
               </div>
               <div class="stat-value" data-count="1">0</div>
               <div class="stat-label">In Transit</div>
-              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[0,0,1,0,0,0,1],"color":"#5B7FA6"}'></canvas></div>
+              <div class="spark-wrap"><canvas data-type="spark" data-chart='{"values":[0,0,1,0,0,0,1],"color":"#B08068"}'></canvas></div>
             </div>
           </div>
 
@@ -202,7 +157,7 @@
                 <span class="text-muted">Last 6 months</span>
               </div>
               <div class="chart-wrap">
-                <canvas data-type="line" data-chart='{"labels":["Mar","Apr","May","Jun","Jul","Aug"],"values":[42.5,58,96.5,148,64,77.5],"color":"#7A8B6F"}'></canvas>
+                <canvas data-type="line" data-chart='{"labels":["Mar","Apr","May","Jun","Jul","Aug"],"values":[42.5,58,96.5,148,64,77.5],"color":"#A9723B"}'></canvas>
               </div>
             </div>
             <div class="dash-card">
@@ -211,7 +166,28 @@
                 <span class="text-muted">All time</span>
               </div>
               <div class="chart-wrap h-sm">
-                <canvas data-type="doughnut" data-chart='{"labels":["Delivered","Shipped","Processing"],"values":[8,3,1],"colors":["#7A8B6F","#5B7FA6","#C89A4A"],"total":"12","sub":"Orders"}'></canvas>
+                <canvas data-type="pie" data-chart='{"labels":["Delivered","Shipped","Processing"],"values":[8,3,1],"colors":["#A9723B","#B08068","#C89A4A"],"total":"12","sub":"Orders"}'></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-grid dash-grid-2" style="margin-top:22px;">
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h6>Wishlist</h6>
+                <span class="text-muted">Saved items · price each</span>
+              </div>
+              <div class="chart-wrap h-sm">
+                <canvas data-type="bars" data-chart='{"labels":["Rose Oil","Glow Serum","SPF 50","Hydra Cream"],"values":[66,58,32,42],"colors":["#A9723B","#A9723B","#A9723B","#A9723B"],"prefix":"$"}'></canvas>
+              </div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h6>Product Activity</h6>
+                <span class="text-muted">Interactions this month</span>
+              </div>
+              <div class="chart-wrap h-sm">
+                <canvas data-type="bars" data-chart='{"labels":["Glow Serum","Hydra Cream","Rose Oil","SPF 50"],"values":[12,8,6,4],"colors":["#A9723B","#B08068","#C18A4F","#C89A4A"]}'></canvas>
               </div>
             </div>
           </div>
@@ -262,7 +238,7 @@
               </div>
               <div class="dash-list">
                 <div class="dash-list-item">
-                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=120&auto=format&fit=crop" alt="Rose Oil" class="dash-thumb" />
+                  <img src="images/photo-1620916566398-39f1143ab7be.webp" alt="Rose Oil" class="dash-thumb" />
                   <div style="flex:1;min-width:0;">
                     <div class="dash-cell-main">Rose Facial Oil</div>
                     <div class="dash-cell-sub">$66.00</div>
@@ -270,7 +246,7 @@
                   <button class="btn-dash light sm" data-add-cart><i class="bi bi-bag-plus"></i></button>
                 </div>
                 <div class="dash-list-item">
-                  <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=120&auto=format&fit=crop" alt="Glow Serum" class="dash-thumb" />
+                  <img src="images/photo-1608248543803-ba4f8c70ae0b.webp" alt="Glow Serum" class="dash-thumb" />
                   <div style="flex:1;min-width:0;">
                     <div class="dash-cell-main">Glow Serum</div>
                     <div class="dash-cell-sub">$58.00</div>
@@ -278,7 +254,7 @@
                   <button class="btn-dash light sm" data-add-cart><i class="bi bi-bag-plus"></i></button>
                 </div>
                 <div class="dash-list-item">
-                  <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=120&auto=format&fit=crop" alt="SPF 50" class="dash-thumb" />
+                  <img src="images/photo-1556228578-8c89e6adf883.webp" alt="SPF 50" class="dash-thumb" />
                   <div style="flex:1;min-width:0;">
                     <div class="dash-cell-main">Daily Defense SPF 50</div>
                     <div class="dash-cell-sub">$32.00</div>
@@ -292,7 +268,7 @@
           <div class="dash-card" style="margin-top:22px;">
             <div class="dash-card-head"><h6>Glow Points Activity</h6><span class="text-muted">Last 6 months</span></div>
             <div class="chart-wrap h-sm">
-              <canvas data-type="bars" data-chart='{"labels":["Mar","Apr","May","Jun","Jul","Aug"],"values":[120,180,240,210,320,170],"colors":["#7A8B6F","#7A8B6F","#7A8B6F","#7A8B6F","#7A8B6F","#7A8B6F"]}'></canvas>
+              <canvas data-type="bars" data-chart='{"labels":["Mar","Apr","May","Jun","Jul","Aug"],"values":[120,180,240,210,320,170],"colors":["#A9723B","#A9723B","#A9723B","#A9723B","#A9723B","#A9723B"]}'></canvas>
             </div>
           </div>
         </section>
@@ -308,17 +284,17 @@
               <div class="dash-card-head"><h6>Personal Information</h6></div>
               <form>
                 <div class="dash-cell-user" style="margin-bottom:20px;">
-                  <span class="dash-avatar" style="width:64px;height:64px;font-size:1.3rem;">AC</span>
+                  <span class="dash-avatar" data-user-avatar style="width:64px;height:64px;font-size:1.3rem;">AC</span>
                   <div>
-                    <div class="dash-cell-main">Ava Chen</div>
+                    <div class="dash-cell-main" data-user-name>Ava Chen</div>
                     <div class="dash-cell-sub">Glow Member since Mar 2025</div>
                     <button class="btn-dash light sm" type="button" data-action="Change profile photo"><i class="bi bi-camera"></i> Change photo</button>
                   </div>
                 </div>
                 <div class="row g-3">
-                  <div class="col-md-6"><label class="form-label">First Name</label><input class="form-control" value="Ava" /></div>
-                  <div class="col-md-6"><label class="form-label">Last Name</label><input class="form-control" value="Chen" /></div>
-                  <div class="col-md-6"><label class="form-label">Email</label><input class="form-control" type="email" value="ava@mail.com" /></div>
+                  <div class="col-md-6"><label class="form-label">First Name</label><input class="form-control" data-user-first-input value="Ava" /></div>
+                  <div class="col-md-6"><label class="form-label">Last Name</label><input class="form-control" data-user-last-input value="Chen" /></div>
+                  <div class="col-md-6"><label class="form-label">Email</label><input class="form-control dash-email" type="email" value="ava@mail.com" /></div>
                   <div class="col-md-6"><label class="form-label">Phone</label><input class="form-control" value="+1 (555) 014-2288" /></div>
                   <div class="col-12"><label class="form-label">Skin Concerns</label>
                     <select class="form-select">
@@ -336,7 +312,7 @@
             <div class="dash-grid" style="gap:20px;">
               <div class="dash-card dash-form">
                 <div class="dash-card-head"><h6>Change Password</h6></div>
-                <form>
+                <form class="dash-pw-form">
                   <div class="mb-3"><label class="form-label">Current Password</label><input class="form-control" type="password" placeholder="••••••••" /></div>
                   <div class="mb-3"><label class="form-label">New Password</label><input class="form-control" type="password" placeholder="Min. 8 characters" /></div>
                   <div class="mb-3"><label class="form-label">Confirm New Password</label><input class="form-control" type="password" placeholder="Repeat new password" /></div>
@@ -431,12 +407,12 @@
               <div class="dash-card-head"><h6>Order #EC-1018</h6><span class="badge-status info">Shipped</span></div>
               <div class="dash-list" style="margin-bottom:18px;">
                 <div class="dash-list-item">
-                  <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=120&auto=format&fit=crop" alt="Glow Serum" class="dash-thumb" />
+                  <img src="images/photo-1608248543803-ba4f8c70ae0b.webp" alt="Glow Serum" class="dash-thumb" />
                   <div style="flex:1;"><div class="dash-cell-main">Glow Serum</div><div class="dash-cell-sub">Qty 1 · $58.00</div></div>
                   <strong>$58.00</strong>
                 </div>
                 <div class="dash-list-item">
-                  <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=120&auto=format&fit=crop" alt="Hydra Cream" class="dash-thumb" />
+                  <img src="images/photo-1598440947619-2c35fc9aa908.webp" alt="Hydra Cream" class="dash-thumb" />
                   <div style="flex:1;"><div class="dash-cell-main">Hydra Cream</div><div class="dash-cell-sub">Qty 1 · $42.00</div></div>
                   <strong>$42.00</strong>
                 </div>
@@ -496,7 +472,7 @@
           </div>
           <div class="dash-grid dash-grid-3">
             <div class="dash-card">
-              <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=400&auto=format&fit=crop" alt="Rose Facial Oil" class="dash-thumb" style="width:100%;height:180px;margin-bottom:16px;" />
+              <img src="images/photo-1620916566398-39f1143ab7be.webp" alt="Rose Facial Oil" class="dash-thumb" style="width:100%;height:180px;margin-bottom:16px;" />
               <div class="dash-cell-main">Rose Facial Oil</div>
               <div class="dash-cell-sub" style="margin-bottom:10px;">Marula · Rosehip · 30ml</div>
               <div class="d-flex align-items-center justify-content-between mb-3">
@@ -509,7 +485,7 @@
               </div>
             </div>
             <div class="dash-card">
-              <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=400&auto=format&fit=crop" alt="Glow Serum" class="dash-thumb" style="width:100%;height:180px;margin-bottom:16px;" />
+              <img src="images/photo-1608248543803-ba4f8c70ae0b.webp" alt="Glow Serum" class="dash-thumb" style="width:100%;height:180px;margin-bottom:16px;" />
               <div class="dash-cell-main">Glow Serum</div>
               <div class="dash-cell-sub" style="margin-bottom:10px;">Vitamin C · 10% · 30ml</div>
               <div class="d-flex align-items-center justify-content-between mb-3">
@@ -522,7 +498,7 @@
               </div>
             </div>
             <div class="dash-card">
-              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=400&auto=format&fit=crop" alt="Daily Defense SPF 50" class="dash-thumb" style="width:100%;height:180px;margin-bottom:16px;" />
+              <img src="images/photo-1556228578-8c89e6adf883.webp" alt="Daily Defense SPF 50" class="dash-thumb" style="width:100%;height:180px;margin-bottom:16px;" />
               <div class="dash-cell-main">Daily Defense SPF 50</div>
               <div class="dash-cell-sub" style="margin-bottom:10px;">Mineral · 50ml</div>
               <div class="d-flex align-items-center justify-content-between mb-3">
@@ -535,7 +511,7 @@
               </div>
             </div>
             <div class="dash-card">
-              <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=400&auto=format&fit=crop" alt="Hydra Cream" class="dash-thumb" style="width:100%;height:180px;margin-bottom:16px;" />
+              <img src="images/photo-1598440947619-2c35fc9aa908.webp" alt="Hydra Cream" class="dash-thumb" style="width:100%;height:180px;margin-bottom:16px;" />
               <div class="dash-cell-main">Hydra Cream</div>
               <div class="dash-cell-sub" style="margin-bottom:10px;">Hyaluronic · 50ml</div>
               <div class="d-flex align-items-center justify-content-between mb-3">
@@ -565,21 +541,21 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=120&auto=format&fit=crop" alt="Glow Serum" class="dash-thumb" /><div class="dash-cell-main">Glow Serum</div></div></td>
+                    <td><div class="dash-cell-user"><img src="images/photo-1608248543803-ba4f8c70ae0b.webp" alt="Glow Serum" class="dash-thumb" /><div class="dash-cell-main">Glow Serum</div></div></td>
                     <td>$58.00</td>
                     <td><button class="icon-action" style="border-radius:50%;">−</button> <strong>2</strong> <button class="icon-action" style="border-radius:50%;">+</button></td>
                     <td><strong>$116.00</strong></td>
                     <td><button class="icon-action danger" data-del title="Remove"><i class="bi bi-trash"></i></button></td>
                   </tr>
                   <tr>
-                    <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=120&auto=format&fit=crop" alt="Hydra Cream" class="dash-thumb" /><div class="dash-cell-main">Hydra Cream</div></div></td>
+                    <td><div class="dash-cell-user"><img src="images/photo-1598440947619-2c35fc9aa908.webp" alt="Hydra Cream" class="dash-thumb" /><div class="dash-cell-main">Hydra Cream</div></div></td>
                     <td>$42.00</td>
                     <td><button class="icon-action" style="border-radius:50%;">−</button> <strong>1</strong> <button class="icon-action" style="border-radius:50%;">+</button></td>
                     <td><strong>$42.00</strong></td>
                     <td><button class="icon-action danger" data-del title="Remove"><i class="bi bi-trash"></i></button></td>
                   </tr>
                   <tr>
-                    <td><div class="dash-cell-user"><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=120&auto=format&fit=crop" alt="SPF 50" class="dash-thumb" /><div class="dash-cell-main">Daily Defense SPF 50</div></div></td>
+                    <td><div class="dash-cell-user"><img src="images/photo-1556228578-8c89e6adf883.webp" alt="SPF 50" class="dash-thumb" /><div class="dash-cell-main">Daily Defense SPF 50</div></div></td>
                     <td>$32.00</td>
                     <td><button class="icon-action" style="border-radius:50%;">−</button> <strong>1</strong> <button class="icon-action" style="border-radius:50%;">+</button></td>
                     <td><strong>$32.00</strong></td>
@@ -619,7 +595,7 @@
               <span class="badge-status success addr-tag">Default</span>
               <div class="dash-cell-main" style="margin-bottom:4px;">Home</div>
               <div class="dash-cell-sub" style="margin-bottom:14px;">
-                Ava Chen<br />
+                <span data-user-name>Ava Chen</span><br />
                 24 Rosewood Lane, Apt 5B<br />
                 San Francisco, CA 94107<br />
                 United States · +1 (555) 014-2288
@@ -634,7 +610,7 @@
               <span class="badge-status info addr-tag">Work</span>
               <div class="dash-cell-main" style="margin-bottom:4px;">Office</div>
               <div class="dash-cell-sub" style="margin-bottom:14px;">
-                Ava Chen<br />
+                <span data-user-name>Ava Chen</span><br />
                 900 Market Street, Floor 12<br />
                 San Francisco, CA 94103<br />
                 United States · +1 (555) 014-2288
@@ -676,7 +652,7 @@
             <div class="dash-card pay-card">
               <span class="badge-status success addr-tag">Default</span>
               <div class="d-flex align-items-center gap-3 mb-3">
-                <span class="dash-notify-ico" style="background:rgba(91,127,166,.15);color:var(--dash-info);font-size:1.4rem;"><i class="bi bi-credit-card-fill"></i></span>
+                <span class="dash-notify-ico" style="background:rgba(176,128,104,.15);color:var(--dash-info);font-size:1.4rem;"><i class="bi bi-credit-card-fill"></i></span>
                 <div>
                   <div class="dash-cell-main">Visa •••• 4412</div>
                   <div class="dash-cell-sub">Expires 09 / 28</div>
@@ -693,7 +669,7 @@
                 <span class="dash-notify-ico" style="background:rgba(193,138,79,.15);color:var(--dash-accent);font-size:1.4rem;"><i class="bi bi-paypal"></i></span>
                 <div>
                   <div class="dash-cell-main">PayPal</div>
-                  <div class="dash-cell-sub">ava@mail.com</div>
+                  <div class="dash-cell-sub" data-user-email>ava@mail.com</div>
                 </div>
               </div>
               <div class="d-flex gap-2">
@@ -704,7 +680,7 @@
             </div>
             <div class="dash-card pay-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <span class="dash-notify-ico" style="background:rgba(122,139,111,.16);color:var(--dash-sage);font-size:1.4rem;"><i class="bi bi-apple"></i></span>
+                <span class="dash-notify-ico" style="background:rgba(169,114,59,.16);color:var(--dash-sage);font-size:1.4rem;"><i class="bi bi-apple"></i></span>
                 <div>
                   <div class="dash-cell-main">Apple Pay</div>
                   <div class="dash-cell-sub">Linked · iPhone</div>
@@ -730,7 +706,7 @@
           </div>
           <div class="dash-list">
             <div class="dash-list-item">
-              <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=120&auto=format&fit=crop" alt="Glow Serum" class="dash-thumb" />
+              <img src="images/photo-1608248543803-ba4f8c70ae0b.webp" alt="Glow Serum" class="dash-thumb" />
               <div style="flex:1;min-width:0;">
                 <div class="dash-cell-main">Glow Serum <span style="color:var(--dash-warn);font-size:.85rem;margin-left:8px;">★★★★★</span></div>
                 <div class="dash-cell-sub" style="margin:4px 0 8px;">"Brightened my dull skin in just two weeks — obsessed!"</div>
@@ -742,7 +718,7 @@
               </div>
             </div>
             <div class="dash-list-item">
-              <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=120&auto=format&fit=crop" alt="Hydra Cream" class="dash-thumb" />
+              <img src="images/photo-1598440947619-2c35fc9aa908.webp" alt="Hydra Cream" class="dash-thumb" />
               <div style="flex:1;min-width:0;">
                 <div class="dash-cell-main">Hydra Cream <span style="color:var(--dash-warn);font-size:.85rem;margin-left:8px;">★★★★☆</span></div>
                 <div class="dash-cell-sub" style="margin:4px 0 8px;">"Rich yet light — great for dry winter skin."</div>
@@ -754,7 +730,7 @@
               </div>
             </div>
             <div class="dash-list-item">
-              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=120&auto=format&fit=crop" alt="SPF 50" class="dash-thumb" />
+              <img src="images/photo-1556228578-8c89e6adf883.webp" alt="SPF 50" class="dash-thumb" />
               <div style="flex:1;min-width:0;">
                 <div class="dash-cell-main">Daily Defense SPF 50 <span style="color:var(--dash-warn);font-size:.85rem;margin-left:8px;">★★★★★</span></div>
                 <div class="dash-cell-sub" style="margin:4px 0 8px;">"Zero white cast and my makeup sits perfectly on top."</div>
@@ -781,7 +757,7 @@
           <div class="dash-card">
             <div class="dash-list">
               <div class="dash-list-item unread dash-notify-item">
-                <span class="dash-notify-ico" style="background:rgba(111,154,107,.15);color:var(--dash-success);"><i class="bi bi-truck"></i></span>
+                <span class="dash-notify-ico" style="background:rgba(124,91,62,.15);color:var(--dash-success);"><i class="bi bi-truck"></i></span>
                 <div style="flex:1;"><p><strong>Order #EC-1018 shipped</strong> — arriving Aug 14</p><small>1 hour ago</small></div>
                 <span class="badge-status warn">New</span>
               </div>
@@ -791,7 +767,7 @@
                 <span class="badge-status warn">New</span>
               </div>
               <div class="dash-list-item dash-notify-item">
-                <span class="dash-notify-ico" style="background:rgba(91,127,166,.14);color:var(--dash-info);"><i class="bi bi-box"></i></span>
+                <span class="dash-notify-ico" style="background:rgba(176,128,104,.14);color:var(--dash-info);"><i class="bi bi-box"></i></span>
                 <div style="flex:1;"><p><strong>Back in stock</strong> — Rose Facial Oil is available again</p><small>Yesterday</small></div>
               </div>
               <div class="dash-list-item dash-notify-item">
@@ -799,7 +775,7 @@
                 <div style="flex:1;"><p><strong>Glow Serum</strong> is trending — read why 2.3k people love it</p><small>2 days ago</small></div>
               </div>
               <div class="dash-list-item dash-notify-item">
-                <span class="dash-notify-ico" style="background:rgba(122,139,111,.16);color:var(--dash-sage);"><i class="bi bi-truck"></i></span>
+                <span class="dash-notify-ico" style="background:rgba(169,114,59,.16);color:var(--dash-sage);"><i class="bi bi-truck"></i></span>
                 <div style="flex:1;"><p><strong>Delivered</strong> — Order #EC-1009 was delivered Jul 26</p><small>Jul 26, 2026</small></div>
               </div>
             </div>
@@ -839,7 +815,7 @@
             <div class="dash-grid" style="gap:20px;">
               <div class="dash-card dash-form">
                 <div class="dash-card-head"><h6>Security</h6></div>
-                <form>
+                <form class="dash-pw-form">
                   <div class="mb-3"><label class="form-label">Current Password</label><input class="form-control" type="password" placeholder="••••••••" /></div>
                   <div class="mb-3"><label class="form-label">New Password</label><input class="form-control" type="password" placeholder="Min. 8 characters" /></div>
                   <div class="mb-3"><label class="form-label">Confirm New Password</label><input class="form-control" type="password" placeholder="Repeat new password" /></div>
@@ -849,7 +825,7 @@
               <div class="dash-card">
                 <div class="dash-card-head"><h6>Danger Zone</h6></div>
                 <p class="dash-cell-sub" style="margin-bottom:14px;">Deactivate your account and lose access to your order history, points and wishlist.</p>
-                <button class="btn-dash sm" style="background:rgba(192,85,85,.13);color:var(--dash-danger);" data-action="Request account deletion"><i class="bi bi-exclamation-triangle"></i> Deactivate Account</button>
+                <button class="btn-dash sm" style="background:rgba(191,106,94,.13);color:var(--dash-danger);" data-action="Request account deletion"><i class="bi bi-exclamation-triangle"></i> Deactivate Account</button>
               </div>
             </div>
           </div>
@@ -860,6 +836,9 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/dashboard.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/animations.js"></script>
 </body>
 </html>

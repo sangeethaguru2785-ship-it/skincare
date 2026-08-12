@@ -37,18 +37,58 @@
   if (gsapAvailable && !prefersReduced) {
     gsap.registerPlugin(ScrollTrigger);
 
+    /* Split the hero headline into per-letter spans for a refined reveal */
+    function splitHeroTitle() {
+      const title = document.querySelector(".hero-title");
+      if (!title) return [];
+      title.classList.add("split-heading");
+      title.setAttribute("aria-label", String(title.textContent).replace(/\s+/g, " ").trim());
+      const letters = [];
+      title.querySelectorAll(".line-inner").forEach((el) => {
+        if (el.dataset.splitDone) {
+          letters.push(...el.querySelectorAll(".spl-ltr"));
+          return;
+        }
+        el.dataset.splitDone = "1";
+        const text = el.textContent;
+        el.innerHTML = "";
+        String(text).split(/(\s+)/).forEach((w) => {
+          if (!w.length) return;
+          if (/^\s+$/.test(w)) { el.appendChild(document.createTextNode(" ")); return; }
+          const word = document.createElement("span");
+          word.className = "spl-word";
+          word.setAttribute("aria-hidden", "true");
+          Array.from(w).forEach((ch) => {
+            const s = document.createElement("span");
+            s.className = "spl-ltr";
+            s.textContent = ch;
+            word.appendChild(s);
+            letters.push(s);
+          });
+          el.appendChild(word);
+        });
+      });
+      return letters;
+    }
+
+    const heroLetters = splitHeroTitle();
     const heroTL = gsap.timeline({ delay: 0.15 });
-    heroTL
-      .from(".hero-eyebrow", { y: 24, autoAlpha: 0, duration: 0.7, ease: "power3.out" })
-      .from(".hero-title .line-inner", {
-        yPercent: 110,
-        duration: 1.05,
-        stagger: 0.12,
+    heroTL.from(".hero-eyebrow", { y: 24, autoAlpha: 0, duration: 0.8, ease: "power3.out" });
+    if (heroLetters.length) {
+      heroTL.from(heroLetters, {
+        yPercent: 40,
+        autoAlpha: 0,
+        duration: 0.9,
+        stagger: 0.025,
         ease: "power4.out",
-      }, "-=0.3")
-      .from(".hero-sub", { y: 30, autoAlpha: 0, duration: 0.7, ease: "power3.out" }, "-=0.55")
-      .from(".hero-cta", { y: 30, autoAlpha: 0, duration: 0.7, ease: "power3.out" }, "-=0.45")
-      .from(".hero-meta", { y: 30, autoAlpha: 0, duration: 0.7, ease: "power3.out" }, "-=0.45")
+      }, "-=0.35");
+    } else {
+      heroTL.from(".hero-title .line-inner", { yPercent: 110, duration: 1.05, stagger: 0.12, ease: "power4.out" }, "-=0.3");
+    }
+    heroTL
+      .from(".hero-sub", { y: 26, autoAlpha: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
+      .from(".hero-cta", { y: 26, autoAlpha: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
+      .from(".hero-meta", { y: 26, autoAlpha: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
       .from(".hero-img-wrap", {
         y: 60,
         rotation: -2,
@@ -90,6 +130,7 @@
         autoAlpha: 0,
         duration: 1,
         ease: "power3.out",
+        clearProps: "transform,opacity,visibility",
         scrollTrigger: {
           trigger: el,
           start: "top 88%",
@@ -280,6 +321,12 @@
 
   /* Add to cart — event delegation (works for dynamically rendered cards) */
   document.addEventListener("click", (e) => {
+    const checkoutBtn = e.target.closest(".cart-foot .btn");
+    if (checkoutBtn) {
+      e.preventDefault();
+      window.location.href = "404.html";
+      return;
+    }
     const btn = e.target.closest(".add-cart");
     if (!btn) return;
     e.preventDefault();
@@ -349,10 +396,22 @@
      7. Newsletter form
   ------------------------------------------------------------------ */
   const newsForm = document.getElementById("newsletterForm");
+  let newsletterMsgTimer;
   newsForm && newsForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    showToast("Welcome to the Inner Glow Club!");
+    let success = newsForm.nextElementSibling;
+    if (!success || !success.classList.contains("newsletter-success")) {
+      success = document.createElement("p");
+      success.className = "newsletter-success";
+      newsForm.after(success);
+    }
+    success.textContent = "Welcome to the Inner Glow Club! Check your inbox for your 15% off.";
     newsForm.reset();
+    clearTimeout(newsletterMsgTimer);
+    newsletterMsgTimer = setTimeout(() => {
+      success.classList.add("hide");
+      setTimeout(() => success.remove(), 300);
+    }, 4000);
   });
 
   /* ------------------------------------------------------------------
@@ -383,6 +442,15 @@
       e.preventDefault();
       const top = target.getBoundingClientRect().top + window.scrollY - (nav ? nav.offsetHeight : 0) - 10;
       window.scrollTo({ top, behavior: prefersReduced ? "auto" : "smooth" });
+    });
+  });
+
+  /* ------------------------------------------------------------------
+     10. Email fields — allow only letters, numbers, @ and .
+  ------------------------------------------------------------------ */
+  document.querySelectorAll('input[type="email"]').forEach((input) => {
+    input.addEventListener("input", function () {
+      this.value = this.value.replace(/[^A-Za-z0-9@.]/g, "");
     });
   });
 
