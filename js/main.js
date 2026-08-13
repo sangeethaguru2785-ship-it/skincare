@@ -89,28 +89,9 @@
       .from(".hero-sub", { y: 26, autoAlpha: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
       .from(".hero-cta", { y: 26, autoAlpha: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
       .from(".hero-meta", { y: 26, autoAlpha: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
-      .from(".hero-img-wrap", {
-        y: 60,
-        rotation: -2,
-        autoAlpha: 0,
-        duration: 1.2,
-        ease: "power3.out",
-      }, 0.25)
       .from(".hero-blob", { scale: 0, autoAlpha: 0, duration: 1, ease: "power2.out" }, 0.5)
       .from(".hero-badge", { y: 30, autoAlpha: 0, stagger: 0.15, duration: 0.7, ease: "back.out(1.6)" }, "-=0.6")
       .from(".hero-scroll", { autoAlpha: 0, duration: 0.6 }, "-=0.3");
-
-    /* Parallax on hero image */
-    gsap.to(".hero-img", {
-      yPercent: 10,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#home",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
 
     gsap.to(".hero-visual", {
       y: -40,

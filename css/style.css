@@ -410,11 +410,11 @@ section.section { padding: 96px 0; }
 }
 
 .hero-img {
+  display: block;
   width: 100%;
   aspect-ratio: 4 / 4.6;
   object-fit: cover;
-  transform: scale(1.06);
-  will-change: transform;
+  background: var(--cream);
 }
 
 .hero-badge {
@@ -423,6 +423,7 @@ section.section { padding: 96px 0; }
   display: flex;
   align-items: center;
   gap: 10px;
+  max-width: calc(100% - 32px);
   background: rgba(255, 255, 255, .9);
   backdrop-filter: blur(10px);
   padding: 12px 16px;
@@ -431,13 +432,13 @@ section.section { padding: 96px 0; }
   animation: badgeBob 6s ease-in-out infinite;
 }
 
-.hero-badge i { font-size: 1.4rem; color: var(--accent); }
+.hero-badge i { font-size: 1.4rem; color: var(--accent); flex: none; }
 
 .hero-badge strong { display: block; font-size: .9rem; line-height: 1.1; }
-.hero-badge span  { font-size: .75rem; color: var(--muted); }
+.hero-badge span  { display: block; font-size: .75rem; color: var(--muted); line-height: 1.3; }
 
-.badge-top { top: 26px; left: -18px; }
-.badge-bottom { bottom: 26px; right: -14px; animation-delay: -2s; }
+.badge-top { top: 26px; left: 20px; }
+.badge-bottom { bottom: 26px; right: 20px; animation-delay: -2s; }
 
 @keyframes badgeBob {
   0%, 100% { transform: translateY(0); }
